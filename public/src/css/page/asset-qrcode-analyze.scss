@@ -1,0 +1,66 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(230,230,230,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);
+};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+/*正文开始*/
+.qrcode-analyze{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+    .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px;
+        .search-head{float: left; width: 100%; background-color: rgba(255,255,255,1); @include base-box; padding: 24px;
+            .time-area{float: left; height: 32px; overflow: hidden; margin-right: 20px;
+                .exact-area{float: left; height: 32px; overflow: hidden; border: $base-border-line; margin-right: 20px;
+                    .exact-box{float: left; width: 70px; height: 30px; @include vetically-font($main-font-size,30px); text-align: center; cursor: pointer; border-right: $base-border-line;}
+                    .exact-box.active{background-color: rgba(245,245,245,1);}
+                    .exact-box:last-child{border-right: none;}
+                }
+                .period-area{float: left; height: 32px; overflow: hidden;
+                    .period-box{float: left; width: 137px; height: 32px; border: $base-border-line; padding: 0 10px; cursor: pointer;
+                        .input{float: left; width: 100%; height: 32px; position: relative; z-index: $base-z-index; font-size: $main-font-size; margin: 0; border: none; box-shadow: none;  cursor: pointer;}
+                        .icon{float: right; width: 32px; height: 32px; border-left: $base-border-line; margin: -32px -10px 0 0; text-align: center; line-height: 32px;}
+                    }
+                    .zhi{float: left; width: 32px; height: 32px; background-color: rgba(239,239,239,1); text-align: center; @include vetically-font($main-font-size,32px);}
+                }
+            }
+            .dropdown-area{float: right; height: 32px; overflow: hidden; margin-left: 20px;
+                .selectbtn-box{float: right; margin-left: 20px;
+                    .title{float: left; margin: 8px 16px 0 0; @include single-line-font($main-font-size + 2)}
+                    .selectbtn{float: left; width: 126px; height: 30px; border: 1px solid rgba(236,236,236,1); padding: 4px 30px 6px 12px; cursor: pointer; background: url("../../img/masterdata/arrow-down.png") no-repeat 104px 13px; @include text-ellipsis; font-size: $main-font-size + 2;}
+                }
+                .but{float: right; width: 70px; height: 30px; margin-top: 1px; background-color: rgba(102,193,227,1); box-shadow: none; color: rgba(255,255,255,1); border-radius: 2px; font-size: $main-font-size + 2; text-align: center; line-height: 30px; cursor: pointer;}
+            }
+        }
+        .echarts-area{float: left; width: 100%; height: 318px; margin-top: 20px; background-color: rgba(255,255,255,1); @include base-box; padding: 24px;
+            .echarts-box{float: left; width: 100%; height: 270px;}
+        }
+        .table-area{float: left; width: 100%; height: auto; margin-top: 20px; background-color: rgba(255,255,255,1); @include base-box; overflow-y: auto; padding-top: 24px;
+            .table-box{float: left; width: 100%; height: auto; font-size: $main-font-size + 2;
+                .tfoot-box{
+                    tr{background-color: rgba(139, 195, 74, 0.1);}
+                    tr:hover{background-color: rgba(91, 212, 199, 0.1);}
+                    tr:last-child{line-height: 10px;}
+                    td{line-height: $main-font-size + 8;}
+                }
+            }
+        }
+        @-moz-document url-prefix(){.table-area{margin-bottom: 20px;}}
+    }
+}

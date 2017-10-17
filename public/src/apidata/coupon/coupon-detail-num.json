@@ -1,0 +1,13 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 0,"date":"2016-11-22",
+    "data":[
+        {
+            "release_success_count": 10,
+            "release_fail_count": 0,
+            "rest_count": 100,
+            "verify_amount": 0,
+            "unverify_amount": 0
+        }
+    ]
+}

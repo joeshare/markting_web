@@ -1,0 +1,6 @@
+{
+  "code":0,
+  "msg": "success",
+  "total":2,
+  "data": [{"tag_id":375,"tag_name":"男","tag_count":"100"},{"tag_id":376,"tag_name":"女","tag_count":"110"}]
+}

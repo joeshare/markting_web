@@ -1,0 +1,89 @@
+<script type="text/template" id="pdShow">
+    <div id="tplPage">
+        <div class="tplMain">
+            <hr/>
+            <span>请设置数据导入主数据是关联的数据主键
+            <i class="rui-i-icon iconfont">
+                <div class="tips">
+                    <span>数据主键满足条件：</span>
+            <p>1.为一下字段：手机号码，固话号码，邮箱地址，QQ号，身份证号，驾驶证号，openID</p>
+            <p>2.此字段在表单中为必填项。</p>
+        </div>
+        </i>
+        </span>
+        <div class="checkArray">
+            <p style=" min-height: 50px;">
+                <%
+                let chec='';
+                let disab='';
+                let k=0;
+                let o=0;
+                if(tpA.length==0 || tpA[0]==undefined){
+                    return;
+                }
+                for(let j=0;j<tpA.length;j++){
+                        if(tpA[j].is_selected==1){
+                            k++;
+                        }
+                        if(tpA[j].field_name=='openId'){
+                            o++;
+                        }
+                }
+                for(let i=0;i<tpA.length;i++){
+                    
+                    if(k>0){
+                        if(tpA[i].is_selected==1){
+                            chec='checked';
+                        }else{
+                            chec='';
+                        };
+                    }else{
+                        if(o>0){
+                            if(tpA[i].field_name=='openId'){
+                                chec='checked';
+                            }else{
+                                chec='';
+                            }
+                        }else{
+                            if(i==0){
+                                chec='checked';
+                            }else{
+                                chec='';
+                            }
+                        }
+                    }
+                    
+                    if(tpA.length==1){
+                        chec='checked';
+                        disab='disabled';
+                    }else{
+                        disab='';
+                    }
+                %>
+                    <input type="checkbox" fname=<%=tpA[i].field_name%> <%=disab%> class="filled-in"
+                    <%=chec%> id="boxs-<%=tpA[i].field_code%>" />
+                            <label for="boxs-<%=tpA[i].field_code%>">
+                                    <%=tpA[i].field_name%>
+                            </label>
+                            <%
+                }
+                
+            %>
+            </p>
+        </div>
+        <div class="warning">
+            <p>请选择一项字段为数据主键。</p>
+        </div>
+        <hr/>
+    </div>
+    <p class="rember">
+        <input type="checkbox" class="filled-in" id="filled-in-boxi" />
+        <label for="filled-in-boxi">记住主键设置，以后不再设置</label>
+    </p>
+    <div class="tips">
+        <span>数据主键满足条件：</span>
+        <p>1.为一下字段：手机号码，固话号码，邮箱地址，QQ号，身份证号，驾驶证号，openID</p>
+        <p>2.此字段在表单中为必填项。</p>
+    </div>
+    </div>
+</script>

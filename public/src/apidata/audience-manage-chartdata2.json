@@ -1,0 +1,37 @@
+[
+  {
+    "name": "数量",
+    "type": "funnel",
+    "minSize": "40%",
+    "labelLine": {
+      "normal": {
+        "show": false
+      }
+    },
+    "itemStyle": {
+      "normal": {
+        "label": {
+          "formatter": "{c}%"
+        }
+      }
+    },
+    "data": [
+      {
+        "value": 100,
+        "name": "人数"
+      },
+      {
+        "value": 90.67,
+        "name": "覆盖"
+      },
+      {
+        "value": 56.67,
+        "name": "触达"
+      },
+      {
+        "value": 48.89,
+        "name": "参与"
+      }
+    ]
+  }
+]

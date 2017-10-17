@@ -1,0 +1,1 @@
+require('module/contact-form/index.js');

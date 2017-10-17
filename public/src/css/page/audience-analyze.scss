@@ -1,0 +1,234 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+@import "../component/_jquery.treeviewplus.scss";
+.analyze {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px 12px 16px;
+  .content {
+    background: #fff;
+    position: absolute;
+    top: 48px;
+    right: 16px;
+    bottom: 12px;
+    left: 16px;
+    .left-box{
+      float: left;
+      width: 400px;
+      border-right: 1px solid #ececec;
+      padding: 0px 0px 12px 0px;
+      height: 100%;
+      /*头部*/
+      .tab-content{border-bottom: 1px solid #ececec; position: relative;
+        .tab-btnwrap{width:200px;}
+      }
+      .left-select{
+        margin-top: 12px;
+        margin-left: 20px;
+        .selectbtn {
+          @include single-text;
+          background: url("/img/masterdata/arrow-down.png") no-repeat 96% 14px;
+          margin: 0 30px 0 0;
+          cursor: pointer;
+          display: inline-block;
+          width: 94%;
+          padding: 4px 30px 6px 12px;
+          border: 1px solid #ECECEC;
+          vertical-align: middle;
+          font-size: 12px;
+        }
+        ul{
+          max-height: 350px;
+          li{
+            font-size:12px;text-align: left; color:#666666;
+            min-height: 30px;
+            line-height: 30px;
+            padding-left: 12px;
+          }
+        }
+      }
+
+      .customclass{
+        display:none;
+        margin-left: 20px;
+        font-size: 12px;
+        padding-right: 20px;
+        position: absolute;
+        top:55px;
+        bottom: 5px;
+        width: 380px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .listy{overflow: hidden; height: 28px; position:relative; padding-top: 0px;padding-bottom: 0px;
+          .list-div{ height: 28px;  padding-top:5px; cursor: pointer;
+            .fl{margin-left: 0px;   height: 28px; padding-right: 5px;  padding-left: 0px;
+              .round-empty {
+                width: 18px;
+                height: 18px;
+                border-radius: 24px;
+                border: 1px solid rgb(216, 216, 216);
+                padding-left: 1px;
+                font-size: 18px;
+                text-indent: -2px;
+                line-height: 16px;
+                display: inline-block;
+              }
+              .round {
+                width: 18px;
+                height: 18px;
+                border-radius: 24px;
+                border: 1px solid rgb(216, 216, 216);
+                padding-left: 1px;
+                font-size: 18px;
+                text-indent: -2px;
+                line-height: 16px;
+                color: #66c1e3;
+                border: none;
+              }
+            }
+          }
+          .list-div:hover{
+            color:#66c1e3;
+          }
+        }
+        .last{background-position: 0 -1758px;}
+        .ulhiare{ margin-left:-16px;
+          .unbtn{
+            height:0px;
+            width:30px;
+            overflow: hidden;
+            margin-top:-5px;
+            float: right;
+          }
+        }
+      }
+      .drop-list{
+        margin-left: 20px;
+        font-size: 12px;
+        padding-right: 20px;
+        position: absolute;
+        top: 95px;
+        bottom: 5px;
+        width: 380px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .listy{overflow: hidden; height: 28px; position:relative; padding-top: 0px;padding-bottom: 0px;
+          .list-div{ height: 28px;  padding-top:5px; cursor: pointer;
+            .fl{margin-left: 0px;   height: 28px; padding-right: 5px;  padding-left: 0px;
+              .round-empty {
+                width: 18px;
+                height: 18px;
+                border-radius: 24px;
+                border: 1px solid rgb(216, 216, 216);
+                padding-left: 1px;
+                font-size: 18px;
+                text-indent: -2px;
+                line-height: 16px;
+                display: inline-block;
+              }
+              .round {
+                width: 18px;
+                height: 18px;
+                border-radius: 24px;
+                border: 1px solid rgb(216, 216, 216);
+                padding-left: 1px;
+                font-size: 18px;
+                text-indent: -2px;
+                line-height: 16px;
+                color: #66c1e3;
+                border: none;
+              }
+            }
+          }
+          .list-div:hover{
+            color:#66c1e3;
+          }
+        }
+        .last{background-position: 0 -1758px;}
+
+        .ulhiare{ margin-left:-16px;
+          .unbtn{
+            height:0px;
+            width:30px;
+            overflow: hidden;
+            margin-top:-5px;
+            float: right;
+          }
+        }
+      }
+      .empty-group{display:none;text-align: center;width:100%; padding-top: 40%;}
+    }
+    .right-box{
+      float: left;
+      right: 0px;
+      left:400px;
+      position: absolute;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 100%;
+      .right-cloud{
+        display:none;
+        width:100%;
+        height: 300px;
+        #wordCloud{width:100%;height: 100%;}
+        .word-top{display: block  !important; position: absolute; right: 5px; top:5px; font-size:14px; width: 90px;}
+      }
+      .right-list{
+        margin-bottom: 0px;
+        border-top: 1px solid #ececec;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .chart-area{
+          color:#666666;
+          padding: 10px;
+          height:330px;
+          border-right: 1px solid #ececec;
+          border-bottom: 1px solid #ececec;
+          position: relative;
+          .chart-pi{height:100%;width:100%}
+          .area-close{
+            position: absolute;
+            right: 5px;
+            top:0px;
+            cursor:pointer;
+            display: none;
+            z-index:1;
+
+          }
+
+          .china{
+            height:250px;
+            text-align: center;
+          }
+          .are-text{font-size: 12px;
+            margin-top: 10px;
+            .are-text-left{
+              float: left;
+            }
+            .are-text-right{
+              float: right;
+            }
+            .are-text-spa{
+              color:#66c1e3;
+            }
+          }
+        }
+        .chart-area:hover{
+          .area-close{
+            display:block;
+          }
+        }
+        .right-empty{
+          text-align: center;
+          margin-top: 20%;
+        }
+      }
+      .custom{
+        display: none;
+      }
+
+    }
+  }
+}

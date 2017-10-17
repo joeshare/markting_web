@@ -1,0 +1,1 @@
+require('module/linkman-form/index.js');

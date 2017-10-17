@@ -1,0 +1,147 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-white-color: rgba(255,255,255,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+.qrcode-edit{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+    .content{float: left; min-height: 800px; padding: 24px; background-color: rgba(255,255,255,1); @include base-box;
+        .line-box{float: left; width: 100%; min-height: 30px; margin-top: 22px; overflow: hidden;
+            .line-title{float: left; width: 146px; @include single-line-font($main-font-size + 2); text-align: right; margin-top: 8px;
+                .red-font{color: rgba(231,76,60,1); margin-right: 4px;}
+            }
+            .line{float: left; width: 100%; min-height: 30px; margin: -22px 0 0 170px;}
+        }
+        .subscription{float: left; width: 294px; height: 28px; border: $base-border-line;
+            .input{float: left; width: 253px; height: 28px; overflow: hidden; margin-left: 10px; font-size: $main-font-size; line-height: 28px; color: rgba(193,193,193,1);}
+        }
+        .channel{float: left; width: 294px; height: 28px; border: $base-border-line;
+            .input{float: left; width: 253px; height: 28px; overflow: hidden; margin-left: 10px; @include vetically-font($main-font-size,28px); color: rgba(193,193,193,1);}
+        }
+        .qrcode-name{float: left; width: 294px; height: 28px; border: $base-border-line;
+            .input{float: left; width: 253px; height: 28px; overflow: hidden; margin-left: 10px; font-size: $main-font-size; line-height: 28px; color: rgba(193,193,193,1);}
+        }
+        .failures-time{float: left; width: 294px; height: 28px; border: $base-border-line; cursor: pointer;
+            .input{float: left; width: 100%; height: 28px; overflow: hidden; margin: 0; border: none; box-shadow: none; margin-left: 10px; position: relative; z-index: $base-z-index;}
+            .arrow-down{float: right; width: 37px; height: 28px; overflow: hidden; font-size: $main-font-size + 8; text-align: center; line-height: 28px; border-left: $base-border-line; margin-top: -28px;}
+        }
+        .fixed-crowd-radio{float: left; width: 294px; height: 28px;
+            .radio-box{float: left; margin: 5px 30px 0 0;
+                label{font-size: $main-font-size + 2;}
+            }
+            .radio-box:last-child{margin: 5px 0 0 0;}
+        }
+        .fixed-crowd{float: left; width: 294px;
+            .input-box{float: left; width: 294px; height: 28px; border: $base-border-line;
+                .input{float: left; width: 274px; height: 28px; overflow: hidden; border: none; box-shadow: none; margin: 0 10px;}
+            }
+            .input-box-disabled{float: left; width: 294px; height: 28px; border: $base-border-line;
+                .input{float: left; width: 253px; height: 28px; overflow: hidden; margin-left: 10px; @include vetically-font($main-font-size,28px); color: rgba(193,193,193,1);}
+            }
+            .msg{float: left; width: 100%; color: red; margin-top: 10px; padding-left: 10px; @include single-line-font; display: none;}
+            .msg.show{display: block;}
+        }
+        .association-tags-radio{float: left; width: 294px; height: 28px;
+            .radio-box{float: left; margin: 5px 30px 0 0;
+                label{font-size: $main-font-size + 2;}
+            }
+            .radio-box:last-child{margin: 5px 0 0 0;}
+        }
+        .tags-area{float: left; width: 600px; height: 184px;
+            .tags-input{float: left; width: 598px; height: 29px; overflow: hidden;
+                .input{float: left; width: 100%; height: 28px; padding: 0 3px;}
+            }
+            .tags-broder{float: left; width: 598px; height: 138px; border: $base-border-line; padding: 3px; margin-top: 14px; overflow-y: auto;
+                .tag{position: relative; float: left; min-width: 78px; border: $base-border-line; margin: 14px 0 0 14px; background-color: rgba(245,245,245,1); @include single-line-font; height: 26px; padding: 6px 10px; color: $base-font-color; border-width: 1px; border-style: solid; border-color: rgba(245,245,245,1); border-radius: 3px;
+                  .close{position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; border: $base-border-line; cursor: pointer; border-radius: 50%; background-color: rgba(207,68,54,1); text-indent: -3.5px; color: rgba(255,255,255,1); line-height: 17px;}
+                }
+                .tag.is_deleted{border-color: $base-red-color; color: $base-red-color; background-color: rgba(253,121,121,0.1);}
+            }
+        }
+        .note-area{float: left; width: 600px; height: 162px;
+            .textarea-box{float: left; width: 598px; height: 138px; border: $base-border-line; padding: 3px;
+                .textarea{float: left; width: 100%; height: 100%; border: none; resize: none; font-size: $main-font-size;}
+            }
+            .font-num{float: left; width: 600px; @include single-line-font; text-align: right; color: rgba(188,188,188,1); margin-top: 10px; padding-right: 2px;}
+        }
+        .tags-list{min-width: 598px; max-height: 180px;
+            .li-box{
+                li{min-height:30px; font-size: $main-font-size + 2; padding: 0 16px;
+                    span{padding: 0 2px; display: inline-block;}
+                }
+            }
+            .bottom{width: 100%; height: 48px; line-height: 48px; text-align: center; font-size: $main-font-size; border-top: $base-border-line; display: none;
+                .a{color: rgba(102,193,227,1);}
+            }
+            .bottom.show{display: inline-block;}
+        }
+    }
+    @-moz-document url-prefix(){.content{margin-bottom: 20px;}}
+}
+/********模态框总体设置********/
+.modal{box-shadow: $base-box-shadow;
+    .modal-content{float: left; width: 100%; padding: 0;
+        .title{float: left; width: 100%; border-bottom: $base-border-line;}
+        .content{float: left; width: 100%; padding: 24px 30px; overflow-x: hidden; overflow-y: auto;}
+    }
+    .modal-footer{float: left; height: 70px !important; border-top: $base-border-line;}
+}
+.lean-overlay{opacity: 0.1 !important;}
+/****本页模态框设置****/
+/*预览*/
+#modalsPreviewHtml{
+    .modal-content{
+        .title{height: 62px; background-color: rgba(102,193,227,1); text-align: center; line-height: 62px; color: rgba(255,255,255,1) !important; font-size: $main-font-size + 8 !important; font-weight: normal !important;}
+        .content{width: 372px; height: 490px; padding: 24px; color: $base-font-color;}
+    }
+    .modal-footer{
+        .btn-content > .accept{margin: auto; width: 100%;}
+    }
+}
+.modals-preview-html{float: left; width: 100%; height: auto;
+    .con-title{float: left; width: 100%; @include single-line-font; color: $base-blue-color; text-align: center;}
+    .qrcode-box{float: left; width: 100%; height: 108px; margin-top: 20px;
+        .qrcode{width: 108px; height: 108px; overflow: hidden; margin: 0 auto;
+            img{width: 100%; height: 100%;}
+        }
+    }
+    .channel-box{float: left; width: 100%; margin-top: 24px; text-align: center;
+        .channel-title{float: left; width: 100%; @include single-line-font($main-font-size+2);}
+        .channel-test{float: left; width: 100%; @include single-line-font($main-font-size+4); color: $base-blue-color; margin-top: 10px;}
+    }
+    .valid-date-box{float: left; width: 100%; margin-top: 14px; text-align: center; @include single-line-font;}
+    .fixed-crowd-box{float: left; position: relative; width: 100%; margin-top: 32px; @include single-line-font($main-font-size+2);
+        .fixed-crowd-title{float: left; width: 72px; color: rgba(153,153,153,1); text-align: right;}
+        .fixed-crowd-cont{position: absolute; top: 0; right: 0; bottom: 0; left: 80px;}
+    }
+    .tags-area{float: left; position: relative; width: 100%; height: auto; margin-top: 32px;
+        .tags-title{float: left; width: 72px; color: rgba(153,153,153,1); text-align: right; @include single-line-font($main-font-size+2);}
+        .tags-cont{float: left; width: 238px; height: auto; overflow: hidden; margin-left: 8px; font-size: $main-font-size;
+            .tag{float: left; min-width: 82px; height: 24px; border: $base-border-line; margin: 0 14px 14px 0; background-color: rgba(245,245,245,1); font-size: $main-font-size; line-height: 23px;  padding: 0 10px;}
+        }
+        @-moz-document url-prefix(){.tags-cont{width: 227px;}}
+    }
+    .note{float: left; width: 100%; margin: 43px 0 0 0; @include single-line-font; color: rgba(153,153,153,1);}
+    @-moz-document url-prefix(){.note{margin: 43px 0 22px 0;}}
+}

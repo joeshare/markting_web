@@ -1,0 +1,10 @@
+{
+  "code":0,
+  "msg": "SUCCESS",
+  "total":2,
+  "data": [
+    {"is_tag":true,"tag_id":"PHiKOpdR","tag_name":"蛋糕选拼系列","tag_value":"蛋糕选拼系列","tag_path":"交易历史及偏好>交易品类>","search_mod":0},
+    {"is_tag":false,"tag_id":"PHiKOpdR","tag_name":"蛋糕选拼系列","tag_value":"是","tag_path":"交易历史及偏好>交易品类>","search_mod":0}
+  ],
+  "total_count" : 2
+}

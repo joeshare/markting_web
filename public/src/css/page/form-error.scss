@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/*加载公用css文件*/
+
+@import "../base";
+.contact-form-error-wrapper {
+    background: url("../../img/form-error/bground.png") no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+    .main {
+        top:50%;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: -150px;
+        text-align: center;
+        position: absolute;
+    }
+
+    .main .content {
+        height: 150px;
+        width: auto;
+        display: inline-block;
+        position: relative;
+        .left,.right{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .right{
+            padding-top: 15px;
+            width:auto;
+        }
+    }
+    .right-top{
+        word-wrap: break-word;
+        word-break: normal;
+        max-width: 300px;
+        padding: 0 20px;
+        color: #666;
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .right-center{
+        display: block;
+        font-size: 18px;
+        color: #666;
+    }
+    .main .content .iconfont {
+        color: red !important;
+        font-size: 48px;
+
+    }
+    .main .content img {
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: -220px;
+    }
+    .main .content .btn_back {
+        background-color: #66c1e3;
+        color: white;
+        width: 98px;
+        border-radius: 3px;
+        line-height: 30px;
+        margin: 30px auto;
+        cursor: pointer;
+    }
+    .main .footer {
+        background: #7e8b94;
+        height: 35px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        color: #cccdcf;
+        padding-top: 10px;
+        font-size: 10px;
+    }
+}

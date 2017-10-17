@@ -1,0 +1,91 @@
+{
+  "code": 0,
+  "msg": "success",
+  "total": 1,
+  "data": [
+    {
+      "id": 1,
+      "smsTaskName": "神马发送任务",
+      "smsTaskSignatureId": 1,
+      "smsTaskTemplateId": 1,
+      "smsTaskTemplateContent": "金刚般若波罗密经",
+      "smsTaskSendType": 0,
+      "smsTaskAppType": 0,
+      "smsTaskStatus": 4,
+      "status": 0,
+      "createTime": 1475568360000,
+      "updateTime": 1476867677000,
+      "totalCoverNum": 7,
+      "sendingSuccessNum": 2,
+      "waitingNum": 0,
+      "sendingFailNum": 5,
+      "smsTaskStatusStr": "已结束",
+      "smsTaskAppTypeStr": "营销短信",
+      "createTimeStr": "2016-10-04 16:06:00",
+      "totalCoverNumPer": 100,
+      "sendingSuccessNumPer": 29,
+      "waitingNumPer": 0,
+      "sendingFailNumPer": 71,
+      "md_type": null,
+      "orderField": null,
+      "customMap": {},
+      "mapping_keyid": null,
+      "orderFieldType": null,
+      "mid": null,
+      "startIndex": 0,
+      "pageSize": 10
+    },
+    {
+      "id": 1,
+      "smsTaskName": "神马发送任务2",
+      "smsTaskSignatureId": 1,
+      "smsTaskTemplateId": 1,
+      "smsTaskTemplateContent": "金刚般若波罗密经",
+      "smsTaskSendType": 0,
+      "smsTaskAppType": 0,
+      "smsTaskStatus": 4,
+      "status": 0,
+      "createTime": 1475568360000,
+      "updateTime": 1476867677000,
+      "totalCoverNum": 7,
+      "sendingSuccessNum": 2,
+      "waitingNum": 0,
+      "sendingFailNum": 5,
+      "smsTaskStatusStr": "已结束",
+      "smsTaskAppTypeStr": "营销短信",
+      "createTimeStr": "2016-10-04 16:06:00",
+      "totalCoverNumPer": 100,
+      "sendingSuccessNumPer": 29,
+      "waitingNumPer": 0,
+      "sendingFailNumPer": 71,
+      "md_type": null,
+      "orderField": null,
+      "customMap": {},
+      "mapping_keyid": null,
+      "orderFieldType": null,
+      "mid": null,
+      "startIndex": 0,
+      "pageSize": 10
+    }
+  ],
+  "date": "2016-10-19",
+  "total_count": 2,
+  "col_names": [
+    {
+      "col_name": "总覆盖",
+      "col_code": "totalCoverNum"
+    },
+    {
+      "col_name": "已成功",
+      "col_code": "sendingSuccessNum"
+    },
+    {
+      "col_name": "等待中",
+      "col_code": "waitingNum"
+    },
+    {
+      "col_name": "已失败",
+      "col_code": "sendingFailNum"
+    }
+  ]
+}

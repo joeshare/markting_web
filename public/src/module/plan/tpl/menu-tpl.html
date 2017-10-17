@@ -1,0 +1,33 @@
+<script type="text/template" id="main-menu">
+    <ul>
+        <%_.each(data,function(m,i){%>
+        <li>
+            <a class="btn-floating  waves-effect waves-light <%=m.code%> "
+            attr-node_type="<%=m.type%>"
+             attr-nodeType="<%=m.code%>"
+             attr-index="<%=m.index%>"
+            ><%=m.name%></a>
+        </li>
+        <%})%>
+    </ul>
+</script>
+
+<script type="text/template" id="sub-menu">
+    <ul id="menubarTip-wrap" class="menubarTip-wrap <%=listType%>">
+        <%_.each(listData,function(m,i){%>
+        <li class="item dom-dragable menu-item"
+            attr-icon="<%=m.icon%>"
+            attr-name="<%=m.name%>"
+            attr-type="<%=m.nodeType%>"
+            attr-url="<%=m.url%>"
+            attr-item-type="<%=m.itemType%>"
+            attr-node_type="<%=m.node_type%>"
+            attr-item_type="<%=m.item_type%>">
+            <span class="icon iconfont"><%=m.icon%></span>
+            <span><%=m.name%></span>
+        </li>
+        <%})%>
+    </ul>
+</script>
+
+

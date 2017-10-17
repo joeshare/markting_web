@@ -1,0 +1,162 @@
+$width: auto;
+$height: 600px;
+@mixin userSelect() {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+@mixin outline($color:rgba(78, 187, 250, 1),$width:1px,$offset:-1px,$style:dashed) {
+  outline-color:$color;
+  outline-width:$width;
+  outline-offset:$offset;
+  outline-style:$style;
+}
+#container {
+  position: relative;
+  width: $width;
+  height: $height;
+  flex-flow: row;
+  display: -webkit-flex;
+  display: flex;
+  align-items: stretch;
+  @include userSelect();
+  .main {
+    flex: 1;
+    height: 100%;
+    display: block;
+  }
+  .menu {
+    width: 80px;
+    height: 100%;
+    display: block;
+    background: rgba(230, 230, 230, .5);
+    ul {
+      padding: 0;
+      list-style: none;
+      position: relative;
+      li {
+        text-align: center;
+        margin: 3px 0;
+        a {
+          text-decoration: none;
+          display: block;
+          cursor: pointer;
+          height: 40px;
+          line-height: 40px;
+        }
+        a.m-flow-node {
+          text-decoration: none;
+          color: rgba(255, 255, 255, .8);
+          font-weight: 900;
+          background: rgba(78, 187, 250, .8);
+          @include userSelect();
+        }
+        a.m-flow-node:hover {
+          text-shadow: 0 0 5px rgba(20, 76, 157, .9);
+        }
+        a.draw-line {
+          text-decoration: none;
+          color: rgba(255, 255, 255, .8);
+          font-weight: 900;
+          background: rgba(78, 187, 250, .8);
+          @include userSelect();
+        }
+        a.active {
+          background: rgba(130, 130, 130, .8);
+        }
+        a.m-draw-line:hover {
+        }
+      }
+      li.space {
+        div {
+          height: 0;
+          border: 2px solid rgba(100, 100, 100, .5)
+        }
+      }
+      .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+
+      }
+    }
+  }
+  .main-graph {
+    background: url("../../img/demo/canvas_bg.gif");
+    z-index: 0;
+    border-right: 1px solid rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(230, 230, 230);
+  }
+  .m-tmp-drag-node {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #0000ff;
+    z-index: 100;
+  }
+
+  .c-flow-drag-node {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(78, 187, 250, 1);
+    padding: 1px;
+    .content {
+      height: 100%;
+      widht: 100%;
+      background: rgba(78, 187, 250, 1);
+      position: relative;
+      .close{
+        display: none;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        color: red;
+        font-weight: bolder;
+        border-radius: 10px;
+        background: #ccc;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+        border: 1px solid rgba(170,170,170,.5);
+      }
+    }
+  }
+  .c-flow-drag-node.dom-dragdisable {
+    border: 1px solid #ccc;
+    .content {
+      background: #ccc;
+    }
+  }
+  .next-node{
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    @include outline(rgba(78, 187, 250, 1),2px,-2px);
+    background:rgba(251, 251, 251, 1);;
+  }
+  .next-node.active{
+    outline-color: rgba(250, 95, 24, 1);
+  }
+  .select{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    @include outline();
+  }
+  .node-shadow{
+    box-shadow: 0 0 6px 3px rgba(78, 187, 250, 1) ;
+  }
+
+}
+

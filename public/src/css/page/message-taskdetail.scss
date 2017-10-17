@@ -1,0 +1,123 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2016/10/17.
+ */
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+  height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+  font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+.msgdetail{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+  .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; color: $base-font-color; font-size: $main-font-size;
+    .uparea{position: relative; float: left; width: 100%; height: 302px;
+      .echarts-area{position: absolute; top: 0; right: 472px; bottom: 0; left: 0; @include base-box; padding: 24px;}
+      .msg-test{float: right; width: 450px; height: 302px; @include base-box;
+        .msg-test-header{float: left; width: 100%; height: 58px; overflow: hidden; border-bottom: $base-border-line; padding: 0 24px;
+          .statu-box{float: left; height: 22px; margin-top: 18px;}
+          .operation{float: right; height: 36px; margin-top: 11px;
+            .a{float: right; margin-left: 10px;}
+            .a:last-child{margin-left: 0;}
+            .morelist{width: 200px;}
+            .keyong {
+              color: rgba(153, 153, 153, 1);
+              &:hover {
+                @extend .fc-blue;
+              }
+            }
+            .bukeyong {
+              color: rgba(201, 201, 201, 1); cursor: not-allowed;
+              *{color: rgba(201, 201, 201, 1); cursor: not-allowed;}
+            }
+          }
+        }
+        .msg-test-content{float: left; width: 100%; height: 244px; overflow: hidden; display: flex; flex-flow: row wrap; align-content: center;
+          .line{float: left; width: 100%; text-align: center;}
+          .test-title{font-size: $main-font-size + 4; color: rgba(51,51,51,1);}
+          .test-time{color: rgba(153,153,153,1); margin: 16px 0 36px 0;
+            .time{margin-left: 10px;}
+          }
+          .but-box{width: 102px; margin: auto;}
+        }
+      }
+    }
+    .downarea{position: absolute; top: 324px; right: 0; bottom: 0; left: 0; min-height: 670px; @include base-box;
+      .downarea-title-area{float: left; width: 100%; padding: 0 24px;
+        .downarea-title{float: left; font-size: $main-font-size + 4;}
+        .search-box{float: right; width: 240px; height: 30px; overflow: hidden; border: $base-border-line;
+          .input{float: left; width: 200px; height: 28px; overflow: hidden; margin: 0 0 0 10px;}
+          .icon{float: right; width: 28px; height: 28px; overflow: hidden; @include box-center; cursor: pointer;}
+        }
+      }
+      .table-area{float: left; width: 100%; min-height: 670px; padding: 24px 0;
+        .page-table-box{table-layout: fixed;
+          .td-msg{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+        }
+        .total-count{float: left; @include single-line-font; margin: 14px 0 0 24px;}
+      }
+    }
+  }
+}
+/****本页模态框设置****/
+/*短信测试*/
+#modalsTestHtml{
+  .modal-content{
+    .title{padding: 0 30px; height: 50px; line-height: 50px;}
+    .content{width: 706px; height: 324px; color: $base-font-color; padding: 0; font-size: $main-font-size;}
+  }
+}
+.modals-test-html{float: left; width: 100%; height: auto;
+  .line{float: left; width: 100%; min-height: 60px; border-bottom: $base-border-line;}
+  .hint{float: left; width: 100%; color: $base-red-color; display: none; @include flex-align-items(center); margin-top: 10px; padding-left: 10px;
+    .iconfont{color: $base-red-color; font-size: $main-font-size + 4;}
+  }
+  .hint.show{display: flex;}
+  .test-title{float: left; width: 112px; height: 100%; text-align: right; color: rgba(153,153,153,1); font-size: $main-font-size + 2; padding: 20px 14px 20px 20px;}
+  .test-cont{float: left; width: 586px; height: auto; padding: 20px; border-left: $base-border-line;
+    .input-box{float: left; width: 350px; height: 30px; overflow: hidden; padding: 0 10px; border: $base-border-line;
+      .input{float: left; width: 100%;}
+    }
+  }
+  .test-cont-msg{padding: 0;
+    .msg{float: left; width: 100%; height: 152px; font-size: $main-font-size + 2; border: $base-border-line; resize: none;}
+    .line{padding: 20px;}
+  }
+  .line:last-child{border-bottom: none;}
+}
+/*短信详情*/
+#modalsViewHtml{
+  .modal-content{
+    .title{padding: 0 30px; height: 50px; line-height: 50px;}
+    .content{width: 706px; height: 246px; color: $base-font-color; padding: 0; font-size: $main-font-size;}
+  }
+  .modal-footer{display: none;}
+}
+.modals-view-html{float: left; width: 100%; height: auto;
+  .line{float: left; width: 100%; min-height: 60px; border-bottom: $base-border-line;}
+  .view-title{float: left; width: 112px; height: 100%; text-align: right; color: rgba(153,153,153,1); font-size: $main-font-size + 2; padding: 20px 14px 20px 20px;}
+  .view-cont{float: left; width: 594px; height: auto; padding: 20px; border-left: $base-border-line;}
+  .view-cont-msg{padding: 0;
+    .msg{font-size: $main-font-size + 2;}
+    .line{padding: 20px;}
+  }
+  .line:last-child{border-bottom: none;}
+}

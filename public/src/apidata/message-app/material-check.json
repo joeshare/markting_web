@@ -1,0 +1,16 @@
+{
+  "code": 0,
+  "msg":"success","total":3,"total_count": 3,
+  "data":[
+    {
+      "id": "123",
+      "material_id": "3f7d28e17f72",
+      "material_name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "sms_type": 0,
+      "sms_sign_id": 0,
+      "sms_sign_content": "INCAKE",
+      "sms_template_id":1,
+      "sms_template_content": "给喜欢芝士&巧克力的您一个惊喜！"
+    }
+  ]
+}

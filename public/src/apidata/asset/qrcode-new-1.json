@@ -1,0 +1,11 @@
+{
+    "code": 0,
+    "msg":"success","total":2,"total_count": 2,
+    "data":[
+        {
+            "wxmp_id":101,"name":"果倍爽1"
+        },{
+            "wxmp_id":102,"name":"果倍爽2"
+        }
+    ]
+}

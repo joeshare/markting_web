@@ -1,0 +1,16 @@
+{
+    "code": 0,
+    "msg":"success","total":2,"total_count": 2,
+    "data":[
+        {
+            "wx_id":101,
+            "subscription":["公众号1",1],
+            "channel":"渠道号1",
+            "qrcode_name":"二维码名称",
+            "failures_time": "2016-08-24",
+            "fixed_crowd":"asdasd",
+            "association_tags":[{"group_id":14274,"id":6068,"name":"国籍-中国"}],
+            "note_text":"sdadsasd"
+        }
+    ]
+}

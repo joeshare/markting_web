@@ -1,0 +1,16 @@
+/**
+ * Created by richard on 2016-10-24.
+ */
+@charset "utf-8";
+@import "../base";
+
+.h5scene {
+  //overflow: auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  #iframe {
+    border: none;
+  }
+}

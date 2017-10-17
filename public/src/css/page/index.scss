@@ -1,0 +1,234 @@
+@import "../base";
+@import "../../js/plugins/_loliclock";
+@import "../../js/plugins/layer";
+@import "../component/lcalendar";
+
+.index {
+  min-width: 1100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  right: 16px;
+  left: 16px;
+
+  .bc-blue {
+    background: #73a9dc;
+  }
+  .h280 {
+    height: 280px;
+  }
+  .h100 {
+    height: 100px;
+  }
+  .h346 {
+    height: 346px;
+  }
+  .mr10 {
+    margin-right: 10px;
+  }
+  .ml10 {
+    margin-left: 10px;
+  }
+  .row {
+    margin-bottom: 22px;
+  }
+
+  .block {
+    position: relative;
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    .title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 24px 0 0 24px;
+    }
+  }
+  .wrap-rt {
+    height: 128px;
+  }
+  .wrap-rb {
+    margin-top: 22px;
+    height: 128px;
+  }
+  .info-box-r {
+    .hd {
+      height: 40px;
+      border-bottom: 1px solid #e9e9e9;
+      line-height: 40px;
+      padding: 0 10px 0 18px;
+      color: #888;
+      font-size: 14px;
+      a {
+        font-size: 12px;
+        color: #fff;
+        background: #009687;
+        padding: 2px 8px;
+        border-radius: 4px;
+      }
+    }
+    .bd {
+      font-size: 28px;
+      color: #666;
+      .txt {
+        margin: 20px 0 0 20px;
+      }
+      img {
+        margin: 40px 20px 0 0;
+      }
+    }
+  }
+  .info-box {
+    height: 100px;
+    .hd {
+      height: 36px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      line-height: 36px;
+      padding: 0 10px 0 18px;
+      color: #fff;
+      font-size: 12px;
+      a {
+        font-size: 12px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 2px 8px;
+        border-radius: 4px;
+      }
+    }
+    .bd {
+      font-size: 28px;
+      color: #fff;
+      .txt {
+        margin: 6px 0 0 14px;
+      }
+      img {
+        margin: 14px 10px 0 0;
+      }
+    }
+
+  }
+  .chartswrap {
+    .title {
+      font-size: 20px;
+      color: #5a5a5a;
+      margin-left: 24px;
+    }
+    .block {
+      padding: 16px 0;
+    }
+  }
+  .item {
+    .info {
+      margin-left: 24px;
+    }
+    .item-ico {
+      width: 88px;
+      height: 104px;
+      line-height: 104px;
+      text-align: center;
+      .icon {
+        color: #fff;
+        font-size: 30px;
+      }
+
+    }
+    .num {
+      margin-top: 18px;
+      margin-bottom: 4px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #5a5a5a;
+    }
+
+  }
+  .bg-green {
+    background: #8CC34B !important;
+  }
+  .bg-purple {
+    background: #C190EC !important;
+  }
+  .bg-yellow {
+    background: #FBBB3D !important;
+  }
+  .bg-blue {
+    background: #5BD3C7 !important;
+  }
+  .tabmenu-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 36px 0 0;
+    .tit-wrap {
+      float: left;
+      margin-left: 24px;
+      .title {
+        float: left;
+      }
+      .tit-icon {
+        margin: 4px 0 0 8px;
+        float: left;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        background: url("/img/common/tip.png") no-repeat;
+      }
+    }
+    .datebtn-box {
+      float: right;
+      border: 1px solid rgba(236, 236, 236, 1);
+      border-right: none;
+      margin-top: 2px;
+      font-size: 12px;
+      .text-box {
+
+        float: right;
+        color: rgba(126, 126, 126, 1);
+      }
+      .left-box {
+        float: right;
+        cursor: pointer;
+        padding: 5px 12px 6px 12px;
+        border-right: 1px solid rgba(236, 236, 236, 1);
+      }
+      .right-box {
+        float: right;
+        cursor: pointer;
+        padding: 5px 12px 6px 12px;
+      }
+      .active {
+        background-color: rgba(101, 193, 227, 1);
+        .text-box {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+  }
+  .timeout-tip {
+    width: 470px;
+    margin: auto;
+    padding-top: 50px;
+    .r {
+      margin-left: 120px;
+      margin-top: 60px;
+      .big {
+        font-size: 18px;
+        color: #666;
+      }
+      .small {
+        font-size: 12px;
+        color: #999;
+      }
+      .refresh-btn {
+        color: #66c1e3;
+        font-size: 12px;
+        margin-top: 10px;
+        cursor: pointer;
+
+      }
+    }
+
+  }
+}

@@ -1,0 +1,99 @@
+@charset "utf-8";
+@import "../base";
+
+.reconciliation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px 12px 16px;
+  .content {
+    position: absolute;
+    top: 48px;
+    right: 16px;
+    bottom: 12px;
+    left: 16px;
+    overflow-y: auto;
+    background: #fff;
+    .subtitle {
+      font-size: 16px;
+      color:#666;
+      padding: 20px 20px 0;
+    }
+    .filterbar {
+      padding: 24px;
+      position: relative;
+      color: #666;
+      font-size: 14px;
+      background: #fff;
+      .tit {
+        margin-right: 16px;
+      }
+      .selectbtn {
+        @include single-text;
+        background: url("/img/masterdata/arrow-down.png") no-repeat 104px 14px;
+        margin: 0 30px 0 0;
+        cursor: pointer;
+        display: inline-block;
+        width: 126px;
+        padding: 4px 30px 6px 12px;
+        border: 1px solid #ECECEC;
+        vertical-align: middle;
+      }
+    }
+  }
+  .search-area {
+
+    height: 32px;
+    overflow: hidden;
+    margin-left: 20px;
+    .search-box {
+      float: right;
+      width: 240px;
+      height: 32px;
+      margin-right:24px;
+      overflow: hidden;
+      border: 1px solid #ececec;
+      .input {
+        float: left;
+        width: 190px;
+        height: 30px;
+        border: none;
+        padding-left: 10px;
+      }
+      .icon {
+
+        float: right;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+  }
+}
+#rui-window-newcrowd{
+  .err-tip{
+    font-size:12px;
+    color:color('red','base')
+  }
+
+  .select-itemwrap{
+    li{
+      margin-right:10px;
+      border:solid 1px #67c2ef;
+      float:left;
+      width:100px;
+      height:32px;
+      line-height: 32px;
+      font-size:12px;
+      color:#666;
+      border-radius:6px;
+      padding:0 10px;
+    }
+    .icon{
+      color:color('blue','base')
+    }
+  }
+}

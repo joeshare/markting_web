@@ -1,0 +1,73 @@
+<script charset="UTF-8" type="text/template" class="tpl-con">
+<div class="segment">
+    <header class="page-body-header" id="page-body-header">
+        <div class="text-box"><span class="title">受众细分</span><span class="text" id="audience-title"><%=audienceTitle%></span></div>
+        <div class="button-box icon iconfont">
+            <!--<a class="a keyong" href="javascript:void(0);" title="更多操作">&#xe61a;</a>-->
+            <!--<a class="a keyong home" id="goIndex"  href="<%=BASE_PATH%>/" title="返回首页">&#xe644;</a>-->
+            <a class="a keyong return-pages" id="return-pages" title="返回">&#xe621;</a>
+            <span class="a keyong" id="rui-modals-save" title="保存">&#xe602;</span>
+            <span class="a keyong rui-disabled" id="aud-tag-edit" title="添加标签">&#xe636;</span>
+            <a class="a keyong " id="audience-uneffect" title="取消生效" href="javascript:void(0);" style="display: none;">&#xe664;</a>
+            <span class="a keyong segment-effect-icon" id="audience-effect" title="生效" href="javascript:void(0);">&#xe65c;</span>
+
+        </div>
+    </header>
+    <div class="content" id="segment-id">
+        <div class="actions-box">
+            <div class="prerequisite-box">
+                <div class="prerequisite" style="border-top:none">
+                    <div class="group-box" id="group0">
+                        <div class="term-box " attr-data="group0">
+                            <div class="input-box segment-target"><div class="input">将筛选的标签用户拖入此框</div></div>
+                        </div>
+                    </div>
+                    <div class="delete-box icon iconfont delete-all"><a href="javascript:void(0);" title="清空">&#xe674;</a></div>
+                </div>
+            </div>
+            <!--<div id="triggerConfig" class="trigger icon iconfont z-depth-1 shine-blue">&#xe626;</div>-->
+        </div>
+        <div class="drawing-box no-data" id="drawing-box" style="display: flex; flex-flow: column;">
+            <header class="header">
+                <div class="text">
+                    总计覆盖约&nbsp;<span class="blue-color" id="totalNum"><%=elementNum%></span>&nbsp;人
+                </div>
+            </header>
+            <div style="flex: 1;" class="content" >
+                <table style="height: 100%;">
+                    <tbody id="canvas-content">
+                    </tbody>
+                </table>
+            </div>
+
+            <!--<div class="content" id="canvas-content">-->
+                <!--<!--<div class="canvas-box" id="group1-drawing1-box">-->
+                    <!--<!--<div class="canvas-area" id="group1-drawing1"></div>-->
+                <!--<!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div id="triggerConfig" class="trigger icon iconfont z-depth-1 shine-blue">&#xe676;</div>
+<div class="config-area z-depth-3" id="config-area">
+    <div class="config-box" >
+        <div class="search-box input-field col s6">
+            <input type="text" style="border-bottom: 1px solid #66c1e3;color:#5a5a5a;" id="aud-tag-search" placeholder="请输入标签"  class="validate result-search dropdown-button" data-activates="seg-condition-search" data-belowOrigin="true">
+            <div class="find-ico icon iconfont" style="color:#66c1e3;">&#xe668;</div>
+            <i class="icon iconfont rui-close rui-cursor-pointer" id="aud-tag-search-del" style="display:none; position: absolute; right: 0px; top: 3px;">&#xe608;</i>
+        </div>
+        <div id="seg-condition-search" class="dropdown-content">
+        </div>
+        <div class="result-area"  id="result-area">
+        </div>
+    </div>
+    <div class="drawing-area">
+        <div class="drawing-box" style="min-width:316px;width:100%;height:100%;border:1px solid #ccc;background: rgba(255,255,255,1);">
+            <div class="drawing no-data"  id="drawing4" ></div>
+        </div>
+    </div>
+</div>
+</script>
+
+
+

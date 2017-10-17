@@ -1,0 +1,61 @@
+
+
+
+<script charset="UTF-8" type="text/template" id="suggest">
+        <%if(data&&data.length){%>
+        <ul class="plan-suggest-list " >
+            <%data.forEach(function(itm,i){%>
+            <li>
+                <%if(itm.tag_group_name){%>
+                <div class="desc"><%=itm.tag_group_name%>:</div>
+                <%}%>
+                <dl class="content">
+                    <%
+                    var length=itm.tag_list.length-1;
+                    itm.tag_list&&itm.tag_list.length&&itm.tag_list.forEach(function(obj,index){
+                    %>
+                       <dt class="plan-suggest-trigger" attr-val="<%=obj.tag_id%>" attr-name="<%=obj.tag_name%>" id="<%=obj.tag_id%>"><%=obj.tag_name%></dt>
+                       <% if(index<length){ %>
+                        <dt class="space"> | </dt>
+                       <% }%>
+                    <% }) %>
+                </dl>
+            </li>
+            <%})%>
+        </ul>
+        <%}%>
+</script>
+<!-- match tag suggest-->
+<script charset="UTF-8" type="text/template" id="match-tag-suggest">
+    <%
+    if(systemTagArr.length||customTagArr.length){
+    %>
+    <ul class="search-feeds" >
+        <%=systemTagArr.length?'<dl>系统标签：'+systemTotalCount+'个 默认显示前10条</dl>':''%>
+        <%
+        systemTagArr.forEach(function(itm,i){
+        %>
+        <li class="label-judgment-dropdown-content-li" data-val="<%=itm.val%>" data-type="0"  data-name="<%=itm.text%>" title="<%=itm.path%><%=itm.text%>"><%=itm.path%><%=itm.text%></li>
+        <%
+        })
+        %>
+        <%=customTagArr.length?'<dl>自定义标签：'+customTotalCount+'个 默认显示前10条</dl>':''%>
+        <%
+        customTagArr.forEach(function(itm,i){
+        %>
+        <li class="label-judgment-dropdown-content-li" data-val="<%=itm.val%>"  data-type="1" data-name="<%=itm.text%>" title="<%=itm.path%><%=itm.text%>"><%=itm.path%><%=itm.text%></li>
+        <%
+        })
+        %>
+    </ul>
+    <%
+    }else{
+    %>
+    <div class="nodata">
+        <span>搜索结果：0个</span>
+    </div>
+    <%
+    }
+    %>
+</script>
+

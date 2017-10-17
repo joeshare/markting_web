@@ -1,0 +1,39 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2017/1/13.
+ * 全站整行提示统一设定
+ */
+.point-out{float: left; width: 100%; min-height: 70px; padding: 16px;
+    .icon-box{float: left; width: 38px; height: 38px; overflow: hidden; @include flex-center; border-radius: 5px;
+        .icon{width: 18px; height: 18px; overflow: hidden; color: rgba(255,255,255,1); font-size: 18px; line-height: 20px;}
+    }
+    .icon-box.icon-green{background-color: rgba(91,212,199,1);}
+    .icon-box.icon-blue{background-color: rgba(102,193,227,1);}
+    .icon-box.icon-orange{background-color: rgba(250,187,61,1);}
+    .icon-box.icon-red{background-color: rgba(253,121,121,1);}
+
+    .point-out-cont{float: left; width: 100%; min-height: 38px; padding-left: 50px; margin-top: -38px;
+        .text-box{float: left; width: 100%; min-height: 38px; font-size: 12px;}
+
+        .text-box.alone{line-height: 38px; @include single-text;}
+        .text-box.alone-alone{min-height: inherit; margin-top: 6px; @include single-text;}
+        .text-box.repeatedly-alone{min-height: inherit; line-height: 24px; margin-top: -6px;}
+        .text-box.repeatedly{min-height: inherit; line-height: 24px; margin-top: 4px;}
+        .text-box.bold{min-height: inherit; font-size: 14px; font-weight: bold; line-height: 14px; @include single-text;}
+    }
+}
+.point-out.back-gray{background-color: rgba(247,247,247,1);
+    .point-out-cont{color: rgba(153,153,153,1);}
+}
+.point-out.back-green{background-color: rgba(139,195,74,0.2);
+    .point-out-cont{color: rgba(109,160,50,1);}
+}
+.point-out.back-blue{background-color: rgba(102,193,227,0.2);
+    .point-out-cont{color: rgba(32,158,205,1);}
+}
+.point-out.back-orange{background-color: rgba(250,187,61,0.2);
+    .point-out-cont{color: rgba(172,135,62,1);}
+}
+.point-out.back-red{background-color: rgba(253,121,121,0.2);
+    .point-out-cont{color: rgba(215,102,102,1);}
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Modals</title>
+    <link charset="utf-8" rel="stylesheet" type="text/css" href="../../../../css/page/component.css" />
+    <style type="text/css">
+         .tag{
+             height:32px;
+             line-height: 32px;
+             padding: 0 8px 0 16px;
+             background: #e6e6e6;
+             color: #787878;
+             font-size: 12px;
+             margin-right: 8px;
+             display: inline-block;
+             vertical-align: middle;
+         }
+         .desc{
+             font-size:12px;color:#8c8c8c;
+         }
+        i.rui-close{
+            display: inline-block;
+            cursor: pointer;
+            font-size: 16px;
+            height: 16px;
+            vertical-align: middle;
+            line-height: 18px;
+            margin-left: 8px;
+        }
+         i:hover{
+             background: rgba(198,220,229,1);
+         }
+    </style>
+    <script src="/js/libs/lib.js"></script>
+    <script type="text/template" id="tpl-modal1">
+        <div class="desc" >这里您可以对细分信息进行编辑以便更好的管理它</div>
+        <div class="" style="padding-top:24px;">
+        <div class="input-field rui-modal-input-field col s12">
+        <input id="name" type="text" class="validate">
+        <label for="name">细分名称</label>
+        </div>
+        </div>
+
+        <div class="" style="padding-top:32px;">
+        <div style="color:#8c8c8c;display: inline-block">正式发布</div>
+        <div class="switch" style="display: inline-block">
+        <label>
+        <input type="checkbox">
+        <span class="lever"></span>
+        </label>
+        </div>
+        </div>
+    </script>
+    <script type="text/template" id="tpl-modal2">
+        <div class="desc" >这里您可以对细分创建不同的标签标识它</div>
+        <div class="" style="padding-top:24px;">
+            <div class="input-field rui-modal-input-field col s12">
+                <input id="name" type="text" class="validate">
+                <label for="name">标签名称</label>
+            </div>
+        </div>
+
+        <div class="" style="padding-top:32px;">
+            <div class="tag">有孩子<i class="icon iconfont rui-close">&#xe637;</i></div>
+            <div class="tag">女性<i class="icon iconfont rui-close">&#xe637;</i></div>
+        </div>
+    </script>
+</head>
+<body>
+<!-- Modal Trigger -->
+<a class="modal-trigger waves-effect waves-light btn " id="modals1-trigger" href="#rui-modals" attr-tar="modals1">Modal1</a>
+<a class="modal-trigger waves-effect waves-light btn " id="modals2-trigger" href="#rui-modals" attr-tar="modals2">Modal2</a>
+
+
+</body>
+<script src="http://localhost:8080/js/modals-demo.js"></script>
+</html>

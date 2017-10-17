@@ -1,0 +1,314 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-border-radius: 2px;
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(230, 230, 230, 1);
+@mixin base-box {
+  box-shadow: $base-box-shadow;
+  border-radius: $base-border-radius;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+;
+@mixin single-line-font($default:$main-font-size) {
+  height: $default;
+  font-size: $default;
+  line-height: $default;
+}
+
+/*正文开始*/
+.analyse {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px 12px 16px;
+  overflow-y: auto;
+  .content {
+    position: absolute;
+    top: 48px;
+    right: 16px;
+    bottom: 12px;
+    left: 16px;
+    .outline {
+      float: left;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 1);
+      @include base-box;
+      padding: 24px;
+      .title {
+        float: left;
+        width: 100%;
+        @include single-line-font($main-font-size + 8);
+      }
+      .outline-box {
+        float: left;
+        width: 100%;
+        height: 28px;
+        overflow: hidden;
+        margin-top: 17px;
+        color: rgba(126, 126, 126, 1);
+        .time-box {
+          float: left;
+          width: 270px;
+          overflow: hidden;
+          margin-top: 7px;
+          .time-title {
+            float: left;
+            @include single-line-font($main-font-size + 2);
+          }
+          .time {
+            float: left;
+            @include single-line-font($main-font-size + 2);
+          }
+        }
+        .condition-box {
+          float: left;
+          margin-left: 10px;
+          .selectbtn {
+            float: left;
+            border: 1px solid rgba(236, 236, 236, 1);
+            padding: 5px 12px 6px 12px;
+            cursor: pointer;
+            margin-right: 23px;
+            .cont-box {
+              float: left;
+              margin-right: 16px;
+              @include single-line-font($main-font-size + 2);
+              .variable {
+                color: rgba(102, 193, 227, 1);
+              }
+            }
+            .arrow-down {
+              float: left;
+              width: 9px;
+              height: 6px;
+              overflow: hidden;
+              margin-top: 5px;
+              background: rgba(0, 0, 0, 0) url("../../img/masterdata/arrow-down.png") no-repeat;
+            }
+          }
+          .dropdown-list {
+            .list-title {
+              float: left;
+              margin-right: 16px;
+              text-align: left;
+            }
+            .list-count {
+              float: right;
+              text-align: right;
+            }
+          }
+          .sources {
+            float: left;
+            margin: 7px 0 0 16px;
+            @include single-line-font($main-font-size + 2);
+          }
+        }
+      }
+    }
+    .top-con {
+      float: left;
+      width: 100%;
+      margin: 16px 0 0 0;
+      .active-area {
+        float: left;
+        width: 100%;
+        height: auto;
+        background-color: rgba(255, 255, 255, 1);
+        @include base-box;
+        padding: 24px;
+        .title-box {
+          float: left;
+          width: 100%;
+          height: auto;
+          .title {
+            float: left;
+            width: 100%;
+            @include single-line-font($main-font-size + 8);
+          }
+          .datebtn-box {
+            float: right;
+            border: 1px solid rgba(236, 236, 236, 1);
+            margin-top: 2px;
+            .text-box {
+              float: right;
+              @include single-line-font($main-font-size + 2);
+              color: rgba(126, 126, 126, 1);
+            }
+            .left-box {
+              float: right;
+              cursor: pointer;
+              padding: 5px 12px 6px 12px;
+              border-right: 1px solid rgba(236, 236, 236, 1);
+            }
+            .right-box {
+              float: right;
+              cursor: pointer;
+              padding: 5px 12px 6px 12px;
+            }
+            .over {
+              background-color: rgba(101, 193, 227, 1);
+              .text-box {
+                color: rgba(255, 255, 255, 1);
+              }
+            }
+          }
+        }
+        .operate-area {
+          float: left;
+          width: 100%;
+          height: auto;
+          margin-top: 14px;
+          position: relative;
+          z-index: 2;
+          .time-box {
+            float: left;
+            margin-top: 7px;
+            color: rgba(126, 126, 126, 1);
+            .time-title {
+              float: left;
+              @include single-line-font($main-font-size + 2);
+            }
+            .time {
+              float: left;
+              @include single-line-font($main-font-size + 2);
+            }
+          }
+          .operate-box {
+            float: right;
+            .selectbtn {
+              float: right;
+              border: 1px solid rgba(236, 236, 236, 1);
+              padding: 7px 12px 8px 12px;
+              cursor: pointer;
+              .cont-box {
+                float: right;
+                margin-right: 16px;
+                @include single-line-font($main-font-size + 2);
+                color: rgba(126, 126, 126, 1);
+                .variable {
+                  color: rgba(102, 193, 227, 1);
+                }
+              }
+              .arrow-down {
+                float: right;
+                width: 9px;
+                height: 6px;
+                overflow: hidden;
+                margin-top: 5px;
+                background: rgba(0, 0, 0, 0) url("../../img/masterdata/arrow-down.png") no-repeat;
+              }
+            }
+            .datebtn-box {
+              float: right;
+              margin: 3px 17px 0 0;
+              border: 1px solid rgba(236, 236, 236, 1);
+              .text-box {
+                float: right;
+                @include single-line-font($main-font-size + 2);
+                color: rgba(126, 126, 126, 1);
+              }
+              .left-box {
+                float: right;
+                cursor: pointer;
+                padding: 5px 12px 6px 12px;
+              }
+              .right-box {
+                float: right;
+                cursor: pointer;
+                padding: 5px 12px 6px 12px;
+              }
+              .mid-box {
+                float: right;
+                cursor: pointer;
+                padding: 5px 12px 6px 12px;
+                border-left: 1px solid rgba(236, 236, 236, 1);
+                border-right: 1px solid rgba(236, 236, 236, 1);
+              }
+              .over {
+                background-color: rgba(245, 245, 245, 1);
+              }
+            }
+
+          }
+        }
+        .active-box {
+          float: left;
+          width: 100%;
+          height: 286px;
+          overflow: hidden;
+          margin-top: -24px;
+          position: relative;
+          z-index: 1;
+          .active {
+            float: left;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .mid-con {
+      float: left;
+      position: relative;
+      width: 100%;
+      height: 394px;
+      margin: 16px 0;
+      .analysis-area {
+        float: left;
+        width: 50%;
+        height: 100%;
+        padding-right: 8px;
+        .analysis-box {
+          float: left;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: rgba(255, 255, 255, 1);
+          @include base-box;
+          padding: 24px;
+          .title {
+            float: left;
+            width: 100%;
+            @include single-line-font($main-font-size + 8);
+          }
+          .analysis-block {
+            float: left;
+            width: 100%;
+            height: 302px;
+            overflow: hidden;
+            margin-top: 24px;
+            .analysis {
+              float: left;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+            }
+          }
+        }
+      }
+      .distribution-area {
+        float: right;
+        width: 50%;
+        height: 100%;
+        padding-left: 8px;
+        .distribution-box {
+          float: left;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: rgba(255, 255, 255, 1);
+          @include base-box;
+          padding: 24px;
+        }
+      }
+    }
+  }
+}

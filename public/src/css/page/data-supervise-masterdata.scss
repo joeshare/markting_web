@@ -1,0 +1,223 @@
+@charset "utf-8";
+@import "../base";
+
+.masterdata {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px 12px 16px;
+
+  .content {
+    background: #fff;
+    position: absolute;
+    top: 48px;
+    right: 16px;
+    bottom: 12px;
+    left: 16px;
+    overflow-y: auto;
+
+    .con-topwrap {
+
+      padding: 24px;
+      position: relative;
+      border-bottom: solid 1px #e6e6e6;
+      color: #666;
+      font-size: 14px;
+      .selectdataype-wrap {
+        display: none;
+        z-index: 1;
+        position: absolute;
+        top: 56px;
+        left: 100px;
+        width: 180px;
+        background: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        ul {
+          margin-top: 4px;
+        }
+        li {
+          padding: 6px 18px;
+
+          .mylabel {
+            font-size: 12px;
+            line-height: 120%;
+            color: #333;
+          }
+          .mylabel:after {
+
+          }
+          &:hover{
+            background: #f4f4f4;
+          }
+        }
+        .btn-wrap {
+          border-top: 1px solid #e6e6e6;
+          padding: 12px 16px;
+          .btn {
+            box-shadow: none;
+          }
+          .mr10 {
+            margin-right: 16px;
+          }
+          .btn-cl {
+            color: #999;
+            background: #fff;
+            border: solid 1px #e6e6e6;
+          }
+        }
+      }
+      .tit {
+        margin-right: 16px;
+      }
+      .selectbtn {
+        @include single-text;
+        background: url("/img/masterdata/arrow-down.png") no-repeat 104px 14px;
+        margin: 0 30px 0 0;
+        cursor: pointer;
+        display: inline-block;
+        width: 126px;
+        padding: 4px 30px 6px 12px;
+        border: 1px solid #ECECEC;
+        vertical-align: middle;
+      }
+    }
+    .lrwrap {
+      position: relative;
+      width: 100%;
+      padding: 0 60px;
+      border-bottom: solid 1px #e6e6e6;
+      .btn-com {
+        color: #9A9A9A;
+        font-size: 28px;
+        position: absolute;
+        top: 26px;
+        cursor: pointer;
+      }
+      .btn-l {
+        left: 10px;
+        @extend .btn-com;
+      }
+      .btn-r {
+        right: 10px;
+        @extend .btn-com;
+      }
+      .nwrap {
+        overflow: hidden;
+        .itemlistwrap {
+          width: 9999px;
+          padding: 24px 0;
+
+          li {
+            width: 186px;
+            cursor: pointer;
+            float: left;
+            .info {
+              margin-left: 16px;
+            }
+            .num {
+              margin-top: -4px;
+              font-size: 20px;
+              color: #3c3c3c;
+            }
+            .tit {
+              font-size: 14px;
+              color: #5a5a5a;
+            }
+            img {
+              width: 45px;
+              height: 45px;
+            }
+            &.cur {
+              .tit,.num {
+                color: #66c1e3;
+              }
+
+            }
+          }
+          .seemore-btn {
+            margin-top: 18px;
+            margin-left: 16px;
+            cursor: pointer;
+          }
+
+          .fnbtn-wrap {
+            margin-top: -14px;
+            li {
+              cursor: pointer;
+              float: left;
+              margin-left: 24px;
+              span {
+                vertical-align: middle;
+                &.name {
+                  font-size: 12px;
+                  color: #787878;
+                }
+              }
+
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+}
+
+//模态框样式
+.modal {
+  width: 880px;
+  background: #fff;
+
+  .subtitle {
+    font-size: 12px;
+    color: #787878;
+    margin-top: 4px;
+  }
+  .con-body {
+    height: 300px;
+    overflow-y: auto;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #5a5a5a;
+    .tabheader {
+      border-bottom: solid 1px #e6e6e6;
+      margin-bottom: 24px;
+    }
+    span {
+      margin-right: 12px;
+    }
+    .select-wrapper input.select-dropdown {
+      font-size: 16px;
+    }
+    .sxlist-wrap {
+      li {
+        float: left;
+        font-size: 14px;
+        color: #5a5a5a;
+        margin-bottom: 16px;
+        margin-right: 16px;
+        label {
+          vertical-align: middle;
+          line-height: 120%;
+          font-size: 14px;
+        }
+
+      }
+    }
+    .stit {
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+  }
+
+}
+
+#quick-screen {
+  overflow: hidden;
+}
+
+/*layer样式重置*/
+.layui-layer {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,10 @@
+<script charset="UTF-8" type="text/template" id="rel-tag">
+    <% if(data&&data.length){
+        data.forEach(function(itm,i){
+    %>
+    <div class="segment-tag" attr-name="<%=itm.tag_name%>"><%=itm.tag_name%><i class="icon iconfont rui-close contact-tag-remove">&#xe622;</i></div>
+    <%
+        })
+    }
+    %>
+</script>

@@ -1,0 +1,153 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+<div class="qrcode-analyze">
+    <header class="page-body-header">
+        <div class="text-box">
+            <span class="title">微信二维码-分析</span>
+            <span class="text">
+                <span class="variable"><%=subscription.name=='全部'?'':subscription.name%></span>
+            </span>
+        </div>
+        <div class="button-box icon iconfont">
+            <a class="a keyong" id="goBack" href="javascript:void(0)" title="返回">&#xe621;</a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="search-head">
+            <div class="time-area">
+                <div class="exact-area" id="exact-area">
+                    <%if(time=='today'){%>
+                    <div class="exact-box active" type="today">今日</div>
+                    <%}else{%>
+                    <div class="exact-box" type="today">今日</div>
+                    <%}%>
+                    <%if(time=='yesterday'){%>
+                    <div class="exact-box active" type="yesterday">昨日</div>
+                    <%}else{%>
+                    <div class="exact-box" type="yesterday">昨日</div>
+                    <%}%>
+                    <%if(time=='last7'){%>
+                    <div class="exact-box active" type="last7">最近7日</div>
+                    <%}else{%>
+                    <div class="exact-box" type="last7">最近7日</div>
+                    <%}%>
+                    <%if(time=='last30'){%>
+                    <div class="exact-box active" type="last30">最近30天</div>
+                    <%}else{%>
+                    <div class="exact-box" type="last30">最近30天</div>
+                    <%}%>
+                </div>
+                <div class="period-area">
+                    <div class="period-box">
+                        <%if(start_time.length>0){%>
+                        <input type="text" readonly placeholder="起始时间" class="input" id="start_date" value="<%=start_time%>"/>
+                        <%}else{%>
+                        <input type="text" readonly placeholder="起始时间" class="input" id="start_date"/>
+                        <%}%>
+                        <div class="icon iconfont">&#xe6ae;</div>
+                    </div>
+                    <div class="zhi">至</div>
+                    <div class="period-box">
+                        <%if(end_time.length>0){%>
+                        <input type="text" readonly placeholder="结束时间" class="input" id="end_date" value="<%=end_time%>"/>
+                        <%}else{%>
+                        <input type="text" readonly placeholder="结束时间" class="input" id="end_date"/>
+                        <%}%>
+                        <div class="icon iconfont">&#xe6ae;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-area">
+                <div class="selectbtn-box">
+                    <div class="title">渠道分类</div>
+                    <div class="r-btn dropdown-button selectbtn" data-constrainwidth="false" data-activates="channel-list" data-beloworigin="true" id="channelText"><%=channel.name%></div>
+                </div>
+                <ul id="channel-list" class="dropdown-content" style="width:auto;overflow-x:hidden">
+                    <%channelList.map(function(m,i){%>
+                    <li><a href="javascript:void(0)" id="<%=m.id%>" name="<%=m.name%>"><%=m.name%></a></li>
+                    <% })%>
+                </ul>
+                <div class="selectbtn-box">
+                    <div class="title">公众号</div>
+                    <div class="r-btn dropdown-button selectbtn" data-constrainwidth="false" data-activates="subscription-list" data-beloworigin="true" id="subscriptionText"><%=subscription.name%></div>
+                </div>
+                <ul id="subscription-list" class="dropdown-content" style="width:auto">
+                    <%subscriptionList.map(function(m,i){%>
+                    <li><a href="javascript:void(0)" acct="<%=m.acct%>" name="<%=m.name%>"><%=m.name%></a></li>
+                    <% })%>
+                </ul>
+            </div>
+        </div>
+        <div class="echarts-area">
+            <div class="echarts-box" id="echarts-box"></div>
+        </div>
+        <div class="table-area">
+            <div class="table-box">
+                <table class="page-table-box">
+                    <thead>
+                    <tr>
+                        <th class="first">公众号</th>
+                        <th>渠道</th>
+                        <th>总扫码次数</th>
+                        <th>总扫码人数</th>
+                        <th>总关注数</th>
+                        <th>新增关注</th>
+                        <th>净增关注</th>
+                        <th>流失关注</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-box"></tbody>
+                    <tfoot id="tfoot-box" class="tfoot-box"></tfoot>
+                </table>
+                <div class="pagination-wrap pagination light-theme simple-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-tbody">
+<%if(tbodyList.length>0){ tbodyList.map(function(m,i){%>
+    <tr>
+        <td><%=m.subscription%></td>
+        <td><%=m.channel%></td>
+        <td><%=m.scan_code%></td>
+        <td><%=m.scan_code_number%></td>
+        <td><%=m.total_attention%></td>
+        <td><%=m.new_attention%></td>
+        <td><%=m.net_interest%></td>
+        <td><%=m.drain_attention%></td>
+    </tr>
+<% })}else{ %>
+<tr>
+    <td style="text-align:center" colspan="8">暂无数据！</td>
+</tr>
+<% }%>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-tfoot">
+<%if(tfootList.length>0){ tfootList.map(function(m,i){ if(i>1){%>
+<tr>
+    <td><%=m.subscription%></td>
+    <td><%=m.channel%></td>
+    <td><%=m.scan_code[0]%><br/><%=m.scan_code[1]%></td>
+    <td><%=m.scan_code_number[0]%><br/><%=m.scan_code_number[1]%></td>
+    <td><%=m.total_attention[0]%><br/><%=m.total_attention[1]%></td>
+    <td><%=m.new_attention[0]%><br/><%=m.new_attention[1]%></td>
+    <td><%=m.net_interest[0]%><br/><%=m.net_interest[1]%></td>
+    <td><%=m.drain_attention[0]%><br/><%=m.drain_attention[1]%></td>
+</tr>
+<%}else{%>
+<tr>
+    <td><%=m.subscription%></td>
+    <td><%=m.channel%></td>
+    <td><%=m.scan_code%></td>
+    <td><%=m.scan_code_number%></td>
+    <td><%=m.total_attention%></td>
+    <td><%=m.new_attention%></td>
+    <td><%=m.net_interest%></td>
+    <td><%=m.drain_attention%></td>
+</tr>
+<% }})}else{%>
+<tr>
+    <td style="text-align:center" colspan="8">暂无数据！</td>
+</tr>
+<% }%>
+</script>

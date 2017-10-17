@@ -1,0 +1,30 @@
+{
+    "code": 0,
+    "msg":"success","total":2,"total_count": 1,
+    "data":[
+        {
+            "subscription": [
+                {"name":"公众号1","subscription_id": 0},
+                {"name":"全部","subscription_id": "all"}
+            ]
+        },{
+            "channel": [
+                {"channel_id":101,"channel_name":"经销商","channel_type":0},
+                {"channel_id":102,"channel_name":"渠道商","channel_type":0},
+                {"channel_id":103,"channel_name":"区域","channel_type":0},
+                {"channel_id":104,"channel_name":"员工","channel_type":0},
+                {"channel_id":105,"channel_name":"门店","channel_type":0},
+                {"channel_id":106,"channel_name":"活动","channel_type":0},
+                {"channel_id":107,"channel_name":"活动1","channel_type":1},
+                {"channel_id":108,"channel_name":"活动2","channel_type":1}
+            ]
+        },{
+            "today": "2016-08-17",
+            "yesterday": "2016-08-16",
+            "last7": ["2016-08-11","2016-08-17"],
+            "last30": ["2016-07-17","2016-08-15"],
+            "start_date": "2016-07-17",
+            "end_date": "2016-08-16"
+        }
+    ]
+}

@@ -1,0 +1,157 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+<div class="graphic">
+    <header class="page-body-header">
+        <div class="text-box">
+            <span class="title">图文资产</span>
+            <span class="text">
+               微信图文<span class="variable" id="wechat-total">0</span>个，H5页<span class="variable" id="H5-total">0</span>个
+            </span>
+        </div>
+        <div class="button-box icon iconfont">
+            <a class="a keyong" style="display:none;" id="goBack" href="<%=BASE_PATH%>/" title="返回活动编排">&#xe62c;</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="managed-area">
+            <header class="header">
+                <span class="ico icon iconfont">&#xe647;</span>
+                <span headerText>
+                    <span class="text" id="headerText">全部</span>
+                </span>
+                <span class="ico option icon iconfont r-btn dropdown-button  dropdown-button-setuplist" data-activates="navlist" data-constrainwidth="false">&#xe60e;</span>
+                <!--菜单下拉-->
+                <ul id="navlist" class="dropdown-content setuplist" style="width:196px">
+                    <li><a href="javascript:void(0)" class="qiehuanOption" type="all">全部</a></li>
+                    <li><a href="javascript:void(0)" class="qiehuanOption" type="weixin-all">全部 > 微信</a></li>
+                    <li><a href="javascript:void(0)" class="qiehuanOption" type="weixin-public-leyouyunyingtong">全部 > 微信 > 乐友孕婴童</a></li>
+                    <li><a href="javascript:void(0)" class="qiehuanOption" type="H5-all">全部 > H5</a></li>
+                    <li><a href="javascript:void(0)" class="qiehuanOption" type="H5-rabbitpre">全部 > H5 > 兔展</a></li>
+                    <li><a href="javascript:void(0)" class="qiehuanOption" type="H5-eqxiu">全部 > H5 > 易企秀</a></li>
+                    <li><a href="javascript:void(0)" class="qiehuanOption" type="H5-MAKA">全部 > H5 > MAKA</a></li>
+                </ul>
+            </header>
+            <div class="managed-parent" id="managed-parent">
+                <ul class="managed-box" id="managed-box"></ul>
+                <!--更多下拉-->
+                <div id="setuplist-box"></div>
+            </div>
+        </div>
+        <div class="option-area">
+            <header class="header">
+                <div id="dispose-box" class="dispose-box init">
+                    <div class="box">
+                        <div class="cloud">
+
+                        </div>
+                        <div class="text">拖动到此框内，即可完成云端托管</div>
+                    </div>
+                </div>
+            </header>
+            <div class="option-area">
+                <ul class="option-box">
+                    <li class="option weixin">
+                        <div class="pic"><img src="<%=IMG_PATH%>/img/asset/wechat-logo.png"></div>
+                        <div class="con-box">
+                            <div class="the-text">微信公众平台图文，后台自动同步</div>
+                        </div>
+                    </li>
+                    <!--
+                    <li class="option" thistype="rabbitpre">
+                        <div class="pic" id="openOption"><img src="<%=IMG_PATH%>/img/asset/rabbitpre-logo.png"></div>
+                        <div class="con-box">
+                            <div class="the-text" id="openOption">微信H5页面_微场景制作工具、移动微杂志_电子邀请函创作平台</div>
+                            <div class="drag-box">
+                                <div class="term">
+                                    <div class="title">第一步</div>
+                                    <div class="context" id="optionContext">
+                                        <div class="change">
+                                            <input type="text" class="validate" id="testUrl" placeholder="粘贴H5页面URL至此"/>
+                                        </div>
+                                        <div class="sign icon iconfont"></div>
+                                        <div class="tip"></div>
+                                    </div>
+                                </div>
+                                <div class="term">
+                                    <div class="title">第二步</div>
+                                    <div class="context">拖至上方虚线框内，完成云端托管</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="option" thistype="eqxiu">
+                        <div class="pic" id="openOption"><img src="<%=IMG_PATH%>/img/asset/eqxiu-logo.png"></div>
+                        <div class="con-box">
+                            <div class="the-text" id="openOption">免费H5页面移动微场景应用制作平台，场景定制设计师平台，场景推广平台，企业场景自营销管家</div>
+                            <div class="drag-box">
+                                <div class="term">
+                                    <div class="title">第一步</div>
+                                    <div class="context" id="optionContext">
+                                        <div class="change">
+                                            <input type="text" class="validate" id="testUrl" placeholder="粘贴H5页面URL至此"/>
+                                        </div>
+                                        <div class="sign icon iconfont"></div>
+                                        <div class="tip"></div>
+                                    </div>
+                                </div>
+                                <div class="term">
+                                    <div class="title">第二步</div>
+                                    <div class="context">拖至上方虚线框内，完成云端托管</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="option" thistype="maka">
+                        <div class="pic" id="openOption"><img src="<%=IMG_PATH%>/img/asset/maka-logo.png"></div>
+                        <div class="con-box">
+                            <div class="the-text" id="openOption">免费H5页面、微场景制作_电子邀请函、创意海报、电子相册设计平台</div>
+                            <div class="drag-box">
+                                <div class="term">
+                                    <div class="title">第一步</div>
+                                    <div class="context" id="optionContext">
+                                        <div class="change">
+                                            <input type="text" class="validate" id="testUrl" placeholder="粘贴H5页面URL至此"/>
+                                        </div>
+                                        <div class="sign icon iconfont"></div>
+                                        <div class="tip"></div>
+                                    </div>
+                                </div>
+                                <div class="term">
+                                    <div class="title">第二步</div>
+                                    <div class="context">拖至上方虚线框内，完成云端托管</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-managed">
+    <li imgtext-id="1183" id="managed1183" class="managed">
+        <div class="pic">
+            <img src="">
+        </div>
+        <div class="con-box">
+            <div class="title">
+                <div title="开箱码上抢，100%中奖！" class="text">开箱码上抢，100%中奖！</div>
+                <div style="display:none" class="newico">new</div>
+            </div>
+            <div class="text-box">
+                <span class="icon iconfont icon-weixin"></span>
+                <span title="乐享果倍爽&nbsp;2016-07-14 18:58&nbsp;创建" class="text">乐享果倍爽&nbsp;2016-07-14 18:58&nbsp;创建</span>
+            </div>
+        </div>
+        <div imgtext-id="1183" mobileurl="" pcurl="" data-constrainwidth="false" data-activates="setuplist" class="more icon iconfont r-btn dropdown-button managed-more">&#xe61a;</div>
+    </li>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-setuplist">
+    <ul id="setuplist" class="dropdown-content setuplist">
+        <li><i class="icon iconfont">&#xe648;</i><a target="_blank" id="pc-href" href="">电脑预览</a></li>
+        <li><i class="icon iconfont">&#xe649;</i><a href="javascript:void(0)" id="phone-preview" mobile="">手机预览</a></li>
+        <li><i class="icon iconfont">&#xe61d;</i><a href="javascript:void(0)" id="delete-managed">删除</a></li>
+    </ul>
+</script>

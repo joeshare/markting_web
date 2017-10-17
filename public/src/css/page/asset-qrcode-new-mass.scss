@@ -1,0 +1,184 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+.qrcode-mass{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px;
+    .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; padding: 24px; background-color: rgba(255,255,255,1); @include base-box; color: $base-font-color; overflow-y: auto;
+        .mass-box{float: left; width: 100%; overflow: hidden; padding-right: 264px;
+            .mass-title-box{float: left; width: 100%; height: 70px; padding: 16px; background-color: rgba(254,241,216,1); color: rgba(172,135,62,1);
+                .icon-box{float: left; width: 39px; height: 39px; overflow: hidden; border-radius: 3px; background-color: rgba(250,187,61,1); @include box-center;
+                    .icon{width: 17px; height: 17px; overflow: hidden; border-radius: 50%; color: rgba(255,255,255,1); @include box-center; font-size: $main-font-size + 3;}
+                }
+                .text-box{float: left; margin-left: 10px; margin-top: 3px;
+                    .strong{float: left; width: 100%; font-weight: bold; @include single-line-font;}
+                    .normal{float: left; width: 100%; @include single-line-font; margin-top: 10px;}
+                }
+            }
+            .progress-bar-box{float: left; width: 100%; height: 47px; overflow: hidden; margin-top: 56px;
+                .progress{top: 21.5px; margin: 0; background-color: rgba(204,204,204,1); z-index: $base-z-index;
+                    .determinate{background-color: rgba(91,212,199,1);}
+                }
+                .ordinal-box{position: relative; width: 100%; height: 47px; overflow: hidden; margin-top: -4px; font-size: $main-font-size + 14; color: rgba(255,255,255,1); z-index: $base-z-index + 1; display: flex; flex-flow: row wrap; align-items: stretch; justify-content: space-between;
+                    .ordinal-one{width: 47px; height: 47px; overflow: hidden; border-radius: 50%; @include box-center; background-color: rgba(204,204,204,1);}
+                    .ordinal-two{width: 47px; height: 47px; overflow: hidden; border-radius: 50%; @include box-center; background-color: rgba(204,204,204,1);}
+                    .ordinal-three{width: 47px; height: 47px; overflow: hidden; border-radius: 50%; @include box-center; background-color: rgba(204,204,204,1);}
+                    .ordinal-act{background-color: rgba(91,212,199,1);}
+                    .ordinal-turn{background: url("../../img/asset/turn.png") rgba(91,212,199,1) center no-repeat;
+                        -webkit-animation:turn 1s linear infinite;
+                        -moz-animation:turn 1s linear infinite;
+                        -ms-animation:turn 1s linear infinite;
+                        animation:turn 1s linear infinite;
+                    }
+                    @-webkit-keyframes turn{0%{-webkit-transform:rotate(0deg);} 50%{-webkit-transform:rotate(180deg);} 100%{-webkit-transform:rotate(360deg);}}
+                    @-moz-keyframes turn{0%{-moz-transform:rotate(0deg);} 50%{-moz-transform:rotate(180deg);} 100%{-moz-transform:rotate(360deg);}}
+                    @-ms-keyframes turn{0%{-moz-transform:rotate(0deg);} 50%{-moz-transform:rotate(180deg);} 100%{-moz-transform:rotate(360deg);}}
+                    @keyframes turn{0%{-moz-transform:rotate(0deg);} 50%{-moz-transform:rotate(180deg);} 100%{-moz-transform:rotate(360deg);}}
+                }
+            }
+            .step-area{float: left; width: 100%; margin-top: 40px;
+                .step-box{float: left; width: 100%; min-height: 128px; padding: 0 40px; background: rgba(244,247,249,1) right bottom no-repeat;}
+                .trigon-box{float: left; width: 100%;
+                    .trigon{width: 24px; height: 24px; margin: 0 auto; overflow: hidden; text-indent: -6px; font-size: 36px; line-height: 10px;}
+                }
+                /*步骤一*/
+                .step-one-default-box{float: left; width: 100%;
+                    .step-box{background-color:  rgba(235,245,244,1); background-image: url("../../img/asset/step-one.png"); padding-top: 34px; padding-bottom: 30px;
+                        .title{float: left; width: 100%; @include single-line-font($main-font-size + 2);
+                            .a{color: $base-blue-color;}
+                        }
+                        .input-area{position: relative; float: left; width: 100%; height: 32px; margin-top: 16px;
+                            .input-box{position: absolute; top: 0; right: 380px; bottom: 0; left: 0; border: $base-border-line; padding: 0 16px; background-color: rgba(255,255,255,1);
+                                .input{float: left; width: 100%; height: 30px; border: none; color: $base-font-color; font-size: $main-font-size; box-shadow:none;}
+                                .input-file{display: none}
+                            }
+                            .but-box{float: right; width: 370px; height: 32px; font-size: $main-font-size;
+                                .file-but{float: left; line-height: 26px; margin-top: 2px;}
+                                .import-but{float: left; margin-left: 8px; padding: 0;
+                                    .icon{color: rgba(255,255,255,1);}
+                                }
+                                .close{cursor: not-allowed;}
+                            }
+                        }
+                    }
+                    .trigon-box{
+                        .trigon{color: rgba(244,247,249,1);}
+                    }
+                }
+                .step-one-box{float: left; width: 100%;
+                    .step-box{background-color:  rgba(235,245,244,1); background-image: url("../../img/asset/step-one.png"); padding-bottom: 30px;
+                        .schedule-bar-area{position: relative; float: left; width: 100%; height: 78px;
+                            .schedule-bar-box{position: absolute; top: 54px; right: 82px; height: 18px; left: 0; background-color: rgba(220,220,220,1); border-radius: 10px;
+                                .schedule{position: absolute; height: 18px; top: 0; left: 0; background-color: rgba(91,212,199,1); border-radius: 10px;
+                                    .dian{position: absolute; width: 7px; height: 7px; background-color: rgba(255,255,255,1); border-radius: 50%; top: 5px; right: 6px;}
+                                    .num{position: absolute; width: 60px; height: 45px; text-align: center; line-height: 40px; color: rgba(91,212,199,1); font-weight: bold; top:-50px; right: -20px; background: url("../../img/asset/bubble.png") no-repeat;}
+                                }
+                            }
+                            .schedule-bar-box.error{
+                                .schedule{background-color: $base-red-color;
+                                    .num{color: $base-red-color;}
+                                }
+                            }
+                            .cancel-but{float: right; width: 72px; height: 32px; border: $base-border-line; @include box-center; cursor: pointer; background-color: rgba(255,255,255,1); margin-top: 46px; font-size: $main-font-size;}
+                            .cancel-but.close{cursor: not-allowed; background-color: rgba(255,255,255,0.5);}
+                        }
+                        .point{float: left; width: 100%; @include single-line-font; margin-top: 16px;}
+                        .point.error{color: $base-red-color;}
+                        .return-point{float: left; width: 100%; @include single-line-font; margin-top: 16px;
+                            .success{color: rgba(139,195,74,1);}
+                            .fail{color: $base-red-color;}
+                        }
+                    }
+                    .trigon-box{
+                        .trigon{color: rgba(235,245,244,1);}
+                    }
+                }
+                /*步骤二*/
+                .step-two-box{float: left; width: 100%; margin-top: 40px;
+                    .step-box{display: flex; flex-flow: row wrap; align-items: center; align-content: center; font-size: $main-font-size + 2; background-image: url("../../img/asset/step-two-default.png");
+                        .point{width: 100%; @include single-line-font($main-font-size + 2);}
+                        .return-point{width: 100%; @include single-line-font; margin-top: 16px;
+                            .success{color: rgba(139,195,74,1);}
+                        }
+                    }
+                    .step-box.run{background-color: rgba(235,245,244,1); background-image: url("../../img/asset/step-two.png");}
+                    .trigon-box{
+                        .trigon{color: rgba(244,247,249,1);}
+                    }
+                    .trigon-box.run{
+                        .trigon{color: rgba(235,245,244,1);}
+                    }
+                }
+                /*步骤三*/
+                .step-three-default-box{float: left; width: 100%; margin-top: 40px;
+                    .step-box{display: flex; align-items: center; font-size: $main-font-size + 2; background-image: url("../../img/asset/step-three-default.png");}
+                }
+                .step-three-box{float: left; width: 100%; margin-top: 40px;
+                    .step-box{background-color:  rgba(235,245,244,1); background-image: url("../../img/asset/step-three.png"); padding-top: 30px; padding-bottom: 30px;
+                        .box-title{float: left; width: 100%; @include single-line-font($main-font-size + 2);}
+                        .cont-box{float: left; width: 100%; margin-top: 40px;
+                            .line{float: left; width: 100%; font-size: $main-font-size + 2; margin-top: 30px;
+                                .title{float: left; width: 86px; height: 30px; @include vetically-font(12px,30px); text-align: right;}
+                                .box-cont{float: left; width: 100%; margin-top: -30px; padding-left: 96px;}
+                            }
+                            .line:first-child{margin-top: 0;}
+                            .setup-time{float: left; width: 100%; height: 30px; border: $base-border-line; cursor: pointer; background-color: rgba(255,255,255,1);
+                                .input{float: left; width: 100%; height: 28px; overflow: hidden; margin: 0; border: none; box-shadow: none; margin-left: 10px; position: relative; z-index: $base-z-index;}
+                                .arrow-down{float: right; width: 37px; height: 28px; overflow: hidden; font-size: $main-font-size + 8; text-align: center; line-height: 28px; border-left: $base-border-line; margin-top: -28px;}
+                            }
+                            .association-tags-radio{float: left; width: 294px; height: 28px;
+                                .radio-box{float: left; margin: 5px 30px 0 0;
+                                    label{font-size: $main-font-size + 2;}
+                                }
+                                .radio-box:last-child{margin: 5px 0 0 0;}
+                            }
+                            .tags-area{float: left; width: 100%; height: 184px;
+                                .tags-input{float: left; width: 100%; height: 28px; overflow: hidden;
+                                    .input{float: left; width: 100%; height: 28px; padding: 0 3px; background-color: rgba(255,255,255,1);}
+                                }
+                                .tags-broder{float: left; width: 100%; height: 138px; border: $base-border-line; padding: 3px; margin-top: 14px; background-color: rgba(255,255,255,1); overflow-y: auto;
+                                    .tag{position: relative; float: left; min-width: 78px; border: $base-border-line; margin: 14px 0 0 14px; background-color: rgba(245,245,245,1); @include single-line-font; height: 26px; padding: 6px 10px; color: $base-font-color;
+                                        .close{position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; border: $base-border-line; cursor: pointer; border-radius: 50%; background-color: rgba(207,68,54,1); text-indent: -3.5px; color: rgba(255,255,255,1); line-height: 16.5px; font-size: $main-font-size + 2;}
+                                    }
+                                }
+                            }
+                            .note-area{float: left; width: 100%; height: 162px;
+                                .textarea-box{float: left; width: 100%; height: 138px; border: $base-border-line; padding: 3px; background-color: rgba(255,255,255,1);
+                                    .textarea{float: left; width: 100%; height: 100%; border: none; resize: none; font-size: $main-font-size;}
+                                }
+                                .font-num{float: left; width: 100%; @include single-line-font; text-align: right; color: rgba(188,188,188,1); margin-top: 10px; padding-right: 2px;}
+                            }
+                        }
+                    }
+                }
+            }
+            .save-but-box{float: left; width: 100%; height: 30px; margin-top: 30px; display: flex;
+                .but{margin: auto;}
+                .close{cursor: not-allowed;}
+            }
+        }
+        @media screen and (max-width:1230px){.mass-box{width: 816px; padding-right: 0;}}
+        @-moz-document url-prefix(){.mass-box{margin-bottom: 24px;}}
+    }
+}

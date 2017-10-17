@@ -1,0 +1,55 @@
+/**
+ * Created by richard on 2016-10-20.
+ * 颜色表
+ */
+
+$blue: (
+        "base": #67c2ef,
+        "lighten-1": #66c1e3,
+        "darken-1": #62a9ed,
+);
+
+$green: (
+        "base": #F44336,
+        "lighten-1": #5bd4c7,
+);
+
+$red: (
+        "base": #fd7979,
+);
+
+$yellow: (
+        "base" : #fcdd5f,
+        "darken-1": #fabb3d,
+);
+
+$gray: (
+        "base": #c9c9c9,
+        "lighten-1": #cccccc,
+        "lighten-2": #f7f7f7,
+        "lighten-3": #efefef,
+        "lighten-4": #e9e9e9,
+        "darken-1": #999999,
+        "darken-2": #666666,
+        "darken-3": #333333,
+);
+
+$colors: (
+        "blue": $blue,
+        "green": $green,
+        "red": $red,
+        "yellow": $yellow,
+        "gray": $gray,
+);
+
+@function color($color, $type) {
+  @if map-has-key($colors, $color) {
+    $curr_color: map-get($colors, $color);
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
+    }
+  }
+  @warn "Unknown `#{name}` in $colors.";
+  @return null;
+}
+

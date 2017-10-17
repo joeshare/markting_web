@@ -1,0 +1,10 @@
+{
+  "code":0,
+  "msg": "SUCCESS",
+  "total":2,
+  "data": [
+    {"tag_id":"PHiKOpdR","tag_name":"蛋糕选拼系列","tag_list":["是","否"],"tag_desc":"用户购买该品类至少一次","tag_name_eng":"chooseCakeSeries","seq":18,"search_mod":1},
+    {"tag_id":"PHiKOpdR","tag_name":"蛋糕选拼系列","tag_list":["是","否"],"tag_desc":"用户购买该品类至少一次","tag_name_eng":"chooseCakeSeries","seq":18,"search_mod":1}
+  ],
+  "total_count" : 2
+}

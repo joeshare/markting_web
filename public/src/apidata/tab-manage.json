@@ -1,0 +1,57 @@
+{
+  "code": 0,
+  "msg": "success",
+  "total": 19,
+  "data": [
+    {
+      "sid": "0",
+      "status": "正常",
+      "devstatus": "未确认",
+      "name": "年龄",
+      "classtye": "属性-用户信息-年龄",
+      "updatime": "2010-03-12"
+    },
+    {
+      "sid": "1",
+      "status": "异常",
+      "devstatus": "已确认",
+      "name": "年龄",
+      "classtye": "属性-用户信息-年龄",
+      "updatime": "2010-03-12"
+    },
+    {
+      "sid": "2",
+      "status": "待处理",
+      "devstatus": "未开始",
+      "name": "年龄",
+      "classtye": "属性-用户信息-年龄",
+      "updatime": "2010-03-12"
+    },
+    {
+      "sid": "3",
+      "status": "正常",
+      "devstatus": "未确认",
+      "name": "年龄",
+      "classtye": "属性-用户信息-年龄",
+      "updatime": "2010-03-12"
+    },
+    {
+      "sid": "4",
+      "status": "正常",
+      "devstatus": "未确认",
+      "name": "年龄",
+      "classtye": "属性-用户信息-年龄",
+      "updatime": "2010-03-12"
+    },
+    {
+      "sid": "0",
+      "status": "正常",
+      "devstatus": "未确认",
+      "name": "年龄",
+      "classtye": "属性-用户信息-年龄",
+      "updatime": "2010-03-12"
+    }
+  ],
+  "total_count": 19,
+  "col_names":[{"name":"连接状态"},{"name":"开发状态"},{"name":"名称"},{"name":"分类"},{"name":"更新时间"},{"name":"操作"}]
+}

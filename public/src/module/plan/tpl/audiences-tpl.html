@@ -1,0 +1,259 @@
+<!-- 受众人群 -->
+<!-- 目标人群-->
+<script charset="UTF-8" type="text/template" id="target-group">
+    <div class="active-nodetip" id="target-group-tips">
+        <div class="tit"><%=title?title+'设定':'目标人群设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="target-group-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="target-group-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">人群细分</span>
+            <span class="left select-wrap group" >
+                  <select id="target-group-select">
+                      <%
+                      segmentArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(segmentation_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+            <% if(segmentArr.length){
+            %>
+            <a class="left icon iconfont ml8  edit target-group-edit" href="javascript:void(0);">&#xe609;</a>
+            <%}
+            %>
+            <a class="left icon iconfont ml8  add target-group-add" href="javascript:void(0);">&#xe672;</a>
+        </div>
+        <div>
+            <span class="select-tit" style="height: 34px;display: block;color:#3c3c3c;">设置</span>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit">允许活动中有新成员出现</span>
+        <span class="left select-wrap new" style="height: 30px;">
+              <select id="target-group-new-select">
+                  <%
+                  //0:允许,1:不允许
+                  var arr=[{val:0,text:"是"},{val:1,text:"否"}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(allowed_new==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">受众刷新频率</span>
+        <span class="left">
+            <input type="text" id="target-group-refresh-select1" style="width: 12px;text-align: center;padding-top: 1px;"
+             <% if(refresh_interval){ %>
+                    value="<%=refresh_interval%>"
+             <% }else{ %>
+                    value=1
+             <%}%>
+             ></span>
+        <span class="left select-wrap ml8 refresh">
+              <select id="target-group-refresh-select2">
+                  <%
+                  refresh_interval_type_arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(refresh_interval_type==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+    </div>
+</script>
+<!-- 细分人群-->
+<script charset="UTF-8" type="text/template" id="segement-group">
+    <div class="active-nodetip" id="segement-group-tips">
+        <div class="tit"><%=title?title+'设定':'细分人群设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="segement-group-name" type="text" class="validate"  maxlength="10"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="segement-group-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">人群</span>
+            <span class="left select-wrap group" >
+                <span id="segement-group-select-text"
+                      class="validate dropdown-button left select-wrap img input-select"
+                      onclick="segementGroupSelectFocus(this)"
+                      style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                        ><%=segmentation_name?segmentation_name:(segmentArr.length?segmentArr[0].text:"")%></span>
+                <input id="segement-group-select-val" type="hidden" value="<%=segmentation_id%>">
+                <div id="segement-group-select-content" class="dropdown-content suggest-dropdown-content">
+                    <%
+                    if(segmentArr.length){
+                    %>
+                    <ul class="search-feeds" >
+                        <%
+                        segmentArr.forEach(function(itm,i){
+                        %>
+                        <li class="segement-group-dropdown-content-li" data-val="<%=itm.val%>" >
+                           <div class="column-flex segement-group-content-li-text" title="<%=itm.text%>"><%=itm.text%></div>
+                           <div class="column-width segement-group-content-li-count" style="text-align: right"><%=itm.count%></div>
+                        </li>
+                        <%
+                        })
+                        %>
+                    </ul>
+                    <%
+                    }else{
+                    %>
+                    <div class="nodata">
+                        <span>暂无数据</span>
+                    </div>
+                    <%
+                    }
+                    %>
+                </div>
+            </span>
+            <% if(segmentArr.length){
+            %>
+            <a class="left icon iconfont ml8  edit segement-group-edit" href="javascript:void(0);">&#xe609;</a>
+            <%}else{%>
+            <a class="left icon iconfont ml8  edit segement-group-edit rui-disabled" href="javascript:void(0);">&#xe609;</a>
+            <%}%>
+        </div>
+        <div>
+            <span class="select-tit" style="height: 34px;display: block;color:#3c3c3c;">设置</span>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit">有无新成员</span>
+        <span class="left select-wrap new" style="height: 30px;">
+              <select id="segement-group-new-select">
+                  <%
+                  //0:允许,1:不允许
+                  var arr=[{val:0,text:"是"},{val:1,text:"否"}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(allowed_new==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">刷新频率</span>
+           <!--v1.6
+           <span class="left">
+            <input type="text" id="segement-group-refresh-select1" style="width: 12px;text-align: center;padding-top: 1px;"
+             <% if(refresh_interval){ %>
+                    value="<%=refresh_interval%>"
+             <% }else{ %>
+                    value=1
+             <%}%>
+             ></span>
+             -->
+        <span class="left select-wrap ml8 refresh">
+              <select id="segement-group-refresh-select2">
+                  <%
+                  refresh_interval_type_arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(refresh_interval_type==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+    </div>
+</script>
+<!-- 固定人群-->
+<script charset="UTF-8" type="text/template" id="fix-group">
+    <div class="active-nodetip" id="fix-group-tips">
+        <div class="tit"><%=title?title+'设定':'固定人群设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="fix-group-name" type="text" class="validate"  maxlength="10"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="fix-group-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">人群</span>
+            <span class="left select-wrap group" >
+                <span id="fix-group-select-text"
+                      class="validate dropdown-button left select-wrap img input-select"
+                      onclick="fixGroupSelectClick(this)"
+                      style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                        ><%=fix_group_name?fix_group_name:(fixArr.length?fixArr[0].text:"")%></span>
+                <input id="fix-group-select-val" type="hidden" value="<%=fix_group_id%>">
+                <div id="fix-group-select-content" class="dropdown-content suggest-dropdown-content" style="width:262px">
+                    <%
+                    if(fixArr.length){
+                    %>
+                    <ul class="search-feeds" >
+                        <%
+                        fixArr.forEach(function(itm,i){
+                        %>
+                        <li class="fix-group-dropdown-content-li" data-val="<%=itm.val%>" >
+                            <div class="column-flex fix-group-content-li-text" title="<%=itm.text%>"><%=itm.text%></div>
+                            <div class="column-width fix-group-content-li-count" style="text-align: right"><%=itm.count%></div>
+                        </li>
+                        <%
+                        })
+                        %>
+                    </ul>
+                    <%
+                    }else{
+                    %>
+                    <div class="nodata">
+                        <span>暂无数据</span>
+                    </div>
+                    <%
+                    }
+                    %>
+                </div>
+            </span>
+        </div>
+    </div>
+</script>

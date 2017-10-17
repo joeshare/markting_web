@@ -1,0 +1,36 @@
+{
+  "code": 0,
+  "msg":"success","total":3,"total_count": 3,
+  "data":[
+    {
+      "id": "123",
+      "name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "typeStr": "固定模板",
+      "createTimeStr": "2016-10-18 17:33:45",
+      "auditStatus": "审核驳回",
+      "editCheck":false,
+      "deleteCheck":true
+    },{
+      "id": "124",
+      "name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "typeStr": "固定模板",
+      "createTimeStr": "2016-10-18 17:33:45",
+      "auditStatus": "审核驳回",
+      "editCheck":true,
+      "deleteCheck":false
+    },{
+      "id": "125",
+      "name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "typeStr": "固定模板",
+      "createTimeStr": "2016-10-18 17:33:45",
+      "auditStatus": "审核通过",
+      "editCheck":true,
+      "deleteCheck":true
+    }
+  ],
+  "typeFixedCount": 1,
+  "typeVariableCount": 0,
+  "auditStatusNoCheckCount": 0,
+  "auditStatusPassCount": 1,
+  "auditStatusNoPassCount": 0
+}

@@ -1,0 +1,69 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="comprehensive-analysis">
+        <header class="page-body-header">
+            <div class="text-box">
+                <span class="title">综合分析</span>
+                <span class="text">
+                    <span class="color">选择多个人群，评估群体的基本属性和活动共性</span>
+                </span>
+            </div>
+            <div class="button-box icon iconfont">
+                <a class="a keyong" id="goIndex" href="<%=BASE_PATH%>/" title="返回首页">&#xe644;</a>
+            </div>
+        </header>
+        <div class="content">
+            <div class="segment-area" id="segment-area">
+                <div class="header">
+                    <div class="title">细分人群</div>
+                </div>
+                <div class="segment-box">
+                    <ul class="ul" id="filled-segment">
+                        <li class="li">
+                            <input id="filled-segment-all" class="filled-in" type="checkbox">
+                            <label for="filled-segment-all">全选</label>
+                        </li>
+                        <div id="filled-segment-li"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="activity-area" id="activity-area">
+                <div class="header">
+                    <div class="title">固定人群</div>
+                </div>
+                <div class="activity-box">
+                    <ul class="ul" id="filled-activity">
+                        <li class="li">
+                            <input id="filled-activity-all" class="filled-in" type="checkbox">
+                            <label for="filled-activity-all">全选</label>
+                        </li>
+                        <div id="filled-activity-li"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="bas-area" id="bas-area">
+                <div class="bas-box">
+                    <!--
+                    http://bas.ruixuesoft.com/main/data-overview/analysis-list/8aaffc4854ccb57d0154ccce6788006c#mode=integrated
+                    -->
+                    <iframe id="iframe" name="bas-iframe" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="comprehensive-analysis-empty.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-filled-segment">
+    <%segmentData.map(function(m,i){%>
+    <li class="li">
+        <input id="filled-segment-<%=m.audience_list_id%>" name="<%=m.audience_list_id%>" class="filled-in filled-segment-child" type="checkbox">
+        <label for="filled-segment-<%=m.audience_list_id%>"><%=m.audience_list_name%></label>
+    </li>
+    <% })%>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-filled-activity">
+    <%activityData.map(function(m,i){%>
+    <li class="li">
+        <input id="filled-activity-<%=m.audience_list_id%>" name="<%=m.audience_list_id%>" class="filled-in filled-activity-child" type="checkbox">
+        <label for="filled-activity-<%=m.audience_list_id%>"><%=m.audience_list_name%></label>
+    </li>
+    <% })%>
+</script>

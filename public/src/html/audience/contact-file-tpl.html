@@ -1,0 +1,484 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="contact-file">
+        <header class="this-page-header">
+            <div class="title">联系人档案</div>
+            <div class="selectbtn r-btn dropdown-button" data-constrainwidth="false" data-activates="crowd-list" data-beloworigin="true">
+                <div class="cont-box" id="crowd-list-box"><%=dataType.name%></div>
+                <div class="arrow-down"></div>
+            </div>
+            <ul id="crowd-list" class="dropdown-content">
+                <li><a href="javascript:void(0)" id="1" name="微信视图">微信视图</a></li>
+                <li><a href="javascript:void(0)" id="2" name="联系人视图">联系人视图</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <%if(dataType.id==1){ %>
+                <%if(userData.weixinData){%>
+            <div class="basic-area-true">
+                <div class="popto-box">
+                    <%if(userData.popto){%>
+                    <img class="popto" src="<%=userData.popto%>"/>
+                    <%}else{%>
+                    <img class="popto" src="<%=IMG_PATH%>/img/audience/default_poptp.png"/>
+                    <%}%>
+                </div>
+                <div class="info-box">
+                    <div class="user-name" id="wechat-name"><%=userData.wechatName%></div>
+                    <div class="info">
+                        <div class="user-gender" id="wechat-gender"><%=userData.wechatGender%></div>
+                    </div>
+                </div>
+            </div>
+                <%}else{%>
+            <div class="basic-area-false">未关联微信信息</div>
+                <%}%>
+            <%}else{%>
+                <%if(userData.lianxirenData){%>
+            <div class="basic-area-true">
+                <div class="popto-box">
+                    <%if(userData.popto){%>
+                    <img class="popto" src="<%=userData.popto%>"/>
+                    <%}else{%>
+                    <img class="popto" src="<%=IMG_PATH%>/img/audience/default_poptp.png"/>
+                    <%}%>
+                </div>
+                <div class="info-box">
+                    <div class="user-name" id="user-name"><%=userData.name%></div>
+                    <div class="info">
+                        <div class="user-gender" id="user-gender"><%=userData.gender%></div>
+                        <div class="user-birthday" id="user-birthday"><%=userData.birthday%></div>
+                    </div>
+                </div>
+            </div>
+                <%}else{%>
+            <div class="basic-area-false">未关联联系人信息</div>
+                <%}%>
+            <%}%>
+            <div class="specific-area">
+                <div class="label-area">
+                    <div class="header">
+                        <div class="title">自定义标签</div>
+                        <div id="label-edit-but" class="icon iconfont edit" contactid="<%=userData.contactId%>">&#xe609;</div>
+                    </div>
+                    <div class="label-box" id="label-box">
+                        <% if(tagName.length>0){ %>
+                        <%tagName.map(function(m,i){%>
+                        <nobr class="label"><%=m.tag_name%></nobr>
+                        <%})}else{%>
+                        <div class="wu">暂未设置标签</div>
+                        <%}%>
+                    </div>
+                </div>
+                <div class="info-area">
+                    <div class="header">
+                        <div class="title">联系人信息</div>
+                        <div class="icon iconfont edit" id="user-info-edit" style="display: none">&#xe609;</div>
+                    </div>
+                    <div class="info-box">
+                        <div id="contact-content" style="display: none">
+                            <div class="info">
+                                <div class="li">
+                                    <div class="title">手机号码</div>
+                                    <div class="text" id="user-mobile"><%=userData.mobile%></div>
+                                </div>
+                                <div class="li">
+                                    <div class="title">邮箱地址</div>
+                                    <div class="text" id="user-email"><%=userData.email%></div>
+                                </div>
+                                <div class="li">
+                                    <div class="title">QQ号</div>
+                                    <div class="text" id="user-qq"><%=userData.QQ%></div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="li">
+                                    <div class="title">私有账号体系</div>
+                                    <div class="text" id="user-private"><%=userData.private%></div>
+                                </div>
+                                <div class="li">
+                                    <div class="title">账号</div>
+                                    <div class="text" id="user-account"><%=userData.account%></div>
+                                </div>
+                                <div class="li">
+                                    <div class="title">地区</div>
+                                    <div class="text" id="user-address"><%=userData.province%>&#47;<%=userData.city%></div>
+                                </div>
+                                <div class="li">
+                                    <div class="title">婚否</div>
+                                    <div class="text" id="user-marriage"><%=userData.marriage%></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="wechat-content" style="display: block">
+                            <div class="info">
+                                <div class="li">
+                                    <div class="title">国家</div>
+                                    <div class="text" id="wechat-nationality"><%=userData.wechatNationality%></div>
+                                </div>
+                                <div class="li">
+                                    <div class="title">省市</div>
+                                    <div class="text" id="wechat-address"><%=userData.wechatProvince%>&#47;<%=userData.wechatCity%></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--弹窗-->
+<!--编辑用户信息-->
+<script type="text/template" id="tpl-userinfo">
+    <div class="row info-row" style="overflow-y: auto; height: 1500px; padding-top: 4px;">
+        <div class="input-field col s12">
+            <input id="userinfo_name" type="text" class="validate" value="<%=userData.name%>" contactid="<%=userData.contactId%>" mdtype="<%=userData.mdType%>"/>
+            <% if(userData.name){ %>
+            <label for="userinfo_name" class="active">用户姓名</label>
+            <% }else{ %>
+            <label for="userinfo_name">用户姓名</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <select id="userinfo_gender">
+                <% if(userData.gender == '未知'){ %>
+                <option value="未知" selected>未知</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+                <% } if(userData.gender == '男'){ %>
+                <option value="未知">未知</option>
+                <option value="男" selected>男</option>
+                <option value="女">女</option>
+                <% } if(userData.gender == '女'){ %>
+                <option value="未知">未知</option>
+                <option value="男">男</option>
+                <option value="女" selected>女</option>
+                <% } %>
+            </select>
+            <label>性别</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_birthday" type="date" value="<%=userData.birthday%>" class="validate" readonly="readonly" style="cursor:pointer" placeholder="请输入日期"/>
+            <label for="userinfo_birthday" class="active">出生日期</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="userinfo_blood">
+                <% if(userData.blood == '未知'){ %>
+                <option value="未知" selected>未知</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+                <% }  if(userData.blood == 'A'){ %>
+                <option value="未知">未知</option>
+                <option value="A" selected>A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+                <% }  if(userData.blood == 'B'){ %>
+                <option value="未知">未知</option>
+                <option value="A">A</option>
+                <option value="B" selected>B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+                <% }  if(userData.blood == 'AB'){ %>
+                <option value="未知">未知</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB" selected>AB</option>
+                <option value="O">O</option>
+                <% }  if(userData.blood == 'O'){ %>
+                <option value="未知">未知</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O" selected>O</option>
+                <% } %>
+            </select>
+            <label>血型</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_iq" type="number" value="<%=userData.IQ%>" class="validate"/>
+            <label for="userinfo_iq" class="active">IQ</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_userid" type="text" value="<%=userData.userid%>" class="validate" disabled="disabled"/>
+            <% if(userData.userid){ %>
+            <label for="userinfo_userid" class="active">身份证号</label>
+            <% }else{ %>
+            <label for="userinfo_userid">身份证号</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_driving_licence" type="text" value="<%=userData.drivingLicence%>" class="validate" disabled="disabled"/>
+            <% if(userData.drivingLicence){ %>
+            <label for="userinfo_driving_licence" class="active">驾驶证号</label>
+            <% }else{ %>
+            <label for="userinfo_driving_licence">驾驶证号</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_mobile" type="tel" value="<%=userData.mobile%>" class="validate" disabled="disabled"/>
+            <% if(userData.mobile){ %>
+            <label for="userinfo_mobile" class="active">手机号码</label>
+            <% }else{ %>
+            <label for="userinfo_mobile">手机号码</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_phone" type="tel" value="<%=userData.phone%>" class="validate" disabled="disabled"/>
+            <% if(userData.phone){ %>
+            <label for="userinfo_phone" class="active">固话号码</label>
+            <% }else{ %>
+            <label for="userinfo_phone">固话号码</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_email" type="email" value="<%=userData.email%>" class="validate" disabled="disabled"/>
+            <% if(userData.email){ %>
+            <label for="userinfo_email" class="active">邮箱地址</label>
+            <% }else{ %>
+            <label for="userinfo_email">邮箱地址</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_qq" type="text" value="<%=userData.QQ%>" class="validate" disabled="disabled"/>
+            <% if(userData.QQ){ %>
+            <label for="userinfo_qq" class="active">QQ</label>
+            <% }else{ %>
+            <label for="userinfo_qq">QQ</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_wechat" type="text" value="<%=userData.wechat%>" class="validate" disabled="disabled"/>
+            <% if(userData.wechat){ %>
+            <label for="userinfo_wechat" class="active">微信号</label>
+            <% }else{ %>
+            <label for="userinfo_wechat">微信号</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_private" type="text" value="<%=userData.private%>" class="validate" disabled="disabled"/>
+            <% if(userData.private){ %>
+            <label for="userinfo_private" class="active">私有账号体系</label>
+            <% }else{ %>
+            <label for="userinfo_private">私有账号体系</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_account" type="text" value="<%=userData.account%>" class="validate" disabled="disabled"/>
+            <% if(userData.account){ %>
+            <label for="userinfo_account" class="active">账号</label>
+            <% }else{ %>
+            <label for="userinfo_account">账号</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_nationality" type="text" value="<%=userData.nationality%>" class="validate"/>
+            <% if(userData.nationality){ %>
+            <label for="userinfo_nationality" class="active">国籍</label>
+            <% }else{ %>
+            <label for="userinfo_nationality">国籍</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_province" type="text" value="<%=userData.province%>" class="validate"/>
+            <% if(userData.province){ %>
+            <label for="userinfo_province" class="active">省</label>
+            <% }else{ %>
+            <label for="userinfo_province">省</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_city" type="text" value="<%=userData.city%>" class="validate"/>
+            <% if(userData.city){ %>
+            <label for="userinfo_city" class="active">市</label>
+            <% }else{ %>
+            <label for="userinfo_city">市</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_nation" type="text" value="<%=userData.nation%>" class="validate"/>
+            <% if(userData.nation){ %>
+            <label for="userinfo_nation" class="active">民族</label>
+            <% }else{ %>
+            <label for="userinfo_nation">民族</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_profession" type="text" value="<%=userData.profession%>" class="validate"/>
+            <% if(userData.profession){ %>
+            <label for="userinfo_profession" class="active">职业</label>
+            <% }else{ %>
+            <label for="userinfo_profession">职业</label>
+            <% } %>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_income" type="number" value="<%=userData.income%>" class="validate"/>
+            <label for="userinfo_income" class="active">月收入</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="userinfo_consume" type="number" value="<%=userData.consume%>" class="validate"/>
+            <label for="userinfo_consume" class="active">月消费</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="userinfo_marriage">
+                <% if(userData.marriage == '未知'){ %>
+                <option value="未知" selected>未知</option>
+                <option value="未婚">未婚</option>
+                <option value="已婚">已婚</option>
+                <% } if(userData.marriage == '未婚'){ %>
+                <option value="未知">未知</option>
+                <option value="未婚" selected>未婚</option>
+                <option value="已婚">已婚</option>
+                <% } if(userData.marriage == '已婚'){ %>
+                <option value="未知">未知</option>
+                <option value="未婚">未婚</option>
+                <option value="已婚" selected>已婚</option>
+                <% } %>
+            </select>
+            <label>婚否</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="userinfo_educated">
+                <% if(userData.educated == '未知'){ %>
+                <option value="未知" selected>未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专">中专</option>
+                <option value="高中">高中</option>
+                <option value="专科">专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '初中以下'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下" selected>初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专">中专</option>
+                <option value="高中">高中</option>
+                <option value="专科">专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '初中'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中" selected>初中</option>
+                <option value="中专">中专</option>
+                <option value="高中">高中</option>
+                <option value="专科">专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '中专'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专" selected>中专</option>
+                <option value="高中">高中</option>
+                <option value="专科">专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '高中'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专">中专</option>
+                <option value="高中" selected>高中</option>
+                <option value="专科">专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '专科'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专">中专</option>
+                <option value="高中">高中</option>
+                <option value="专科" selected>专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '本科'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专">中专</option>
+                <option value="高中">高中</option>
+                <option value="专科">专科</option>
+                <option value="本科" selected>本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '硕士'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专">中专</option>
+                <option value="高中">高中</option>
+                <option value="专科">专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士" selected>硕士</option>
+                <option value="博士">博士</option>
+                <% } if(userData.educated == '博士'){ %>
+                <option value="未知">未知</option>
+                <option value="初中以下">初中以下</option>
+                <option value="初中">初中</option>
+                <option value="中专">中专</option>
+                <option value="高中">高中</option>
+                <option value="专科">专科</option>
+                <option value="本科">本科</option>
+                <option value="硕士">硕士</option>
+                <option value="博士" selected>博士</option>
+                <% } %>
+            </select>
+            <label>教育程度</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="userinfo_job_type">
+                <% if(userData.jobType == '在职'){ %>
+                <option value="在职" selected>在职</option>
+                <option value="离职">离职</option>
+                <option value="自由职业">自由职业</option>
+                <% } if(userData.jobType == '离职'){ %>
+                <option value="在职">在职</option>
+                <option value="离职" selected>离职</option>
+                <option value="自由职业">自由职业</option>
+                <% } if(userData.jobType == '自由职业'){ %>
+                <option value="在职">在职</option>
+                <option value="离职">离职</option>
+                <option value="自由职业" selected>自由职业</option>
+                <% } %>
+            </select>
+            <label>就业情况</label>
+        </div>
+
+    </div>
+</script>
+<!--编辑标签-->
+<script type="text/template" id="tpl-lable-edit">
+    <div class="modal-content" style="padding: 24px 0;">
+        <div style="font-size:12px;color:#8c8c8c;" class="desc">这里您可以对细分创建不同的标签标识它</div>
+        <div style="padding-top:24px;" class="">
+            <div class="input-field rui-modal-input-field col s12">
+                <input type="text" class="validate" id="lable-input">
+                <label for="lable-input">标签名称</label>
+            </div>
+        </div>
+        <div id="lable-wrap" style="min-height: 64px; overflow-y: auto;"></div>
+    </div>
+</script>
+<script type="text/template" id="tpl-label-edit">
+    <%lableList.map(function(m,i){%>
+    <div class='segment-tag'>
+        <span class='text'><%=lableList[i]%></span>
+        <i class='icon iconfont rui-close' id="asd<%=i%>">&#xe637;</i>
+    </div>
+    <%})%>
+</script>
+<script type="text/template" id="tpl-lable-list">
+    <%tagName.map(function(m,i){%>
+    <nobr class="label"><%=tagName[i]%></nobr>
+    <%})%>
+</script>

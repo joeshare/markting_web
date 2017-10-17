@@ -1,0 +1,116 @@
+@import "../base";
+@import "../../js/plugins/loliclock";
+@import "../core/mcbutton";
+
+.test {
+  background: #fff;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  padding: 20px;
+  overflow-y: auto;
+
+  .sortable {
+    padding: 24px;
+    width: 300px;
+    border: 1px dashed #CCC;
+    float: left;
+    margin: 0 20px 20px 0;
+    li {
+      margin-bottom: 10px;
+      background: #eee;
+      border: solid 1px #ccc;
+      line-height: 30px;
+      height: 30px;
+      padding: 0 10px;
+    }
+    li.ri {
+      background: #00acc1;
+    }
+    li.sortable-placeholder {
+      border: 1px dashed #CCC;
+      background: none;
+    }
+  }
+  #myCanvas {
+    background: #fafafa;
+  }
+  .testtitle {
+    width: 100px;
+    @include multi-text(2)
+  }
+  .my-drag {
+    width: 100%;
+    height: 700px;
+    overflow: auto;
+    background: #f1f1f1;
+    border: solid 1px #ccc;
+
+    .btn-wrap {
+      padding: 8px;
+
+      background: #fff;
+      width: 100px;
+      box-shadow: 2px 2px 2px #ccc;
+      li {
+
+        cursor:move;
+        margin-top: 8px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 12px;
+        border: solid 1px #ccc;
+        &.first{
+          margin-top:0;
+        }
+      }
+    }
+  }
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  background: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .wrap {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+  }
+}
+
+.drag-area {
+  position: relative;
+  border: solid 1px #ccc;
+  padding: 16px 16px 0 16px;
+  .item-block {
+
+    background: #ccc;
+    height: 30px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    font-size: 12px;
+    &.sortable-chosen {
+
+      border: dashed 1px red;
+      opacity: 0.6;
+    }
+    .handle {
+      background: #66c1e3;
+      height: 30px;
+      line-height: 30px;
+      width: 30px;
+    }
+    .txt {
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+
+}

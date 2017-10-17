@@ -1,0 +1,101 @@
+<!--联系title-->
+<script type="text/template" id="tpl-modal-edit">
+    <div class="desc" style="font-size:12px;color:#8c8c8c;">这里您可以对细分信息进行编辑以便更好的管理它</div>
+    <div class="" style="padding-top:24px;">
+        <div class="input-field rui-modal-input-field col s12">
+            <input  id="modal-contact-name" type="text" class="validate" maxlength="25"
+                   <%if(name){%>
+                      value="<%=name%>"
+                    <% } %>
+                    >
+            <label for="modal-contact-name"
+            <%if(name){%>
+            class="active"
+            <% } %>
+                    >联系人表单名称</label>
+        </div>
+    </div>
+
+</script>
+<!--表单标题-->
+<script type="text/template" id="modal-form">
+    <div class="desc" style="font-size:12px;color:#8c8c8c;">设置表单中显示的表单标题及描述内容。</div>
+    <div class="" style="padding-top:24px;">
+        <div class="input-field rui-modal-input-field col s12">
+            <input onkeyup="formNameChange(this)" placeholder="联系人表单" onmouseup="formNameChange(this)" id="modal-contact-title" type="text" class="validate" maxlength="25"
+            <%if(title){%>
+            value="<%=title%>"
+            <% } %>
+            >
+            <label for="modal-contact-title" class="active"
+            <%if(title){%>
+            class="active"
+            <% } %>
+            >表单标题</label>
+        </div>
+        <div class="input-field rui-modal-input-field col s12" style="margin-top: 25px;">
+            <textarea onkeyup="formDescChange(this)" placeholder="感谢参与信息征集活动，留下您的联系方式。" onmouseup="formDescChange(this)" id="modal-contact-desc" style="max-height:150px;overflow-y: auto;" class="materialize-textarea" ><%if(desc){%><%=desc%><%}%></textarea>
+            <label for="modal-contact-desc" class="active"
+            <%if(desc){%>
+             class="active"
+            <% } %>
+            >表单描述</label>
+            <div id="modal-form-desc-total" style="text-align: right"><%=total%>/100</div>
+        </div>
+        <div id="modal-form-error-msg" style="color: #f00;font-size: 12px"></div>
+    </div>
+</script>
+
+<!--字段变化-->
+<script type="text/template" id="modals-diff">
+    <div class="desc" style="padding-top:15px;font-size:12px;color:rgb(255,153,0);">更改后的表单数据和当前收集的数据内容不对应。可能更改数据主键。</div>
+    <div style="padding-top:15px;font-size:14px;">推荐您进行以下设置:</div>
+    <div class="" style="padding-top:10px;font-size:14px;">
+        <div class="input-field rui-modal-input-field col s12">
+            <input   class="with-gap" name="effect" type="radio" id="effect-all" checked value="1"/>
+            <label for="effect-all">对所有数据有效<span  style="color:#8c8c8c;">（依照设置的表单内容更改所有数据）</span></label>
+        </div>
+        <div class="input-field rui-modal-input-field col s12">
+            <input  class="with-gap" name="effect" type="radio" id="effect-after" value="2"/>
+            <label for="effect-after">对以后收集的数据有效</label>
+        </div>
+    </div>
+</script>
+<!--主键变化-->
+<script type="text/template" id="modals-primary">
+    <div class="desc" style="padding-top:15px;font-size:12px;color:rgb(255,153,0);">更改后，您设置的数据主键“
+        <%
+           keys.forEach(function(k,i){
+             if((keys.length-1)==i){
+        %>
+               <%=k.field_name%>
+        <%
+             }else{
+        %>
+              <%=k.field_name+" ,"%>
+        <%
+         }})
+        %>”不符合主键的条件。未导入主数据的表单数据可能无法产生并关联主数据。</div>
+    <div style="padding-top:15px;font-size:14px;">推荐您进行以下设置:</div>
+    <div class="" style="padding-top:10px;font-size:14px;">
+        <div class="input-field rui-modal-input-field col s12">
+            <input class="filled-in" type="checkbox" id="primary" checked value="primary"/>
+            <label for="primary">将更改前收集的数据导入主数据</label>
+        </div>
+    </div>
+</script>
+<!--标签-->
+<script type="text/template" id="tpl-modal-tag">
+    <div class="desc" style="font-size:12px;color:#8c8c8c;">这里您可以对细分创建不同的标签标识它</div>
+    <div class="" style="padding-top:24px;">
+        <div class="input-field rui-modal-input-field col s12">
+            <input id="tag-name" type="text" class="validate" maxlength="25">
+            <label for="tag-name">标签名称</label>
+        </div>
+    </div>
+    <div style="height: 30px;color:#c8c8c8;font-size: 12px;">
+        输入标签，回车增加
+    </div>
+    <div class="" style="height: 64px; overflow-y: auto;" id="tag-wrap">
+    </div>
+</script>

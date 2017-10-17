@@ -1,0 +1,60 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+ul {
+  &.browser-default {
+    list-style-type: initial;
+  }
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  //color: color("blue", "lighten-1");
+  text-decoration: none;
+
+  // Gets rid of tap active state
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Images
+img.responsive-img,
+video.responsive-video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  font-family: "微软雅黑";
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4{
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 12px;
+}

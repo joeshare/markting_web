@@ -1,0 +1,25 @@
+{
+    "code": 0,
+    "msg":"success","total":2,"total_count": 0,"date":"2016-11-22",
+    "data":[
+        {
+            "id": 100,
+            "title": "贝贝熊短信引流优惠码活动",
+            "amount": 8,
+            "coupono_status": "unused",
+            "create_time": "1481175617",
+            "stock_total": 20000,
+            "stock_rest": 10000,
+            "channel_code": "sms"
+        },{
+            "id": 12,
+            "title": "贝贝熊短信引流优惠码活动",
+            "amount": 6.12,
+            "coupono_status": "unused",
+            "create_time": "1481077079",
+            "stock_total": 10000,
+            "stock_rest": 10000,
+            "channel_code": "sms"
+        }
+    ]
+}

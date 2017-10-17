@@ -1,0 +1,38 @@
+{
+  "code": 0,
+  "msg": "success",
+  "total": 2,
+  "data": [
+    {
+      "custom_tag_category_id": "11",
+      "custom_tag_category_name": "未分类",
+      "level": 1,
+      "custom_tag_count": 10
+    },
+    {
+      "custom_tag_category_id": "22",
+      "custom_tag_category_name": "分类1",
+      "level": 1,
+      "custom_tag_count": 11
+    },
+    {
+      "custom_tag_category_id": "33",
+      "custom_tag_category_name": "分类2",
+      "level": 1,
+      "custom_tag_count": 222
+    },
+    {
+      "custom_tag_category_id": "44",
+      "custom_tag_category_name": "分类3",
+      "level": 1,
+      "custom_tag_count": 233
+    },
+    {
+      "custom_tag_category_id": "55",
+      "custom_tag_category_name": "分类4",
+      "level": 1,
+      "custom_tag_count": 25432
+    }
+  ],
+  "total_count": 4
+}

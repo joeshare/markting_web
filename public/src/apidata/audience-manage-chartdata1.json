@@ -1,0 +1,53 @@
+[
+  {
+    "name": ">8个月孕龄的孕期准妈妈",
+    "type": "line",
+    "smooth": true,
+    "itemStyle": {
+      "normal": {
+        "areaStyle": {
+          "type": "default"
+        }
+      }
+    },
+    "data": [
+      0,
+      10,
+      2,
+      10,
+      20,
+      20,
+      30
+    ]
+  },
+  {
+    "name": "<8个月孕龄的孕期准妈妈",
+    "type": "line",
+    "smooth": true,
+
+    "data": [
+      21,
+      37,
+      32,
+      49,
+      119,
+      5,
+      43
+    ]
+  },
+  {
+    "name": "0~6个月新妈妈爸爸",
+    "type": "line",
+    "smooth": true,
+
+    "data": [
+      20,
+      36,
+      31,
+      48,
+      118,
+      4,
+      42
+    ]
+  }
+]

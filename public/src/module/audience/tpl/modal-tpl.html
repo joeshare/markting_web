@@ -1,0 +1,36 @@
+<script type="text/template" id="tpl-modal-edit">
+    <div class="desc" style="font-size:12px;color:#8c8c8c;">这里您可以对细分信息进行编辑以便更好的管理它</div>
+    <div class="" style="padding-top:24px;">
+        <div class="input-field rui-modal-input-field col s12">
+            <input  id="audience-name" type="text" class="validate" maxlength="25"
+                   <%if(name){%>
+                      value="<%=name%>"
+                    <% } %>
+                    >
+            <label for="audience-name"
+            <%if(name){%>
+            class="active"
+            <% } %>
+             >细分名称</label>
+        </div>
+    </div>
+</script>
+<!--保存 -->
+<script type="text/template" id="tpl-modal-save">
+    <div  style="height:50px;line-height: 50px;text-align: center;padding-top: 24px;">保存成功！</div>
+</script>
+<!--标签 -->
+<script type="text/template" id="tpl-modal-shuqian">
+    <div class="desc" style="font-size:12px;color:#8c8c8c;">这里您可以对细分创建不同的标签标识它</div>
+    <div class="" style="padding-top:24px;">
+        <div class="input-field rui-modal-input-field col s12">
+            <input id="tag-name" type="text" class="validate" maxlength="25">
+            <label for="tag-name">标签名称</label>
+        </div>
+    </div>
+    <div style="height: 30px;color:#c8c8c8;font-size: 12px;">
+        输入标签，回车增加
+    </div>
+    <div class="" style="height: 64px; overflow-y: auto;" id="tag-wrap">
+    </div>
+</script>

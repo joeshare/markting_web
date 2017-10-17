@@ -1,0 +1,420 @@
+@import "./variable";
+//通用阴影
+@mixin shadowBox($type:0) {
+  @if $type==0 {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  } @else if $type==1 {
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.021), 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+}
+
+// 块左右居中
+@mixin center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// placeholder样式 字体大小和颜色
+@mixin placeholder($size:14px,$color:#999) {
+  ::-moz-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+  ::-webkit-input-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+  :-ms-input-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+
+}
+
+//单行文字截取
+@mixin single-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//多行文字截取
+@mixin multi-text($multiType:2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: $multiType;
+  -webkit-box-orient: vertical;
+}
+
+//禁止文字选择
+@mixin txtSelectNone {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+//清浮动
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//按比例自适应块
+@mixin scale-block($padding-Bottom:$scale-bottom) {
+  width: 100%;
+  height: 0;
+  padding-bottom: $padding-Bottom;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+//圆角
+@mixin radius($radius-val:50%) {
+  -moz-border-radius: $radius-val;
+  -webkit-border-radius: $radius-val;
+  border-radius: $radius-val;
+}
+
+//flex can i use 测试
+//ie ie10，11部分支持，需加-ms-
+//firefox chrome opera 支持
+//ios支持
+//Android 4.1,4.4支持2009的-webkit-的语法 4.4以上完全支持
+
+//flex2009不支持换行,如特定个数换行，可以做数据分割
+
+@mixin flex-display {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($v:1) {
+  -webkit-box-flex: $v;
+  -webkit-flex: $v;
+  flex: $v;
+  width: 100%;
+}
+
+//确定子元素的排列方向方向flex-direction
+//row | row-reverse | column | column-reverse;
+//默认row
+@mixin flex-direction($dirType:row) {
+  @if $dirType==column {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  } @else if $dirType==row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  } @else if $dirType==column-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  } @else {
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+//水平位置justify-content
+//flex-start | flex-end | center | space-between |
+//默认flex-start
+@mixin flex-justify-content($justifyType:flex-start) {
+  @if $justifyType==flex-end {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  } @else if $justifyType==center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  } @else if $justifyType==space-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  } @else {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+//垂直方向align-items
+//flex-start：交叉轴的起点对齐。
+//flex-end：交叉轴的终点对齐。
+//center：交叉轴的中点对齐。
+//baseline: 项目的第一行文字的基线对齐。
+//stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+//默认flex-start
+@mixin flex-align-items($alignType:flex-start) {
+  @if $alignType==flex-end {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+  } @else if $alignType==center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  } @else if $alignType==baseline {
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    align-items: baseline;
+  } @else if $alignType==stretch {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+  } @else {
+    -webkit-box-align: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@mixin flex-order($order:0) {
+  -webkit-box-ordinal-group: $order;
+  -webkit-order: $order;
+  order: $order;
+}
+
+//水平，垂直方向居中
+@mixin flex-center() {
+  @include flex-display;
+  @include flex-justify-content(center);
+  @include flex-align-items(center);
+}
+
+//1像素线
+@mixin mborBottom($border-color:rgba(0, 0, 0, 0.5)) {
+  -webkit-box-shadow: 0 1px 1px -1px $border-color;
+}
+
+@mixin mborTop($border-color:rgba(0, 0, 0, 0.5)) {
+  -webkit-box-shadow: 0 -1px 1px -1px $border-color;
+}
+
+@mixin mborLeft($border-color:rgba(0, 0, 0, 0.5)) {
+  -webkit-box-shadow: -1px 0px 1px -1px $border-color;
+}
+
+@mixin mborRight($border-color:rgba(0, 0, 0, 0.5)) {
+  -webkit-box-shadow: 1px 0px 1px -1px $border-color;
+}
+
+@mixin mborTopBottom($border-color:rgba(0, 0, 0, 0.5)) {
+  -webkit-box-shadow: 0 1px 1px -1px $border-color, 0 -1px 1px -1px $border-color;
+}
+
+//图片版本控制
+@mixin background-image($url:'') {
+  background: url($url);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+}
+
+//默认是border:1px solid #D9D9D9;border-radius:4px;
+//三个参数，颜色、圆角值，2倍圆角值
+
+@mixin border-radius($border-color: $bordercolor,$border-radius: $border-radius-base,$border-before-radius: $border-radius-lg) {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    position: relative;
+    border: 0;
+    &:before {
+      content: "";
+      width: 200%;
+      height: 200%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 1px solid $border-color;
+      -webkit-transform: scale(.5);
+      -webkit-transform-origin: 0 0;
+      padding: 1px;
+      -webkit-box-sizing: border-box;
+      border-radius: $border-before-radius;
+      pointer-events: none;
+    }
+  }
+}
+
+/* 1px hack */
+
+//border-top：1px solid #D9D9D9;
+@mixin border-t($bordercolor:#D9D9D9) {
+  border-top: 1px solid $bordercolor;
+  $border-t: -webkit-gradient(linear, left bottom, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    border: 0;
+    background-repeat: repeat-x;
+    -webkit-background-size: 100% 1px;
+    background-position: left top;
+    background-image: $border-t;
+  }
+}
+
+//border-bottom：1px solid #D9D9D9;
+@mixin border-b($bordercolor:#D9D9D9) {
+  border-bottom: 1px solid $bordercolor;
+  $border-b: -webkit-gradient(linear, left top, left bottom, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    border: 0;
+    background-repeat: repeat-x;
+    -webkit-background-size: 100% 1px;
+    background-position: left bottom;
+    background-image: $border-b;
+  }
+}
+
+//border-left：1px solid #D9D9D9;
+@mixin border-l($bordercolor:#D9D9D9) {
+  border-left: 1px solid $bordercolor;
+  $border-l: -webkit-gradient(linear, right top, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    border: 0;
+    background-repeat: repeat-y;
+    -webkit-background-size: 1px 100%;
+    background-position: left top;
+    background-image: $border-l;
+  }
+
+}
+
+//border-right：1px solid #D9D9D9;
+@mixin border-r($bordercolor:#D9D9D9) {
+  border-right: 1px solid $bordercolor;
+  $border-r: -webkit-gradient(linear, left top, right top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    border: 0;
+    background-repeat: repeat-y;
+    -webkit-background-size: 1px 100%;
+    background-position: right top;
+    background-image: $border-r;
+  }
+}
+
+//border-top：1px solid #D9D9D9; border-bottom:1px solid #D9D9D9;
+@mixin border-tb($bordercolor:#D9D9D9) {
+  border-top: $bordercolor 1px solid;
+  border-bottom: $bordercolor 1px solid;
+  background-image: none;
+  $border-t: -webkit-gradient(linear, left bottom, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  $border-b: -webkit-gradient(linear, left top, left bottom, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    border: 0;
+    background-repeat: repeat-x;
+    -webkit-background-size: 100% 1px;
+    background-image: $border-t, $border-b;
+    background-position: top, bottom;
+  }
+}
+
+//border：1px solid #D9D9D9;
+@mixin border($bordercolor:#D9D9D9) {
+  border: 1px solid $bordercolor;
+  $border-t: -webkit-gradient(linear, left bottom, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  $border-b: -webkit-gradient(linear, left top, left bottom, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  $border-l: -webkit-gradient(linear, right top, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  $border-r: -webkit-gradient(linear, left top, right top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor), to($bordercolor));
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    position: relative;
+    border: 0;
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: $border-t, $border-r, $border-b, $border-l;
+      -webkit-background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+      background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+      background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+      background-repeat: no-repeat;
+      background-position: top, right, bottom, left;
+      padding: 1px;
+      -webkit-box-sizing: border-box;
+      z-index: 10;
+      pointer-events: none;
+    }
+  }
+}
+
+/*上下单边*/
+@mixin bd-tb-1px($bStyle,$color,$bDir) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    #{$bDir}: 0;
+    width: 200%;
+    height: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left $bDir;
+    transform-origin: left $bDir;
+    border-#{$bDir}: 1px $bStyle $color;
+  }
+}
+
+/*左右单边*/
+@mixin bd-lr-1px($bStyle,$color,$bDir) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    #{$bDir}: 0;
+    width: 0;
+    height: 200%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: $bDir top;
+    transform-origin: $bDir top;
+    border-#{$bDir}: 1px $bStyle $color;
+  }
+}
+
+/*四边*/
+@mixin bd-all-1px($bStyle,$color,$radius) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    border: 1px $bStyle $color;
+    border-radius: $radius;
+  }
+}
+
+
+

@@ -1,0 +1,345 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+
+/*正文开始*/
+.custom-tag {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px 12px 16px;
+  .content {
+    position: absolute;
+    top: 48px;
+    right: 16px;
+    bottom: 12px;
+    left: 16px;
+    background-color: rgba(255, 255, 255, 1);
+    .header {
+      float: left;
+      width: 100%;
+      height: auto;
+      padding: 24px 24px 22.5px 24px;
+      .title {
+        float: left;
+        width: 100%;
+        height: 16px;
+        font-size: $main-font-size + 6;
+        color: rgba(60, 60, 60, 1);
+        line-height: $main-font-size + 6;
+      }
+      .h2 {
+        float: left;
+        width: 100%;
+        height: 12px;
+        font-size: $main-font-size;
+        color: rgba(120, 120, 120, 1);
+        margin-top: 16px;
+        line-height: $main-font-size;
+      }
+    }
+    .list-left {
+      width: 400px;
+      height: 100%;
+      border-right: solid 1px #e6e6e6;
+      float: left;
+      .list-left-con {
+        height: 100%;
+
+      }
+      .tabs-btnwrap {
+        width: 30%;
+        height: 100%;
+      }
+      .tabs-boxwrap {
+        top: 48px;
+        bottom: 0;
+        width: 400px;
+        position: absolute;
+        border-top: solid 1px #e6e6e6;
+        overflow-y: auto;
+      }
+      .fn-createcategory {
+        float: right;
+        margin: 10px 10px 0 0;
+        font-size: 12px;
+        color: #66c1e3;
+        border: none;
+        background: none;
+      }
+      .category-lists {
+
+        padding: 10px 0;
+        > li {
+          position: relative;
+          padding: 0 24px;
+          height: 30px;
+          line-height: 30px;
+          font-size: 12px;
+          border-left: 4px solid #fff;
+          &:hover {
+            color: #66c1e3;
+            border-left: 4px solid #66c1e3;
+            background: rgba(102, 193, 227, 0.11);
+          }
+          &.cur {
+            color: #66c1e3;
+            border-left: 4px solid #66c1e3;
+            background: rgba(102, 193, 227, 0.11);
+          }
+          .fn-btn {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .page-right {
+      margin-left: 400px;
+      height: 100%;
+      overflow-y: auto;
+      .hd {
+        padding: 16px;
+        font-size: 14px;
+      }
+
+      .categoryname {
+        margin-left: 20px;
+        color: #5bd4c7;
+      }
+    }
+    .list-box {
+      position: absolute;
+      top: 90.5px;
+      right: 0;
+      bottom: 60px;
+      left: 0;
+      line-height: 48px;
+      overflow-y: auto;
+      text-align: left;
+      tr > th, tr > td {
+        width: 45%;
+      }
+      tr:last-child > td {
+        border: none;
+      }
+    }
+    .pagination-box {
+      position: absolute;
+      width: 100%;
+      height: 32px;
+      bottom: 10px;
+      display: flex;
+      justify-content: flex-end;
+      .pagination {
+        width: 274px;
+        .active {
+          background-color: rgba(130, 183, 232, 1);
+        }
+        .disabled {
+          vertical-align: middle;
+        }
+      }
+    }
+    .right-lab-empty, .right-lab-unselect {
+      .empty-top {
+        font-size: 16px;
+        color: #666666;
+        text-align: left;
+        margin-top: 20%;
+        margin-left: 40%;
+      }
+      .empty-bot {
+        font-size: 14px;
+        color: #666666;
+        text-align: left;
+        margin: 20px 0 20px 32%;
+      }
+      .empty-botf {
+        font-size: 12px;
+        color: #999999;
+        text-align: left;
+        margin-left: 32%;
+      }
+      .empty-bots {
+        font-size: 12px;
+        color: #5bd4c7;
+        text-align: left;
+        margin-left: 32%;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+#create-category-modal, #edit-category-modal, #edit-tag-modal {
+  .name {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+  .input-name {
+    border: solid 1px #e6e6e6;
+    margin-left: 10px;
+    width: 250px;
+    padding-left: 6px;
+  }
+  .err-tip {
+    padding-left: 60px;
+    .icon {
+      color: red;
+      font-size: 12px;
+    }
+    .txt {
+      margin-left: 4px;
+      color: red;
+      font-size: 12px;
+    }
+  }
+  .edit-tag-input-wrap {
+    padding: 20px 0 0 100px;
+  }
+  .edit-tag-err-tip {
+    @extend .err-tip;
+    padding-left: 160px;
+  }
+}
+
+#addtag-modal {
+  .content {
+    padding: 0;
+  }
+
+  .add-tag {
+    margin: 0;
+    font-size: 14px;
+    .l {
+      padding: 16px 0 0 24px;
+      border-right: solid 1px #ececec;
+      .list-title {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        padding: 10px 0 4px;
+        border-bottom: solid 1px #ececec;
+      }
+      .list-wrap {
+        height: 200px;
+        overflow-y: auto;
+        > li {
+          font-size: 12px;
+          color: #666;
+          line-height: 30px;
+        }
+      }
+      .l-hd {
+        margin-bottom: 10px;
+      }
+      .input-box {
+        width: 336px;
+        border: solid 1px #ececec;
+        margin-right: 10px;
+        padding-left: 6px;
+        height: 26px;
+        line-height: 26px;
+      }
+      .tip {
+        color: #999;
+        font-size: 12px;
+      }
+    }
+    .r {
+      padding: 16px 0 0 24px;
+      .r-tit {
+        margin-bottom: 10px;
+      }
+      .taglist-wrap {
+        height: 338px;
+        overflow-y: auto;
+        padding-right: 20px;
+        > li {
+          font-size: 12px;
+          color: #666;
+          line-height: 30px;
+          padding-left: 16px;
+          .del-btn {
+            width: 30px;
+            float: right;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+            text-align: center;
+          }
+          &:hover {
+            background-color: rgba(102, 193, 227, 0.1);
+          }
+        }
+      }
+
+    }
+  }
+
+}
+
+#add-tag-to-category-modal {
+  font-size: 14px;
+  .content {
+    padding: 10px 0;
+  }
+  .sub-tit {
+    color: #999;
+    padding: 10px 20px 0;
+  }
+  .error-notice {
+    text-align: center;
+    color: red;
+  }
+  .categorylist-wrap {
+    margin: 10px 0;
+    font-size: 12px;
+    color: #666;
+    height: 300px;
+    overflow-y: auto;
+    > ul {
+      > li {
+        padding: 0 20px;
+        position: relative;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        border-left: 4px solid #fff;
+        .icon {
+          float: right;
+          font-size: 18px;
+          color: #fff;
+        }
+        &:hover {
+          color: #66c1e3;
+          background: rgba(102, 193, 227, 0.11);
+          .icon {
+            color: #999;
+          }
+        }
+        &.cur {
+          color: #66c1e3;
+          background: rgba(102, 193, 227, 0.11);
+          .icon {
+            color: #66c1e3;
+          }
+        }
+        .fn-btn {
+          position: absolute;
+          right: 20px;
+          top: 0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+

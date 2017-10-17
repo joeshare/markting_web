@@ -1,0 +1,11 @@
+{
+  "code":0,
+  "msg": "success",
+  "total":1,
+  "data": [
+    {"tag_value":"aaaaaaa","tag_value_seq":"PHiKOpdR_0","value_count":123},
+    {"tag_value":"bbbbbbbb","tag_value_seq":"PHiKOpdR_1","value_count":234},
+    {"tag_value":"ccccc","tag_value_seq":"PHiKOpdR_3","value_count":234},
+    {"tag_value":"否ddddd22","tag_value_seq":"PHiKOpdR_4","value_count":4564}
+  ]
+}

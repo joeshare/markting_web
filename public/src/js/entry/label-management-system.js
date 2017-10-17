@@ -1,0 +1,1 @@
+require('../../module/system-lab/index.js');

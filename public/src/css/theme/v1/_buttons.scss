@@ -1,0 +1,119 @@
+/**
+ * Created by richard on 2016-10-20.
+ * 通用按钮
+ */
+@import "./color";
+//主操作按钮
+.button-main {
+  cursor: pointer;
+  display: inline-block;
+  min-width: 96px;
+  border-radius: 2px;
+  border: solid 1px color("blue", "lighten-1");
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  background-color: color("blue", "lighten-1");
+  &:hover {
+    background-color: color("blue", "darken-1");
+    border: solid 1px color("blue", "darken-1");
+  }
+  &:active {
+    background-color: color("blue", "base");
+    border: solid 1px color("blue", "base");
+  }
+  &.disable {
+    background-color: color("gray", "base");
+    border: solid 1px color("gray", "base");
+    cursor: not-allowed;
+  }
+}
+
+.button-main-1 {
+  @extend .button-main;
+  font-size: 14px;
+}
+
+.button-main-2 {
+  @extend .button-main;
+}
+
+.button-main-3 {
+  @extend .button-main;
+  width: 70px;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 10px;
+  min-width: inherit;
+}
+
+//辅助按钮
+.button-assist {
+  cursor: pointer;
+  display: inline-block;
+  min-width: 96px;
+  padding: 0 20px;
+  border-radius: 2px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  color: color("blue", "lighten-1");
+  border: solid 1px;
+  border-color: color("blue", "lighten-1");
+  &:hover {
+    color: color("blue", "darken-1");
+    border-color: color("blue", "darken-1");
+  }
+  &:active {
+    color: color("blue", "base");
+    border-color: color("blue", "base");
+  }
+  &.disable {
+    color: color("gray", "base");
+    border-color: color("gray", "base");
+    cursor: not-allowed;
+  }
+}
+
+.button-assist-1 {
+  @extend .button-assist;
+  font-size: 14px;
+}
+
+.button-assist-2 {
+  @extend .button-assist;
+}
+
+.button-assist-3 {
+  cursor: pointer;
+  display: inline-block;
+  width: 70px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #ffffff;
+  padding: 0 10px;
+  border-radius: 2px;
+  font-size: 12px;
+  text-align: center;
+  color: color("gray", "darken-2");
+  border: solid 1px;
+  border-color: color("gray", "base");
+  &:hover {
+    color: color("gray", "darken-2");
+    border-color: color("blue", "darken-1");
+  }
+  &:active {
+    color: color("blue", "base");
+    border-color: color("blue", "base");
+  }
+  &.disable {
+    color: color("gray", "base");
+    border-color: color("gray", "base");
+    cursor: not-allowed;
+  }
+}

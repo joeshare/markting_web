@@ -1,0 +1,17 @@
+{
+  "code":0,
+  "msg": "SUCCESS",
+  "total":2,
+  "data": [
+    {"tag_value":"是11","tag_value_seq":"PHiKOpdR_0","value_count":1000},
+    {"tag_value":"否22","tag_value_seq":"PHiKOpdR_1","value_count":100000},
+    {"tag_value":"是33","tag_value_seq":"PHiKOpdR_2","value_count":1000},
+    {"tag_value":"否3","tag_value_seq":"PHiKOpdR_3","value_count":100000},
+    {"tag_value":"是aaaaaaaaaaaae","tag_value_seq":"PHiKOpdR_4","value_count":1000},
+    {"tag_value":"是e","tag_value_seq":"PHiKOpdR_5","value_count":1000},
+    {"tag_value":"否ee","tag_value_seq":"PHiKOpdR_41","value_count":100000},
+    {"tag_value":"是aaa","tag_value_seq":"PHiKOpdR_60","value_count":1000},
+    {"tag_value":"否sss","tag_value_seq":"PHiKOpdR_17","value_count":100000}
+  ],
+  "total_count" : 2
+}

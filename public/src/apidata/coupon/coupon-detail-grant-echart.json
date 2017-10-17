@@ -1,0 +1,12 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 0,"date":"2016-11-22",
+    "data":[
+        {
+            "expect_release": 80,
+            "actual_release": 60,
+            "actual_reached": 40,
+            "actual_verify": 20
+        }
+    ]
+}

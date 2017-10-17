@@ -1,0 +1,23 @@
+{
+    "code": 0,
+    "msg":"success","total":8,"total_count": 8,
+    "data":[
+        {
+            "channel_id":101,"channel_name":"经销商","channel_type":0,"channel_system":true
+        },{
+            "channel_id":102,"channel_name":"渠道商","channel_type":0,"channel_system":true
+        },{
+            "channel_id":103,"channel_name":"区域","channel_type":0,"channel_system":true
+        },{
+            "channel_id":104,"channel_name":"员工","channel_type":0,"channel_system":true
+        },{
+            "channel_id":105,"channel_name":"门店","channel_type":0,"channel_system":true
+        },{
+            "channel_id":106,"channel_name":"活动","channel_type":0,"channel_system":true
+        },{
+            "channel_id":107,"channel_name":"活动1","channel_type":0,"channel_system":false
+        },{
+            "channel_id":108,"channel_name":"活动2","channel_type":1,"channel_system":false
+        }
+    ]
+}

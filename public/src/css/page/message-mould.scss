@@ -1,0 +1,74 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2016/11/1.
+ */
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+  height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+  font-size: $fontSize; line-height: $lineHeight;
+}
+
+/*正文开始*/
+.message-mould{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+  .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; color: $base-font-color; font-size: $main-font-size;
+    .tabs-first-layer{position: relative; float: left; width: 100%; height: 70px; margin-bottom: 20px; @include base-box;
+      .tabs-box{float: left; width: 300px; height: 68px;
+        .tabs{height: 100%;
+          .tab{height: 100%; line-height: 68px;}
+        }
+      }
+    }
+    .content-body{float: left; width: 100%; @include base-box;
+      .tabs-second-layer{position: relative; float: left; width: 100%; @include base-box;
+        .tabs-box{float: left; width: 450px;
+          .tabs{height: 100%;}
+        }
+        .search-area{float: right; width: 242px; height: 32px; overflow: hidden; margin: 10px 20px 0 0;
+          .search-box{float: left; width: 240px; height: 30px; overflow: hidden; border: 1px solid rgba(236,236,236,1);
+            .input{float: left; width: 190px; height: 30px; border: none; padding-left: 10px;}
+            .icon{float: right; width: 30px; height: 30px; @include flex-center; cursor: pointer;}
+          }
+        }
+      }
+      .point-out-area{float: left; width: 100%; padding: 10px;
+        .point-out-box{float: left; width: 100%; padding: 10px; background-color: rgba(247,247,247,1);
+          .point-out-title{float: left; width: 39px; height: 39px; overflow: hidden; display: flex; @include flex-center; background-color: rgba(250,187,61,1); border-radius: 5px; margin-right: 14px;
+            .icon{width: 18px; height: 18px; overflow: hidden; color: rgba(255,255,255,1); font-size: $main-font-size + 6; line-height: $main-font-size + 8;}
+          }
+          .point-out-content{float: left; height: 39px; line-height: 39px; color: rgba(153,153,153,1);}
+        }
+      }
+      .tabs-third-layer{position: relative; float: left; width: 100%; border-bottom: $base-border-line; background-color: rgba(255,255,255,1);
+        .title{float: left; width: 100%; height: 40px; @include vetically-font($main-font-size + 2); padding: 24px 10px 0 10px;}
+        .tabs-area{float: left; width: 100%;
+          .tabs-box{float: left; width: 150px;
+            .tabs{height: 100%;}
+          }
+        }
+      }
+      .table-area{float: left; width: 100%;
+        .page-table-box{table-layout: fixed;
+          .single-text{@include single-text;}
+
+        }
+        .total-count{float: left; @include single-line-font; margin: 14px 0 0 24px;}
+      }
+    }
+  }
+}

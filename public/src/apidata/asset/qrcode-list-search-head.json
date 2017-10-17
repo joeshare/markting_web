@@ -1,0 +1,12 @@
+{
+    "code": 0,
+    "msg":"success","total":2,"total_count": 1,
+    "data":[
+        {
+            "subscription": [
+                {"name":"公众号1","subscription_id": 0},
+                {"name":"全部","subscription_id": "all"}
+            ]
+        }
+    ]
+}

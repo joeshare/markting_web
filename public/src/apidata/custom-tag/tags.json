@@ -1,0 +1,70 @@
+{
+  "code": 0,
+  "msg": "success",
+  "total": 2,
+  "data": [
+    {
+      "custom_tag_category_id": "11",
+      "custom_tag_category_name": "未分类",
+      "add_status": false,
+      "move_status": false,
+      "children_tag": [
+        {
+          "custom_tag_id": "1",
+          "custom_tag_name": "地球",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "2",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "3",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "4",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "5",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "6",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "7",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "8",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        },
+        {
+          "custom_tag_id": "9",
+          "custom_tag_name": "火星",
+          "cover_number": 100,
+          "cover_frequency": 200
+        }
+      ]
+    }
+  ],
+  "total_count": 20
+}

@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+/*加载公用css文件*/
+@import "../base";
+
+#login {
+  font-family: "微软雅黑";
+  height: 100%;
+  background: url('/img/login/lbj.png');
+  .header {
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    .menuwrap {
+      width: 900px;
+      margin: auto;
+      .logowrap {
+        margin-top: 20px;
+        width: 118px;
+        height: 39px;
+        background: url('/img/common/logo-v1.3.png');
+      }
+      .title {
+        margin-left: 28px;
+        margin-top: 20px;
+        height: 39px;
+        line-height: 39px;
+        padding-left: 28px;
+        font-size: 16px;
+        color: 333;
+        border-left: 1px solid #c6c6c6;
+      }
+
+    }
+  }
+  .con {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url('/img/login/gbj.jpg') center -130px;
+    .formwrap {
+      width: 330px;
+      margin: 230px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 5px;
+      .input-block {
+        position: relative;
+        margin-bottom: 30px;
+        .icon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 21px;
+          color: rgba(102, 193, 227, 0.6);
+          &.cleartext {
+            cursor: pointer;
+            color: #d1d1d1;
+            left: inherit;
+            right: 0;
+          }
+        }
+        input {
+          padding: 0 26px;
+          box-sizing: border-box;
+          border-bottom-color: rgba(102, 193, 227, 0.5);
+          margin: 0;
+        }
+
+        @include placeholder(14px, #999);
+        .errtip {
+          width: 100%;
+          position: absolute;
+          top: 35px;
+          left: 0;
+          .txt {
+            font-size: 12px;
+            color: #fd7979;
+          }
+          .icon {
+            margin-top:-6px;
+            position: relative;
+            color: #fd7979;
+          }
+
+        }
+        .validcode-filed{
+          width:106px;
+          input{
+            padding:0;
+          }
+        }
+        .validcode-wrap{
+          margin-left: 10px;
+          width: 102px;
+          img{
+            width: 102px;
+            height:28px;
+            border:1px solid #ececec;
+          }
+        }
+        .validcode-refresh{
+
+          margin-left: 10px;
+          .icon{
+            cursor:pointer;
+            position:relative;
+          }
+        }
+      }
+      .submit {
+        background: #66c1e3;
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        font-size: 16px;
+        box-shadow: none;
+        &:hover {
+          background: #62a9ed;
+          box-shadow: none;
+        }
+        &:active {
+          background: #67e2ef;
+        }
+      }
+
+    }
+  }
+}

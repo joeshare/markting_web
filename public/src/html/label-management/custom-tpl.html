@@ -1,0 +1,60 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+<div class="custom">
+    <header class="page-body-header">
+        <div class="text-box">
+            <span class="title">自定义标签</span>
+            <span class="text">
+                自定义标签<span class="variable" id="variable-num">0</span>个
+            </span>
+        </div>
+    </header>
+    <div class="content">
+        <header class="header">
+            <div class="title">自定义标签</div>
+            <div class="h2">自定义标签是用户针对群体和个体自行定义的标签</div>
+        </header>
+        <div class="list-box">
+            <table class="page-table-box">
+                <thead>
+                <tr>
+                    <th class="first">标签名称</th>
+                    <th>添加时间</th>
+                    <th>标签来源</th>
+                    <th>覆盖人群</th>
+                    <th class="ico">&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody id="tbody-box"></tbody>
+            </table>
+            <div class="pagination-wrap pagination light-theme simple-pagination"></div>
+        </div>
+        <div id="dropdown-box"></div>
+    </div>
+</div>
+</script>
+<script charset="UTF-8" type="text/template" id="dropdown-content">
+    <!--菜单下拉-->
+    <ul id="morelist" class="dropdown-content setuplist">
+        <li><i class="icon iconfont">&#xe643;</i><a href="javascript:void(0)" id="download-file">标签人群</a></li>
+        <li><i class="icon iconfont">&#xe668;</i><a href="javascript:void(0)" id="showgrouplist">人群中查找</a></li>
+        <li><i class="icon iconfont">&#xe674;</i><a href="javascript:void(0)" id="delete">删除</a></li>
+    </ul>
+</script>
+<script charset="UTF-8" type="text/template" id="tbody-content">
+    <% if(tbodyData.length>0){ %>
+    <%tbodyData.map(function(m,i){%>
+    <tr listid="<%=m.tag_id%>">
+        <td class="first"><%=m.name%></td>
+        <td><%=m.time%></td>
+        <td><%=m.source%></td>
+        <td class="cover-crowd"><%=m.id%></td>
+        <td class="ico">
+            <ico class="pointer icon iconfont r-btn dropdown-button dropdown-button-more" title="更多" data-constrainwidth="false" data-activates="morelist" listid="<%=m.tag_id%>">&#xe675;</ico>
+        </td>
+    </tr>
+    <% })}else{%>
+    <tr>
+        <td style="text-align:center" colspan="5">暂无数据！</td>
+    </tr>
+    <% } %>
+</script>

@@ -1,0 +1,10 @@
+{
+  "code":0,
+  "msg": "SUCCESS",
+  "total":2,
+  "data": [
+    {"tag_id":"AH8hGCWC","tag_name":"用户属性","level":1,"children":[{"tag_id":"TpBO8hjK","tag_name":"个人信息","level":2,"children":[{"tag_id":"LBej3qLy","tag_name":"性别","tag_name_eng":"sex","tag_desc":"会员数据中的性别","search_mod":0,"tag_list":["男","女","未知"]}]}]}  ,
+    {"tag_id":"AH8hGCWC","tag_name":"用户属性","level":1,"children":[{"tag_id":"TpBO8hjK","tag_name":"个人信息","level":2,"children":[{"tag_id":"LBej3qLy","tag_name":"性别","tag_name_eng":"sex","tag_desc":"会员数据中的性别","search_mod":0,"tag_list":["男","女","未知"]}]}]}
+  ],
+  "total_count" : 2
+}

@@ -1,0 +1,86 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2017/1/12.
+ */
+
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-green-color: rgba(91,212,199,1);
+$base-red-color: rgba(253,121,121,1);
+$base-white-color: rgba(255,255,255,1);
+$base-gray-color: rgba(236,236,236,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid $base-gray-color;
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; background-color: $base-white-color;};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+.action{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px;
+    .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; color: $base-font-color; font-size: $main-font-size; @include base-box; overflow-y: auto;
+        .header-one{float: left; width: 100%; height: 54px; overflow: hidden; padding: 24px 20px 0 30px; font-size: $main-font-size + 2;}
+        .header-two{float: left; width: 100%; min-height: 62px; padding: 16px 20px; border-bottom: $base-border-line;
+            .button-box{position: relative; z-index: $base-z-index + 1; float: left; width: 90px; height: 30px; overflow: hidden; border: $base-border-line; cursor: pointer;
+                .icon{float: left; width: 30px; height: 29px; overflow: hidden; border-right: $base-border-line; color: rgba(153,153,153,1); @include flex-center; font-size: $main-font-size + 8;}
+                .text{float: left; width: 58px; height: 29px; @include flex-center;}
+            }
+            .condition{position: relative; z-index: $base-z-index; float: right; width: 100%; min-height: 30px; margin-top: -30px; padding-left: 112px;
+                .term{float: left; width: auto; height: 26px; border: $base-border-line; padding: 0 10px; line-height: 24px; color: $base-green-color; margin: 2px 18px 0 0;}
+                .more{float: left; color: $base-blue-color; display: none; cursor: pointer; margin-top: 6px; text-decoration: underline;}
+                .more.show{display: inline-block;}
+            }
+        }
+        .point-out-box{float: left; width: 100%; height: 70px; padding: 0 20px; margin: 20px 0;}
+        .table-area{float: left; width: 100%; padding: 0 20px;
+            .page-table-box{table-layout: fixed;
+                tbody tr > td{@include single-text;}
+            }
+            .total-count{float: left; @include single-line-font; margin-top: 14px;}
+        }
+    }
+}
+//本页模态框设置
+//筛选
+#modalsScreenHtml{
+    .modal-content{
+        .content{width: 372px; height: 504px; color: $base-font-color;}
+    }
+}
+.modals-screen-Html{float: left; width: 100%; height: auto;
+    .lable{float: left; width: 100%; height: auto; margin-bottom: 14px;
+        .header-lable{float: left; width: 100%; height: 18px; font-size: $main-font-size+2;
+            .title-lable{float: left;}
+            .show-but{float: right; cursor: pointer;
+                .text{float: right;}
+                .show-icon{float: right; width: 18px; height: 18px; overflow: hidden; text-align: center; line-height: 24px; display: block;}
+                .hide-icon{float: right; width: 18px; height: 18px; overflow: hidden; text-align: center; line-height: 24px; display: none;}
+                .show-icon.icon{display: none;}
+                .hide-icon.icon{display: block;}
+            }
+        }
+        .list-cont{float: left; width: 100%; height: 42px; overflow: hidden;
+            .term{float: left; width: auto; height: 26px; border-style: solid; border-width: 1px; border-color: $base-gray-color; border-radius: 4px; background-color: $base-gray-color; padding: 0 10px; line-height: 24px; margin-top: 16px; margin-right: 14px; cursor: pointer; font-size: $main-font-size;}
+            .term.selected{color: $base-blue-color; border-color: $base-blue-color; background-color: $base-white-color;}
+            .term:last-child{margin-right: 0;}
+        }
+        .list-cont.show{height: auto;}
+        .list-cont.null{height: 16px;}
+    }
+    .lable:last-child{margin-bottom: 0;}
+}
+@-moz-document url-prefix(){.modals-screen-Html{margin-bottom: 24px;}}

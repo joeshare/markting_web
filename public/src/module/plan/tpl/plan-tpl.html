@@ -1,0 +1,64 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="plan">
+        <header class="page-body-header" id="page-body-header">
+            <div class="text-box"><span class="title">活动编排</span><span class="text"><%=audienceTitle%></span></div>
+            <ul class="button-box ">
+                <!--
+                 <a class="a keyong dropdown-button" data-activates="plan-more-menu" data-beloworigin="true"
+                   data-constrainwidth="false" title="更多操作">&#xe61a;</a>
+                <a class="a keyong home" id="goIndex"  href="<%=BASE_PATH%>/" title="返回首页">&#xe644;</a>
+                -->
+
+                <li class="rui-cursor-pointer keyong" id="plan-stop" style="display: none;"><span class="icon iconfont  plan-stop-icon"  title="手动终止" href="javascript:void(0);" >&#xe655;</span><span class="txt">手动终止</span></li>
+                <li class="rui-cursor-pointer keyong" id="plan-cancel-start" style="display: none;"><span class="icon iconfont  " title="手动终止" href="javascript:void(0);" >&#xe664;</span><span class="txt">手动终止</span></li>
+                <li class="rui-cursor-pointer keyong"  id="plan-start" ><span class="icon iconfont  " title="启动">&#xe633;</span><span class="txt">启动</span></li>
+
+                <li class="rui-cursor-pointer keyong"  id="plan-save"><span class="icon iconfont  " title="保存">&#xe602;</span><span class="txt">保存</span></li>
+                <li class="rui-cursor-pointer keyong return-pages"  id="return-pages" ><span class="icon iconfont  keyong "  title="返回">&#xe621;</span><span class="txt">返回</span></li>
+            </ul>
+            <!--
+            <ul id="plan-more-menu" class="rui-more-menu dropdown-content">
+                <li class="plan-more-menu-item manual-trigger rui-disabled" id="plan-manual-trigger">
+                    <i class="icon iconfont">&#xe63e;</i>
+                    <a class="text" href="javascript:void(0);" >开启活动</a>
+                </li>
+            </ul>
+            -->
+        </header>
+        <div class="content">
+            <div class="draw-box " id="openMacket-draw-animate">
+                <canvas height="3000" width="3000" id="main-cavs"></canvas>
+                <div id="plan-empty-msg" style="margin:-12px 0 0 -56px;top:50%;left:50%;font-size: 16px;color: #a0a0a0;position: absolute;z-index: 1;">请拖入活动节点</div>
+            </div>
+            <div class="menubar" style="z-index: 2;">
+                <!--<ul>-->
+                    <!--<li>-->
+                        <!--<a class="btn-floating  waves-effect waves-light one">触发</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="btn-floating  waves-effect waves-light two">受众</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="btn-floating  waves-effect waves-light three">决策</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="btn-floating  waves-effect waves-light four">行动</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            </div>
+
+            <div class="mackt-box " id="openMacket-mackt-animate">
+                <div class="header" >
+                    <i class="icon iconfont close"  id="mackt-close">&#xe664;</i>
+                    <spn class="text">活动安排相关分析</spn>
+                </div>
+                <div class="mackt" >
+                    <iframe id="plan-chart" name="plan-bas-con" width="100%" height="100%" frameborder="0" scrolling="auto" src="<%=basePath%>/html/activity/plan-iframe.html"></iframe>
+                </div>
+            </div>
+
+            <div class="switch-trigger switch-img" id="openMacket" style='display:<%=isBAS?"block":"none"%>'></div>
+
+        </div>
+    </div>
+</script>

@@ -1,0 +1,83 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+/*正文开始*/
+.qrcode-detail{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+    .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; overflow-y: auto; background-color: rgba(255,255,255,1); @include base-box; padding: 24px; color: $base-font-color;
+        .detail-area{float: left; width: 100%; height: auto; border: $base-border-line; background-color: rgba(251,251,251,1);
+            .detail-title{float: left; width: 278px; height: 100%; border-right: $base-border-line; text-indent: 27px;}
+            .detail-text{float: left; width: 100%; height: 100%; padding-left: 278px; text-indent: 32px;}
+            .detail-header{float: left; width: 100%; height: 48px; border-bottom: 2px solid rgba(233,233,233,1); background-color: rgba(247,247,247,1); font-size: $main-font-size + 4; @include vetically-font(16px,48px);
+                .text{margin-top: -46px;}
+            }
+            .detail-tr{float: left; width: 100%; height: 42px; border-bottom: $base-border-line; font-size: $main-font-size + 2; @include vetically-font(14px,42px);
+                .title{color: rgba(153,153,153,1);}
+                .text{margin-top: -42px;}
+            }
+            .detail-tr:nth-child(odd){
+                .title{background-color: rgba(246,246,246,1);}
+            }
+            .detail-tr:last-child{border-bottom: none;}
+        }
+    }
+}
+/********模态框总体设置********/
+.modal{box-shadow: $base-box-shadow;
+    .modal-content{float: left; width: 100%; padding: 0;
+        .title{float: left; width: 100%; border-bottom: $base-border-line;}
+        .content{float: left; width: 100%; padding: 24px 30px; overflow-x: hidden; overflow-y: auto;}
+    }
+    .modal-footer{float: left; height: 70px !important; border-top: $base-border-line;}
+}
+.lean-overlay{opacity: 0.1 !important;}
+/****本页模态框设置****/
+/*下载二维码*/
+#modalsQrcodeDownloadHtml{
+    .modal-content{
+        .title{height: 62px; text-align: center; line-height: 62px; color: $base-font-color !important; font-size: $main-font-size + 4 !important; font-weight: normal !important; border-bottom: 4px solid $split-line-color;}
+        .content{width: 390px; height: 400px; padding: 24px; color: $base-font-color;}
+    }
+    .modal-footer{
+        .btn-content > .accept{margin: auto; width: 100%;}
+    }
+}
+.modals-qrcode-download{float: left; width: 100%; height: auto; color: $base-font-color;
+    .qrcode-box{float: left; width: 100%; height: 108px;
+        .qrcode{width: 108px; height: 108px; overflow: hidden; margin: 0 auto;
+            img{width: 100%; height: 100%;}
+        }
+    }
+    .select-size-area{float: left; width: 100%; height: auto; margin-top: 20px;
+        .select-size-box{float: left; width: 100%; height: 38px; overflow: hidden; margin-top: 20px; border-radius: 4px; border-width: 1px; border-style: solid; border-color: rgba(207,207,207,1); padding: 7px 10px; cursor: pointer;
+            .rideo{float: left; width: 22px; height: 22px; overflow: hidden; border-radius: 50%; border-width: 1px; border-style: solid; border-color: rgba(208,208,208,1); color: rgba(255,255,255,1);}
+            .text{float: left; @include single-line-font; margin: 6px 0 0 10px;}
+        }
+        .select-size-box.active{border-color: rgba(102,193,227,1); color: rgba(102,193,227,1);
+            .rideo{border: none; color: rgba(102,193,227,1); font-size: $main-font-size + 8; text-align: center; line-height: $main-font-size + 8;}
+        }
+    }
+    .copy-area{float: left; width: 100%; height: auto; margin-top: 20px;
+        .input{float: left; width: 248px; height: 28px; border: $base-border-line; @include base-box; background-color: rgba(249,249,249,1); @include vetically-font($main-font-size,28px); padding: 0 20px; @include text-ellipsis;}
+        .copy-but{float: right; width: 84px; height: 28px; padding: 0; min-width: inherit;}
+    }
+}

@@ -1,0 +1,102 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+#alone{position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(255,255,255,1);overflow-y: auto}
+
+.contact-file{position: relative; width: 100%; height: 100%; min-width: 447px; min-height: 609px;
+    .this-page-header{float: left; width: 100%; border-bottom: 2px solid rgba(103,194,239,1); padding: 0 22px; color: rgba(90,90,90,1); height: 52px;
+        .title{float: left; @include single-line-font(16px); margin-top: 18px;}
+        .selectbtn{float: right; border: 1px solid rgba(236,236,236,1); padding: 5px 12px 6px 12px; cursor: pointer; margin: 13px 0 0 23px;
+            .cont-box{float: left; margin-right: 16px; @include single-line-font($main-font-size + 2);
+                .variable {color: rgba(102, 193, 227, 1);}
+            }
+            .arrow-down{float: left; width: 9px; height: 6px; overflow: hidden; margin-top: 5px; background: rgba(0, 0, 0, 0) url("../../img/masterdata/arrow-down.png") no-repeat;}
+        }
+    }
+    .content{position: absolute; top: 52px; right: 0; bottom: 37px; left: 0;
+        .basic-area-true{float: left; width: 100%; height: 131px; border-bottom: 1px solid rgba(236,236,236,1); padding: 17px 24px; background-image: url("../../img/audience/basic_background_image.png");
+            .popto-box{float: left; width: 96px; height: 96px; border-radius: 100%; border: 9.5px solid rgba(103,194,239,0.15);
+                .popto{float: left; width: 79px; height: 79px; margin: -1px 0 0 -1px; border-radius: 100%;}
+            }
+            .info-box{float: left; width: 280px; height: 70px; overflow: hidden; margin: 25px 0 0 18px; color: rgba(60,60,60,1);
+                .user-name{float: left; width: 100%; @include single-line-font(22px);}
+                .info{float: left; width: 100%; @include single-line-font(14px); margin-top: 16px;
+                    .user-gender{float: left;}
+                    .user-birthday{float: left; margin-left: 8px;}
+                }
+            }
+        }
+        .basic-area-false{float: left; width: 100%; height: 131px; border-bottom: 1px solid rgba(236,236,236,1); padding: 17px 24px; background-color: rgba(248,248,248,1); @include box-center;
+            .box{@include box-center;
+                .icon{float: left; width: 42px; height: 42px; border-radius: 50%; color: rgba(255,255,255,1); background-color: $base-blue-color; @include box-center; font-size: 24px;}
+                .text{float: left; font-size: $main-font-size + 6; color: $base-font-color; margin-left: 16px;}
+            }
+
+        }
+        .specific-area{float: left; width: 100%; height: auto; padding: 18px 24px 0 24px;
+            .label-area{float: left; width: 100%;
+                .header{float: left; width: 100%; height: 16px; overflow: hidden;
+                    .title{float: left; @include single-line-font(14px); color: rgba(90,90,90,1);}
+                    .edit{float: left; color: rgba(103,194,239,1); margin: -9px 0 0 10px; cursor: pointer;}
+                }
+                .label-box{float: left; width: 100%; margin-top: 20px;
+                    .label{float: left; min-width: 92px; height: 32px; padding: 10px; margin: 5px; font-size: $main-font-size; color: rgba(120,120,120,1); background-color: rgba(238,238,238,1); text-align: center; line-height: 12px;}
+                    .wu{float: left; font-size: $main-font-size; color: $base-font-color;}
+                }
+            }
+            .info-area{float: left; width: 100%; margin-top: 18px;
+                .header{float: left; width: 100%; height: 16px; overflow: hidden;
+                    .title{float: left; @include single-line-font(14px); color: rgba(90,90,90,1);}
+                    .edit{float: left; color: rgba(103,194,239,1); margin: -9px 0 0 10px; cursor: pointer;}
+                }
+                .info-box{float: left; width: 100%; padding: 0 16px;
+                    .info{float: left; width: 100%; padding-bottom: 25px; border-bottom: 1px solid rgba(244,244,244,1);
+                        .li{float: left; width: 100%; margin-top: 25px;
+                            .title{float: left; width: 80px; @include single-line-font($main-font-size); color: rgba(120,120,120,1); text-align: right;}
+                            .text{float: left; width: 270px; margin-left: 10px; @include single-line-font($main-font-size); color: rgba(60,60,60,1);}
+                        }
+                    }
+                    .info:last-child{border-bottom: none; padding: 7px 0 37px 0;}
+                }
+            }
+        }
+    }
+}
+/*用户标签*/
+.segment-tag{background: rgba(230,230,230,1); color: rgba(120,120,120,1); display: inline-block; font-size: $main-font-size + 2; height: 32px; line-height: 32px; margin: 0 8px 3px 0; padding: 0 8px 0 14px; vertical-align: middle;
+    .rui-close{cursor: pointer; display: inline-block; font-size: $main-font-size + 8; height: $main-font-size + 4; line-height: 18px; vertical-align: middle;
+    }
+}
+/*编辑用户信息*/
+.info-row{margin-top: 20px; margin-bottom: 0;
+    .input-field input{font-size: $main-font-size + 4;}
+    .input-field label{left: 0;}
+    .input-field.wrong{
+        input:not([type]), input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="time"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="tel"], input[type="number"], input[type="search"], textarea.materialize-textarea{border-color: rgba(255,0,0,1);}
+        input:focus:not([type]):not([readonly]), input[type="text"]:focus:not([readonly]), input[type="password"]:focus:not([readonly]), input[type="email"]:focus:not([readonly]), input[type="url"]:focus:not([readonly]), input[type="time"]:focus:not([readonly]), input[type="date"]:focus:not([readonly]), input[type="datetime"]:focus:not([readonly]), input[type="datetime-local"]:focus:not([readonly]), input[type="tel"]:focus:not([readonly]), input[type="number"]:focus:not([readonly]), input[type="search"]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){border-color: rgba(255,0,0,1); box-shadow: 0 1px 0 0 rgba(255,0,0,1);}
+    }
+    input:not([type]) + label::after, input[type="text"] + label::after, input[type="password"] + label::after, input[type="email"] + label::after, input[type="url"] + label::after, input[type="time"] + label::after, input[type="date"] + label::after, input[type="datetime"] + label::after, input[type="datetime-local"] + label::after, input[type="tel"] + label::after, input[type="number"] + label::after, input[type="search"] + label::after, textarea.materialize-textarea + label::after{font-size: $main-font-size + 4;}
+}

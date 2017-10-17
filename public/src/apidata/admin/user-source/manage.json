@@ -1,0 +1,19 @@
+{
+    "code": 0,
+    "msg":"success","total":2,"total_count": 2,"date":"2017-3-1",
+    "data":[
+        {
+            "id": 100,
+            "name": "贝贝熊短信引流优惠码活动",
+            "identity_id": "1-1-1",
+            "available": 0,
+            "description": "这是一个描述内容这是一个描述内容"
+        },{
+            "id": 101,
+            "name": "贝贝熊短信引流优惠码活动",
+            "identity_id": "1-1-2",
+            "available": 1,
+            "description": "这是一个描述内容这是一个描述内容"
+        }
+    ]
+}

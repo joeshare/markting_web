@@ -1,0 +1,282 @@
+[
+  {
+    "allNumber": "1",
+    "data": [
+      {
+        "invalid": "false",
+        "count": "80413",
+        "isSetNickName": "true",
+        "name": "乐友孕婴童",
+        "data": [
+          {
+            "groupName": "测试白名单",
+            "groupNumber": "5"
+          },
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "80408"
+          }
+        ],
+        "account": "qmlyvuwba@163.com",
+        "delegateTime": "2016-05-10",
+        "url": "/img/common/leyoulogo.jpg"
+      }
+    ],
+    "state": true,
+    "fansNumber": "80413"
+  },
+  {
+    "fansNUmber": "630",
+    "allNumber": "1",
+    "data": [
+      {
+        "invalid": "false",
+        "count": "630",
+        "isSetNickName": "true",
+        "name": "市场小张",
+        "data": [
+          {
+            "groupName": "新产品上市推广报名人群",
+            "groupNumber": "630"
+          }
+        ],
+        "account": "xiaozhang@163.com",
+        "delegateTime": "2016-05-07",
+        "url": "/img/common/userimg005.jpg"
+      }
+    ],
+    "state": true
+  },
+  {
+    "allNumber": "15",
+    "data": [
+      {
+        "invalid": "false",
+        "count": "59001",
+        "isSetNickName": "true",
+        "name": "乐友北京",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "59001"
+          }
+        ],
+        "account": "seluklgif@163.com",
+        "delegateTime": "2016-05-15",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "53012",
+        "isSetNickName": "true",
+        "name": "乐友上海",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "53012"
+          }
+        ],
+        "account": "lzpgtxmix@163.com",
+        "delegateTime": "2016-05-15",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "51054",
+        "isSetNickName": "true",
+        "name": "乐友天津",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "51054"
+          }
+        ],
+        "account": "vkawlxutr@163.com",
+        "delegateTime": "2016-05-13",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "50019",
+        "isSetNickName": "true",
+        "name": "乐友廊坊",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "50019"
+          }
+        ],
+        "account": "zemvpvsci@163.com",
+        "delegateTime": "2016-05-11",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "52201",
+        "isSetNickName": "true",
+        "name": "乐友沈阳",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "52201"
+          }
+        ],
+        "account": "pfctvgnlj@163.com",
+        "delegateTime": "2016-05-10",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "53041",
+        "isSetNickName": "true",
+        "name": "乐友西安",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "53041"
+          }
+        ],
+        "account": "jtdksuqiu@163.com",
+        "delegateTime": "2016-05-11",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "54051",
+        "isSetNickName": "true",
+        "name": "乐友咸阳",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "54051"
+          }
+        ],
+        "account": "xcuqxlopu@163.com",
+        "delegateTime": "2016-05-17",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "56007",
+        "isSetNickName": "true",
+        "name": "乐友绵阳",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "56007"
+          }
+        ],
+        "account": "tygayucmj@163.com",
+        "delegateTime": "2016-05-15",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "59001",
+        "isSetNickName": "true",
+        "name": "乐友青岛",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "59001"
+          }
+        ],
+        "account": "awxymuggb@163.com",
+        "delegateTime": "2016-05-13",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "58098",
+        "isSetNickName": "true",
+        "name": "乐友潍坊",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "58098"
+          }
+        ],
+        "account": "mmtepaaen@163.com",
+        "delegateTime": "2016-05-11",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "53021",
+        "isSetNickName": "true",
+        "name": "乐友石家庄",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "53021"
+          }
+        ],
+        "account": "vhlzgwrts@163.com",
+        "delegateTime": "2016-05-06",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "51001",
+        "isSetNickName": "true",
+        "name": "乐友成都",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "51001"
+          }
+        ],
+        "account": "rlfzebgwx@163.com",
+        "delegateTime": "2016-05-09",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "53091",
+        "isSetNickName": "true",
+        "name": "乐友济南",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "53091"
+          }
+        ],
+        "account": "vvpszqlbh@163.com",
+        "delegateTime": "2016-05-15",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "55012",
+        "isSetNickName": "true",
+        "name": "乐友武汉",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "55012"
+          }
+        ],
+        "account": "sjidtsigh@163.com",
+        "delegateTime": "2016-05-13",
+        "url": "/img/common/leyoulogo.jpg"
+      },
+      {
+        "invalid": "false",
+        "count": "59046",
+        "isSetNickName": "true",
+        "name": "乐友秦皇岛",
+        "data": [
+          {
+            "groupName": "粉丝群",
+            "groupNumber": "59046"
+          }
+        ],
+        "account": "mzfvzndnq@163.com",
+        "delegateTime": "2016-05-10",
+        "url": "/img/common/leyoulogo.jpg"
+      }
+    ],
+    "state": true,
+    "fansNumber": 0
+  }
+]

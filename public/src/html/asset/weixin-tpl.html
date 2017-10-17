@@ -1,0 +1,109 @@
+<!-- /*暂时隐藏*/个人号<%= data[0].count %>个，好友<%= data[1].totalNumber %>个 |-->
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="weixin">
+        <header class="page-body-header">
+            <div class="text-box"><span class="title">粉丝管理</span><span class="text">服务号<%= data[2].count %>个，粉丝<%= data[2].totalNumber %>人 |  订阅号<%= data[1].count %>个</span>
+            </div>
+            <div class="button-box icon iconfont">
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="managed-area">
+                <header class="header">
+                    <div class="col s12">
+
+                        <ul class="tabs">
+                            <li assettype="<%=data[2].asset_type%>" class="tab col s3"><a class="active" href="#">服务号(<%=
+                                data[2].count %>)</a></li>
+
+                            <li assettype="<%=data[1].asset_type%>" class="tab col s3"><a href="#">订阅号(<%= data[1].count
+                                %>)</a></li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="clearfix"></div>
+                <div class="footer weixinlist-wrap"></div>
+            </div>
+            <div class="option-area">
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div id="qrcodewrap" class="modal" style="width:200px;height:200px;overflow:hidden;"><div id="qrcode"></div></div>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-weixinlist">
+    <ul class="weixin-asset-list">
+        <% _.each(data,function(m,i){%>
+        <li class="<%=m.invalid%>" assetid="<%=m.asset_id%>">
+            <img src="<%= m.imgfile_url %>" alt="" class="tx">
+            <span class="name"><%= m.asset_name %></span> <span class="num">(<%= m.follower_count %>)</span>
+        </li>
+        <% })%>
+    </ul>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-pageright">
+    <div class="header">
+                    <span class="more-btn iconfont icon dropdown-button" data-activates="hearder-moremenu"
+                          data-constrainwidth="false" title="更多操作"
+                    >&#xe675;</span>
+        <ul id="hearder-moremenu" class="dropdown-content">
+            <!--<li class="j-setname"><i class="icon iconfont">&#xe64a;</i><a href="javascript:;">设置昵称</a></li>-->
+            <%if (data[0].assetType == 1) {%>
+            <li class="<%=data[0].disableStr%> j-relogin"><i class="icon iconfont">&#xe64b;</i><a href="javascript:;">重新登录</a>
+            </li>
+            <% } else {%>
+            <li class="<%=data[0].disableStr%>"><i class="icon iconfont">&#xe64b;</i><a href="<%=data[0].url%>">重新授权</a>
+            </li>
+            <%}%>
+        </ul>
+
+        <div class="user-name"><span class="txt"><%=data[0].asset_name%></span> (<%=data[0].wx_acct%>)</div>
+        <div class="user-info">
+            <span>
+             状态：
+            </span>
+            <span class="normal">
+                <%if(data[0].status){%>
+                失效
+               <% }else{%>
+                  正常
+               <% }%>
+            </span>
+            <span style="margin-left:30px;">托管时间： <%=data[0].consignation_time%></span>
+        </div>
+        <div class="user-info">微信后台可进行 解除授权 操作</div>
+    </div>
+
+    <div class="footer">
+
+        <ul id="footer-moremenu" class="dropdown-content">
+            <li class="j-savecrowd"><i class="icon iconfont">&#xe602;</i><a href="javascript:;">保存人群</a></li>
+
+            <li class="showgrouplist"><i class="icon iconfont">&#xe668;</i><a href="javascript:;">人群中查找</a></li>
+            <li class="j-downloaddetail"> <i class="icon iconfont" >&#xe643;</i><a
+                    href="javascript:;">下载明细</a></li>
+        </ul>
+
+        <div class="tit">群组信息</div>
+        <%if(_.isEmpty(data[0].group_data)){%>
+        <div class="group-list txt-gray">暂无信息</div>
+        <% }else{%>
+        <ul class="group-list">
+            <li>
+                <input type="checkbox" class="filled-in" id="group-all"/>
+                <label for="group-all">全选</label>
+            </li>
+            <%_.each(data[0].group_data,function(m,i){%>
+            <li>
+                <input type="checkbox" class="filled-in checkitem" id="group-<%=m.group_id%>"/>
+                <label for="group-<%=m.group_id%>"><%=m.group_name%><span class="num"><%=m.member_count%></span></label>
+            </li>
+            <% })%>
+        </ul>
+        <% }%>
+    </div>
+    <span class="more-btn iconfont icon dropdown-button j-groupmore" data-activates="footer-moremenu"
+          data-constrainwidth="false" title="更多操作"
+    >&#xe675;</span>
+</script>

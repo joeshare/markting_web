@@ -1,0 +1,129 @@
+<script type="text/template" id="tpl-con">
+    <div class="left">
+        <span class="left company-logo"></span>
+        <ico id="menu-btn" class="icon iconfont menu-btn on" title="收起栏目">&#xe677;</ico>
+        <a id="home" href="<%=BASE_PATH%>/index.html" class="topmenu-btn">首页</a>
+        <a id="dmp" href="<%=BASE_PATH%>/html/data-access/file.html" class="topmenu-btn">数据平台</a>
+        <a id="marketing" href="<%=BASE_PATH%>/html/activity/plan.html" class="topmenu-btn">市场营销</a>
+        <a id="insight" href="<%=BASE_PATH%>/html/data-lnsight/comprehensive-analysis.html" class="topmenu-btn fn-hide">数据洞察</a>
+    </div>
+    <ul class="rightbtn-wrap">
+        <li id="goback-li">
+            <a class="r-btn goback" href="<%=BASE_PATH%>/index.html">返回前台</a>
+        </li>
+        <li id="showuser-li">
+            <span class="icon iconfont r-btn showuser-btn tooltipped" data-position="bottom" data-delay="50"
+                  data-tooltip="搜索用户">&#xe61f;</span>
+        </li>
+        <li class="fn-hide">
+            <span id="system-set" class="icon iconfont r-btn dropdown-button tooltipped" data-activates="setup-list"
+                  data-beloworigin="true"
+                  data-constrainwidth="false" data-position="bottom" data-delay="50" data-tooltip="系统设置">&#xe636;</span>
+            <ul id="setup-list" class="dropdown-content">
+                <li><i class="icon iconfont">&#xe633;</i><a id="resetPassword" href="javascript:void(0);">修改密码</a></li>
+                <li><i class="icon iconfont">&#xe632;</i><a id="logout" href="javascript:void(0);">退出登录</a></li>
+            </ul>
+        </li>
+
+        <li id="backgroundtask-li">
+            <span class="corner" id="public-header-red-corner"></span>
+            <span class="icon iconfont r-btn dropdown-button j-backgroundtask tooltipped" data-position="bottom"
+                  data-delay="50" data-tooltip="后台任务" data-activates="status-list"
+                  data-beloworigin="true"
+                  data-constrainwidth="false">&#xe632;</span>
+            <div id="status-list" class="dropdown-content">
+                <ul>
+                    <li>
+                        <div class="col s12 center valign pt10">
+                            <div class="preloader-wrapper small active ">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="seeall"><a href="<%=BASE_PATH%>/html/data-supervise/quality-report.html">查看全部</a></div>
+            </div>
+        </li>
+        <li id="system-setuplist-li">
+
+            <span class="user-name-txt"><%=USER_ID%> <div class="user-name-tip">
+                 <div class="arr"></div>
+                <div>欢迎使用marketing cloud!</div>
+                <div><%=USER_ID%> <%=COMP_NAME%></div>
+            </div></span>
+            <span class="icon iconfont setup-btn">&#xe648;</span>
+            <div class="system-setuplist">
+                <span class="setuparr"></span>
+                <ul id="system-setuplist-ul">
+                    <!--<li>-->
+                        <!--<span class="icon iconfont green">&#xe671;</span>-->
+                        <!--<a href="/html/admin/tag-factory/tagmanage.html">管理中心</a>-->
+                    <!--</li>-->
+                    <li>
+                        <span class="icon iconfont bule">&#xe64b;</span>
+                        <a href="/html/signin/change-password.html">修改密码</a>
+                    </li>
+                    <li>
+                        <span class="icon iconfont bule">&#xe64b;</span>
+                        <a href="/html/admin/user-source-uploadsource.html" class="j-gotoadmin">IT后台</a>
+                    </li>
+                    <li class="bt">
+                        <span class="icon iconfont">&#xe63e;</span>
+                        <a href="#" class="logout-btn">退出</a>
+                    </li>
+                </ul>
+
+            </div>
+        </li>
+
+        <li id="searchinput-li">
+            <input type="text" class="validate search-input dropdown-button" data-activates="search-list"
+                   data-beloworigin="true" data-constrainwidth="false" placeholder="关键字搜索活动、人群">
+            <span class="icon iconfont search-ico">&#xe668;</span>
+            <div id="search-list" class="dropdown-content">
+                <div class="nodata">
+                    <ico class="icon iconfont">&#xe668;</ico>
+                    <span>无搜索结果</span>
+                </div>
+                <ul class="search-feeds">
+
+                </ul>
+            </div>
+        </li>
+    </ul>
+</script>
+
+<script type="text/template" id="tpl-statelist">
+    <%_.each(data,function(m){%>
+    <li class="clearfix unfinished">
+        <div class="l">
+            <div class="task-name"><%=m.task_name%></div>
+            <div class="detail"><%=m.createtime%> <%=m.task_status%></div>
+        </div>
+        <div class="r">
+            <i class="icon iconfont">&#xe631;</i>
+        </div>
+    </li>
+    <%})%>
+</script>
+
+
+<script type="text/template" id="tpl-mainsearch-list">
+    <li class="count">共找到<%=total%>条记录</li>
+    <%_.each(data,function(m){%>
+    <li class="clearfix">
+        <a href="<%=m.hrefStr%>"><%=m.name%></a>
+        <span class="typetip"><%=m.typeName%></span>
+    </li>
+    <%})%>
+</script>

@@ -1,0 +1,26 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2016/10/18.
+ */
+@mixin statu-text-public{float: left; height: 22px; padding: 0 14px; color: rgba(255,255,255,1); display: flex; @include flex-align-items(center); border-top-left-radius: 2px; border-bottom-right-radius: 2px;}
+@mixin statu-horn-public{float: left; width: 11px; height: 22px;}
+.statu-cyan{float: left;
+  .statu-text{background-color: rgba(91,212,199,1); @include statu-text-public;}
+  .statu-horn{background-image: url("../../img/messageapp/cyan.png"); @include statu-horn-public;}
+}
+.statu-gray{float: left;
+  .statu-text{background-color: rgba(239,239,239,1); @include statu-text-public;color:#999;}
+  .statu-horn{background-image: url("../../img/messageapp/gray.png"); @include statu-horn-public;}
+}
+.statu-purple{float: left;
+  .statu-text{background-color: rgba(192,144,236,1); @include statu-text-public;}
+  .statu-horn{background-image: url("../../img/messageapp/purple.png"); @include statu-horn-public;}
+}
+.statu-yellow{float: left;
+  .statu-text{background-color: rgba(250,187,61,1); @include statu-text-public;}
+  .statu-horn{background-image: url("../../img/messageapp/yellow.png"); @include statu-horn-public;}
+}
+.statu-dark-gray{float: left;
+  .statu-text{background-color: rgba(153,153,153,1); @include statu-text-public;}
+  .statu-horn{background-image: url("../../img/messageapp/dark_grey.png"); @include statu-horn-public;}
+}

@@ -1,0 +1,469 @@
+<!--行动-->
+<script charset="UTF-8" type="text/template" id="save-current-group">
+    <div class="active-nodetip" id="save-current-group-tips">
+        <div class="tit"><%=title?title+'设定':'保存当前人群设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="save-current-group-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="save-current-group-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+
+        <div class="clearfix">
+            <span class="left select-tit">人群</span>
+            <span class="left select-wrap group" >
+                  <input id="save-current-group-edit-name" maxlength="20" type="text" class="validate edit-name-input" attr-display="false">
+                  <select id="save-current-group-select">
+                      <%
+                      segmentArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(audience_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+            <span class="left icon iconfont ml8 edit" style="display: none" id="save-current-group-add">&#xe602;</span>
+            <span class="left icon iconfont ml8 edit" style="display: none" id="save-current-group-check">&#xe654;</span>
+            <span class="left icon iconfont ml8 edit" id="save-current-group-edit">&#xe609;</span>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="set-tag">
+    <div class="active-nodetip" id="set-tag-tips">
+        <div class="tit"><%=title?title+'设定':'设置标签设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="set-tag-name" type="text" class="validate" maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="set-tag-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <!--<div class="input-field timing-name-input">-->
+            <!--<textarea id="set-tag-textarea" class="materialize-textarea"><% if(desc){ %><%=desc%><% } %></textarea>-->
+            <!--<label for="set-tag-textarea">标签</label>-->
+        <!--</div>-->
+        <div class="input-field timing-name-input">
+            <input id="set-tag-textarea" type="text" class="validate">
+            <label for="set-tag-textarea">标签</label>
+        </div>
+        <div class="clearfix">
+            <div class="tags-content" style="height: 64px; overflow-y: auto;" id="set-tag-content">
+                <%
+                if(tag_names&&tag_names.length){
+                    for(var i=0;i<tag_names.length;i++){
+                    %>
+                     <div class="set-tag" attr-name="<%=tag_names[i]%>"><%=tag_names[i]%><i class="icon iconfont rui-close set-tag-tag-remove">&#xe608;</i></div>
+                    <%}%>
+                <%}else {%>
+                   <div style="height: 30px;color:#c8c8c8;font-size: 12px;">输入标签，回车增加  <span style="color:#e64646;">（必填项)</span></div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="wait-set">
+    <div class="active-nodetip" id="wait-set-tips">
+        <div class="tit"><%=title?title+'设定':'等待设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="wait-set-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wait-set-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label></div>
+        <div><span class="select-tit">等待时间</span></div>
+        <div class="" style="margin-top: 10px;">
+            <input class="with-gap" name="radioname" type="radio" id="xdsj" value="relative"
+            <% if(radio=="relative"||!radio){ %>
+            checked="checked"
+            <% }%>
+                    />
+            <label for="xdsj">相对时间</label>
+        </div>
+        <div class="clearfix">
+            <span class="left">
+                <input id="wait-set-refresh1" type="text"   class="text" style="width: 40px;text-align: center"
+                        <% if(relative_value){ %>
+                        value="<%=relative_value%>"
+                         <% }else{ %>
+                                value="1"
+                         <%}%>
+                         >
+            </span>
+            <span class="left select-wrap ml8 relative-time" >
+                  <select id="wait-set-refresh2">
+                      <%
+                      refresh_interval_type_arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(relative_type==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="">
+            <input class="with-gap" name="radioname" type="radio" id="zdsj" value="specify"
+            <% if(radio=="specify"){ %>
+            checked="checked"
+            <% }%>
+            />
+            <label for="zdsj">指定时间</label>
+        </div>
+        <div class="input-field ">
+            <span class="time-icon icon iconfont">&#xe61c;</span>
+            <input type="text"  id="wait-set-date" class="time-picker datepick" placeholder="日期"
+            <% if(date){ %>
+            value="<%=date%>"
+            <% } %>
+            >
+            <input type="text" id="wait-set-time" class="timer" placeholder="时间"
+            <% if(setTime){ %>
+            value="<%=setTime%>"
+            <% } %>
+            >
+        </div>
+    </div>
+</script>
+
+
+
+<script charset="UTF-8" type="text/template" id="send-h5">
+    <div class="active-nodetip" id="send-h5-tips">
+        <div class="tit"><%=title?title+'设定':'发送H5活动设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="send-h5-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-h5-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">H5页面</span>
+            <span class="left select-wrap h5" >
+                  <select id="send-h5-h5-select">
+                      <%
+                      imgTextArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(img_text_asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公众号</span>
+            <span class="left select-wrap public" >
+                  <select id="send-h5-public-select">
+                      <%
+                      publicArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(pub_asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <!--
+       <div style="border-bottom: 1px solid #c8c8c8;margin: 10px 0;"></div>
+
+       <div class="clearfix">
+           <span class="left select-tit">个人号</span>
+           <span class="left select-wrap per" >
+                 <select id="send-h5-per-select">
+                     <%
+                     perArr.forEach(function(itm,i){
+                     %>
+                     <option value="<%=itm.val%>"
+                     <% if(prv_asset_id==itm.val){ %>
+                     selected="selected"
+                     <% } %>
+                     ><%=itm.text%></option>
+                     <% })%>
+                 </select>
+           </span>
+       </div>
+       <div class="clearfix">
+           <span class="left select-tit">群组</span>
+           <span class="left select-wrap group" >
+                 <select id="send-h5-group-select">
+
+                 </select>
+           </span>
+       </div>
+       -->
+    </div>
+</script>
+
+
+
+
+<script charset="UTF-8" type="text/template" id="send-msg">
+    <div class="active-nodetip" id="send-msg-tips">
+        <div class="tit"><%=title?title+'设定':'发送个人消息设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="send-msg-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-msg-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">个人号</span>
+            <span class="left select-wrap per" >
+                  <select id="send-msg-select">
+                      <%
+                      perArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">群组</span>
+            <span class="left select-wrap group" >
+                  <select id="send-msg-group-select">
+
+                  </select>
+            </span>
+        </div>
+        <div class="input-field timing-name-input">
+            <textarea id="send-msg-textarea" class="materialize-textarea <%=text_info?'':'invalid'%> " maxlength="100" ><% if(text_info){ %><%=text_info%><% } %></textarea>
+            <label for="send-msg-textarea">文本信息</label>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="send-img">
+    <div class="active-nodetip" id="send-img-tips">
+        <div class="tit"><%=title?title+'设定':'发送微信图文设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="send-img-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-img-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公众号</span>
+            <span class="left select-wrap public" >
+                  <select id="send-img-public-select" onchange="planSendImgPublicSelectOnChange(this)">
+                      <%
+                      publicArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>" data-asset-id="<%=itm.asset_id%>"
+                      <% if(asset_id==itm.asset_id){%>
+                        selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+            <input id="send-img-public-val" type="hidden" value="<%=asset_id?asset_id:(publicArr[0]?publicArr[0].asset_id:'')%>">
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">图文</span>
+            <input id="send-img-img-select" type="text"
+                   class="validate search-input dropdown-button left select-wrap img"
+                   data-beloworigin="true"
+                   data-constrainwidth="false"
+                   placeholder="关键字搜索"
+                   onfocus="planSendImgSelectFocus(this)"
+                   onkeyup="planSendImgSelect(this)"
+                   onchange="planSendImgSelectChange(this)"
+                   value="<%=img_text_asset_name%>"
+                   style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                    >
+            <input id="send-img-img-select-val" type="hidden" value="<%=img_text_asset_id%>">
+            <span class="icon iconfont search-ico">&#xe668;</span>
+            <div id="send-img-img-select-content" class="dropdown-content icon-dropdown-content" style="">
+                <div class="nodata" style="display:<% if(imgTextArr.length){%>none<%}else{%>block<%}%>">
+                    <ico class="icon iconfont">&#xe668;</ico>
+                    <span>无搜索结果</span>
+                </div>
+                <ul class="search-feeds" >
+                    <%
+                    imgTextArr.forEach(function(itm,i){
+                    %>
+                     <li class="send-img-dropdown-content-li" data-val="<%=itm.val%>" style="background-image: url(<%=itm.url%>);"><%=itm.text%></li>
+                    <%
+                    })
+                    %>
+                </ul>
+            </div>
+            <!--
+            <span class="left select-wrap img" >
+                  <select id="send-img-img-select">
+                      <%
+                      imgTextArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(img_text_asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+             <a class="left icon iconfont ml8  add send-img-add" href="javascript:void(0);">&#xe672;</a>
+            -->
+
+        </div>
+    </div>
+</script>
+
+
+<!-- 发送短信-->
+<script charset="UTF-8" type="text/template" id="send-sms">
+    <div class="active-nodetip" id="send-sms-tips">
+        <div class="tit"><%=title?title+'设定':'发送短信设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="send-sms-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-sms-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">短信通道</span>
+            <span class="left select-wrap sms-type" >
+                  <select id="send-sms-type-select" onchange="planSendSMSTypeSelectOnChange(this)">
+                      <%
+
+                      //通道类型：0:营销短信模板,1:服务通知模板,2：短信验证码模板'
+                      //v1.7 只显示--营销短信、服务通知短信
+                      var typeArr=[{
+                      sms_category_type:0,
+                      sms_category_name:'营销短信'
+                      },{
+                      sms_category_type:1,
+                      sms_category_name:'服务通知短信'
+                      }];
+                      typeArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.sms_category_type%>" data-sms-type-id="<%=itm.sms_category_type%>"
+                      <% if(sms_category_type==itm.sms_category_type){%>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.sms_category_name%></option>
+                      <% })%>
+                  </select>
+            </span>
+            <input id="send-sms-type-val" type="hidden" value="<%=sms_category_type?sms_category_type:(typeArr[0]?typeArr[0].sms_category_type:'')%>">
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">短信素材</span>
+            <input id="send-sms-material-select" type="text"
+                   class="validate search-input dropdown-button left select-wrap sms-material"
+                   data-beloworigin="true"
+                   data-constrainwidth="false"
+                   placeholder="关键字搜索"
+                   onfocus="planSendSMSMaterialSelectFocus(this)"
+                   onkeyup="planSendSMSMaterialSelect(this)"
+                   onchange="planSendSMSMaterialSelectChange(this)"
+                   value="<%=sms_material_name%>"
+                   style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                    >
+            <input id="send-sms-material-val" type="hidden" value="<%=sms_material_id%>">
+            <span class="icon iconfont search-ico">&#xe668;</span>
+            <div id="send-sms-material-select-content" class="dropdown-content suggest-dropdown-content" style="">
+                <div class="nodata" style="display:<% if(materialArr.length){%>none<%}else{%>block<%}%>">
+                    <ico class="icon iconfont">&#xe668;</ico>
+                    <span>无搜索结果</span>
+                </div>
+                <ul class="search-feeds" >
+                    <%
+                    materialArr.forEach(function(itm,i){
+                    %>
+                    <li class="send-sms-dropdown-content-li" data-val="<%=itm.val%>"><%=itm.text%></li>
+                    <%
+                    })
+                    %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="send-img-dropdown-content">
+    <%
+    imgTextArr.forEach(function(itm,i){
+    %>
+    <li  class="send-img-dropdown-content-li" data-val="<%=itm.val%>"  style="background-image: url(<%=itm.url%>);"><%=itm.text%></li>
+    <%
+    })
+    %>
+</script>
+<script charset="UTF-8" type="text/template" id="send-sms-dropdown-content">
+    <%
+    materialArr.forEach(function(itm,i){
+    %>
+    <li  class="send-sms-dropdown-content-li" data-val="<%=itm.val%>" ><%=itm.text%></li>
+    <%
+    })
+    %>
+</script>
+
+
+

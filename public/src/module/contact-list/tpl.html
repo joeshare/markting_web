@@ -1,0 +1,41 @@
+<script type="text/template" class="tpl-groupuser">
+    <div id="groupuser-list">
+        <div class="wrap">
+            <%if(total_count){%>
+            <div class="titinfo clearfix">
+                <span class="num left">总计<%=total_count%>人</span>
+            </div>
+            <%}%>
+            <div class="search-wrap">
+                <input placeholder="搜索联系人" type="text" class="search-user-input">
+                <span class="icon iconfont search-user-btn">&#xe668;</span>
+            </div>
+
+            <ul class="user-feedlist"></ul>
+
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="tpl-li">
+    <%_.each(data,function(m){%>
+    <li>
+        <div class="left user-img">
+            <img src="<%=m.head_image_url%>" alt="">
+        </div>
+        <div class="left user-info">
+            <div><%=m.name%></div>
+            <div class="detail"><%=m.gender%> <%=m.age%> <%=m.nmobile%></div>
+        </div>
+        <div class="right user-morebtn dropdown-button" data-activates="grouplist-moremenu<%=m.nid%>"
+             data-constrainwidth="false">
+            <a href="#" class="icon iconfont ">&#xe675;</a>
+        </div>
+        <ul id="grouplist-moremenu<%=m.nid%>" class="dropdown-content">
+            <li><i class="icon iconfont">&#xe61e;</i><a href="javascript:;" class="js-showuserfile"
+                                                        data-mdtype="<%=m.mdtype%>"  data-contactid="<%=m.nid%>">联系人档案</a></li>
+        </ul>
+    </li>
+    <%})%>
+</script>
+

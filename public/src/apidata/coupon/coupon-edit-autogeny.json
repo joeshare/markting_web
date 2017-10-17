@@ -1,0 +1,21 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 0,"date":"2016-11-22",
+    "data":[
+        {
+            "id": 0,
+            "title": "管理名称",
+            "source": "generate",
+            "rule": {
+                "type_code": "letter",
+                "length": 5,
+                "max_count": 100
+            },
+            "stock_total": 1,
+            "amount": 1,
+            "chanel_code": "msm",
+            "start_time": 1479879412000,
+            "end_time": 1479879412000
+        }
+    ]
+}

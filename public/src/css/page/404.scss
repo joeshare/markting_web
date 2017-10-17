@@ -1,0 +1,39 @@
+@charset "utf-8";
+/*加载公用css文件1*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-border-radius: 2px;
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(230,230,230,1);
+@mixin base-box{box-shadow: $base-box-shadow; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);
+};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+
+/*正文开始*/
+.page404{position: relative; width: 100%; height: 100%; padding: 0 16px 12px 16px; display: flex;
+    .content404-box{width: 316px; margin: 0 auto;
+        .theme-box{float: left; width: 100%; height: auto; margin-top: 40px;
+            .theme-background-image{float: left; width: 316px; height: 298px; background: url("../../img/404/404theme.png");  margin: 0 0 0 -36px;}
+            .theme-text{float: left; width: 100%; color: rgba(153,153,153,1); margin: 0; height: 28px;
+                .normal-text{float: left; @include single-line-font($main-font-size * 2); line-height: 32px;}
+                .big-text{float: left; @include single-line-font($main-font-size * 2 + 2);}
+            }
+        }
+        .point-out{float: left; width: 100%; height: auto; margin-top: 39px;
+            .title{float: left; width: 100%; @include single-line-font($main-font-size + 3); color: rgba(102,102,102,1);}
+            .cont-text{float: left; width: 100%; margin-top: 9px;
+                .li{float: left; width: 100%; @include single-line-font($main-font-size); color: rgba(153,153,153,1); margin-top: 9px;}
+            }
+        }
+        .operation{float: left; width: 100%; @include single-line-font($main-font-size + 2); margin-top: 28px;
+            .back{float: left; color: rgba(26,161,217,1); margin-left: 14px;}
+            .go-index{float: right; color: rgba(26,161,217,1); margin-right: 48px;}
+        }
+    }
+}

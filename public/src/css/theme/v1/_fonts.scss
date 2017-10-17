@@ -1,0 +1,35 @@
+/**
+ * Created by richard on 2016-10-20.
+ * 文字规范
+ */
+.f-com {
+  font-family: "微软雅黑", "Roboto", sans-serif;
+  color: #333;
+}
+
+.h1 {
+  @extend .f-com;
+  font-size: 20px;
+}
+
+.h2 {
+  @extend .f-com;
+  font-size: 18px;
+}
+
+.h3 {
+  @extend .f-com;
+  font-size: 16px;
+}
+
+.h4 {
+  @extend .f-com;
+  font-size: 14px;
+}
+
+.h5 {
+  @extend .f-com;
+  font-size: 12px;
+}
+
+

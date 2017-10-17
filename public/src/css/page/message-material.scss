@@ -1,0 +1,56 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2016/11/1.
+ */
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+  height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+  font-size: $fontSize; line-height: $lineHeight;
+}
+
+/*正文开始*/
+.material{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+  .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; color: $base-font-color; font-size: $main-font-size; @include base-box;
+    .content-header{float: left; width: 100%; padding: 24px 0;
+      .tabs-box-one{position: relative; float: left; width: 100%; border-bottom: $base-border-line;
+        .tabs-box{float: left; width: 300px;
+          .tabs{height: 100%;}
+        }
+      }
+      .tabs-box-two{position: relative; float: left; width: 100%; border-bottom: $base-border-line;
+        .tabs-box{float: left; width: 450px;
+          .tabs2{height: 100%;}
+        }
+        .search-area{float: right; width: 242px; height: 32px; overflow: hidden; margin: 9px 20px 0 20px;
+          .search-box{float: left; width: 240px; height: 30px; overflow: hidden; border: 1px solid rgba(236,236,236,1);
+            .input{float: left; width: 190px; height: 30px; border: none; padding-left: 10px;}
+            .icon{float: right; width: 30px; height: 30px; @include flex-center; cursor: pointer;}
+          }
+        }
+      }
+    }
+    .table-area{float: left; width: 100%;
+      .page-table-box{table-layout: fixed;
+        .single-text{@include single-text;}
+        .close{cursor: not-allowed; color: rgba(200, 200, 200, 1);}
+      }
+      .total-count{float: left; @include single-line-font; margin: 14px 0 0 24px;}
+    }
+  }
+}

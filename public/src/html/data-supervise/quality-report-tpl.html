@@ -1,0 +1,108 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="quality-report">
+        <header class="page-body-header">
+            <div class="text-box">
+                <span class="title">数据质量报告</span>
+                <span class="text">
+                    共计接入数据<span class="variable" id="total-rows">0</span>条&nbsp;|&nbsp;问题数据<span class="variable" id="issue-rows">0</span>条&nbsp;|&nbsp;修复<span class="variable" id="modified-rows">0</span>条
+                </span>
+            </div>
+            <div class="button-box">
+                <a id="goback" class="a keyong" href="javascript:;" title="返回">
+                    <span class="icon iconfont">&#xe621;</span>
+                    <span class="text">返回</span>
+                </a>
+            </div>
+        </header>
+        <div class="content">
+            <header class="header">
+                <div class="title">数据质量报告</div>
+                <div class="h2">您可以在此查看所有接入数据的质量并尝试修复它</div>
+            </header>
+            <div class="list-box">
+                <table class="page-table-box">
+                    <thead>
+                    <tr>
+                        <th class="first">数据文件信息</th>
+                        <th>开始时间</th>
+                        <th>完成时间</th>
+                        <th>数据源</th>
+                        <th>合法记录</th>
+                        <th>非法记录</th>
+                        <th>修正记录</th>
+                        <th class="ico"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="quality-report-tbody"></tbody>
+                </table>
+                <div class="pagination-wrap pagination light-theme simple-pagination"></div>
+            </div>
+            <!--菜单下拉-->
+            <div id="morelist-box"></div>
+            <!--非法记录下拉-->
+            <div id="illegal-list-box"></div>
+        </div>
+    </div>
+</script>
+<!--菜单下拉-->
+<script charset="UTF-8" type="text/template" id="tpl-illegallist">
+    <ul id='illegal-list' class='dropdown-content illegal-list'>
+        <li>
+            <a href='javascript:void(0)'>非法手机号</a><num class='num'></num>
+        </li>
+        <li>
+            <a href='javascript:void(0)'>非法邮箱</a><num class='num'></num>
+        </li>
+        <li>
+            <a href='javascript:void(0)'>重复记录</a><num class='num'></num>
+        </li>
+    </ul>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-morelist">
+    <ul id="morelist" class="dropdown-content setuplist">
+        <li class="close"><i class="icon iconfont">&#xe643;</i><a class="a" id="downloadFile" href="javascript:void(0)">下载非法数据</a></li>
+        <li><i class="icon iconfont">&#xe668;</i><a id="reviewLog" href="javascript:void(0)">查看日志</a></li>
+        <li class="upfile">
+            <i class="icon iconfont">&#xe628;</i><a class="a" href="javascript:void(0)">修正后上传</a>
+            <input type="file" id="uploadFile" class="file" title="修正后上传"/>
+        </li>
+    </ul>
+</script>
+<script charset="UTF-8" type="text/template" id="tbody-content">
+
+    <% if(listData.length>0){ %>
+    <%listData.map(function(m,i){%>
+    <tr listid="<%=m.data_id%>">
+        <td class="first">
+            <div class="file-info">
+                <div class="file-type" title="<%=m.file_type_value%>"><%=m.file_type_value%></div>
+                <div class="underline">_</div>
+                <div class="file-source" title="<%=m.source_file_name%>"><%=m.source_file_name%></div>
+            </div>
+        </td>
+        <td><div class="sten-time"><%=m.start_time%></div></td>
+        <td><div class="sten-time"><%=m.end_time%></div></td>
+        <td><div class="data-source"><%=m.data_source%></div></td>
+        <td><div class="lawful"><%=m.legal_data_rows_count%></div></td>
+        <td class="illegaltd">
+            <div class="illegal">
+            <% if(m.ilegal_data_rows_count){%>
+            <a href="javascript:void(0)" class="r-btn dropdown-button dropdown-button-illegal" data-activates="illegal-list" data-constrainwidth="false" data-gutter="-140"><num class="num"><%=m.ilegal_data_rows_count%></num><ico class="pointer icon iconfont">&#xe66f;</ico></a>
+            <%}%>
+            </div>
+        </td>
+        <td>
+            <div class="modify">
+            <%if(m.modify_log){%>
+            <a class="download" href="<%=m.modify_file_url%>" title="<%=m.modify_file_name%>"><%=m.modify_file_name%></a><span class="time"><%=m.handle_time%></span>
+            <%}%>
+            </div>
+        </td>
+        <td class="ico"><ico class="pointer icon iconfont r-btn dropdown-button moreico" data-activates="morelist" data-constrainwidth="false" listid="<%=m.data_id%>" file-type="<%=m.file_type%>" file-unique="<%=m.file_unique%>">&#xe675;</ico></td>
+    </tr>
+    <% })}else{ %>
+    <tr>
+        <td style="text-align:center" colspan="7">暂无数据！</td>
+    </tr>
+    <% } %>
+</script>

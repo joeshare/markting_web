@@ -1,0 +1,136 @@
+#container {
+  position: relative;
+  width: auto;
+  height: 600px;
+  flex-flow: row;
+  display: -webkit-flex;
+  display: flex;
+  align-items: stretch;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none; }
+  #container .main {
+    flex: 1;
+    height: 100%;
+    display: block; }
+  #container .menu {
+    width: 80px;
+    height: 100%;
+    display: block;
+    background: rgba(230, 230, 230, 0.5); }
+    #container .menu ul {
+      padding: 0;
+      list-style: none;
+      position: relative; }
+      #container .menu ul li {
+        text-align: center;
+        margin: 3px 0; }
+        #container .menu ul li a {
+          text-decoration: none;
+          display: block;
+          cursor: pointer;
+          height: 40px;
+          line-height: 40px; }
+        #container .menu ul li a.m-flow-node {
+          text-decoration: none;
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 900;
+          background: rgba(78, 187, 250, 0.8);
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          -khtml-user-select: none;
+          user-select: none; }
+        #container .menu ul li a.m-flow-node:hover {
+          text-shadow: 0 0 5px rgba(20, 76, 157, 0.9); }
+        #container .menu ul li a.draw-line {
+          text-decoration: none;
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 900;
+          background: rgba(78, 187, 250, 0.8);
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          -khtml-user-select: none;
+          user-select: none; }
+        #container .menu ul li a.active {
+          background: rgba(130, 130, 130, 0.8); }
+      #container .menu ul li.space div {
+        height: 0;
+        border: 2px solid rgba(100, 100, 100, 0.5); }
+      #container .menu ul .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none; }
+  #container .main-graph {
+    background: url("../../img/demo/canvas_bg.gif");
+    z-index: 0;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6; }
+  #container .m-tmp-drag-node {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #0000ff;
+    z-index: 100; }
+  #container .c-flow-drag-node {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #4ebbfa;
+    padding: 1px; }
+    #container .c-flow-drag-node .content {
+      height: 100%;
+      widht: 100%;
+      background: #4ebbfa;
+      position: relative; }
+      #container .c-flow-drag-node .content .close {
+        display: none;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        color: red;
+        font-weight: bolder;
+        border-radius: 10px;
+        background: #ccc;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+        border: 1px solid rgba(170, 170, 170, 0.5); }
+  #container .c-flow-drag-node.dom-dragdisable {
+    border: 1px solid #ccc; }
+    #container .c-flow-drag-node.dom-dragdisable .content {
+      background: #ccc; }
+  #container .next-node {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    outline-color: #4ebbfa;
+    outline-width: 2px;
+    outline-offset: -2px;
+    outline-style: dashed;
+    background: #fbfbfb; }
+  #container .next-node.active {
+    outline-color: #fa5f18; }
+  #container .select {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    outline-color: #4ebbfa;
+    outline-width: 1px;
+    outline-offset: -1px;
+    outline-style: dashed; }
+  #container .node-shadow {
+    box-shadow: 0 0 6px 3px #4ebbfa; }
+
+/*# sourceMappingURL=demo.css.map */

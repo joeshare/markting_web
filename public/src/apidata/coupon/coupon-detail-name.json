@@ -1,0 +1,16 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 0,"date":"2016-11-22",
+    "data":[
+        {
+            "id": 1,
+            "title": "优惠券名称",
+            "type": "voucher",
+            "source_code": "common",
+            "coupon_status": "releasing",
+            "channel_code": "sms",
+            "task_id": 21,
+            "task_name": "任务名称"
+        }
+    ]
+}

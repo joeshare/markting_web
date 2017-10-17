@@ -1,0 +1,17 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 1,
+    "data":[
+        {
+            "qrcode_id": "003",
+            "qrcode_img_url": "../../img/data-access/qrCode.png",
+            "qrcode_img_preview_url": "../../img/data-access/qrCode.png",
+            "qrcode_name": "果倍爽新品上市03",
+            "qrcode_ditch": "门店",
+            "qrcode_invalid_time": "2016-08-05",
+            "qrcode_status": "已失效",
+            "qrcode_associate": "有",
+            "qrcode_attention": "345"
+        }
+    ]
+}

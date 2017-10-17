@@ -1,0 +1,52 @@
+<script type="text/template" id="tpl-modal">
+    <div id="<%=id%>" class="modal " style="">
+    <div class="icon iconfont close-btn modal-close">&#xe608;</div>
+        <div class="modal-content rui-modal-content">
+            <div class="title"></div>
+            <div class="content"></div>
+        </div>
+        <div class="modal-footer rui-modal-footer">
+            <div class="btn-content">
+            <%
+              if(buttons&&buttons.length){
+                buttons.forEach(function(itm,i){
+            %>
+               <a href="javascript:void(0);" class="modal-action modal-<%=itm.type%>"><%=itm.text%></a>
+            <%
+              })
+              }else{
+            %>
+               <!--<a href="#!" class=" modal-action modal-close waves-effect waves-light btn btn-flat ">取消</a>-->
+            <%
+              }
+            %>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="tpl-window">
+    <div id="<%=id%>" class="modal <%=cls%>" style="height:<%=height%>px;width:<%=width%>px">
+        <div class="icon iconfont close-btn modal-close">&#xe608;</div>
+        <div class="modal-content rui-modal-content ">
+            <div class="title"><%=title%></div>
+            <div class="content"><%=content%></div>
+        </div>
+        <div class="modal-footer rui-modal-footer">
+            <div class="btn-content">
+                <%
+                if(buttons&&buttons.length){
+                buttons.forEach(function(itm,i){
+                %>
+                <a href="javascript:void(0);" id="window-btn-<%=i%>" class="modal-action <%=itm.cls%>"><%=itm.text%></a>
+                <%
+                })
+                }else{
+                %>
+                <!--<a href="#!" class=" modal-action decline waves-effect waves-light btn-flat ">取消</a>-->
+                <%
+                }
+                %>
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,36 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="custom-report">
+        <header class="page-body-header">
+            <div class="text-box">
+                <span class="title">定制报表</span>
+                <span class="text">
+                    <span class="color">查看在BAS中定制的报表</span>
+                </span>
+            </div>
+            <div class="button-box icon iconfont">
+                <a class="a keyong" id="goIndex" href="<%=BASE_PATH%>/" title="返回首页">&#xe644;</a>
+            </div>
+        </header>
+        <div class="content" id="main-content">
+            <div class="segment-area" id="segment-area">
+                <div class="header">
+                    <div class="title">全部报表</div>
+                    <a title="进入BAS系统定制新的报表" target="_blank" class="a" href="http://bas.ruixuesoft.com/">进入BAS系统定制新的报表</a>
+                </div>
+                <div class="segment-box">
+                    <ul class="ul" id="filled-segment">
+                        <li class="li">
+                            <input id="filled-segment-1" class="filled-in filled-segment-child" type="radio" name="segment" checked="checked"/>
+                            <label for="filled-segment-1">7月1日母婴促销活动漏斗分析</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bas-area" id="bas-area">
+                <div class="bas-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="auto" marginheight="0" marginwidth="0" src="http://bas.ruixuesoft.com/main/data-overview/analysis-list/8aaffc4854c87bb50154c88ad4630032#mode=integrated&view=toolbar"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

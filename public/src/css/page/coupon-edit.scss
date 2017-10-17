@@ -1,0 +1,286 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2016/12/6.
+ */
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+  height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+  font-size: $fontSize; line-height: $lineHeight;
+}
+
+/*正文开始*/
+.coupon-new{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px;
+  .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; color: $base-font-color; font-size: $main-font-size;
+    .header{float: left; width: 100%; height: 270px; @include base-box; padding: 45px;
+      .logo{float: left; width: 168px; height: 174px;}
+      .tt{float: left; width: 100%; height: 174px; margin-top: -174px; padding: 30px 0 0 210px;
+        .title{float: left; width: 100%; @include single-line-font($main-font-size * 2);}
+        .h2{float: left; width: 100%; height: 18px; margin: 20px 0;
+          .text{float: left; font-family: 'Arial'; color: rgba(102,193,227,1); @include single-line-font($main-font-size + 6);}
+          .ico{float: left; width: 17px; height: 17px; overflow: hidden; border-radius: 50%; background-color: rgba(102,193,227,1); color: rgba(255,255,255,1); margin-left: 10px; font-size: $main-font-size; text-indent: 3px;}
+        }
+        .text-box{float: left; width: 100%; color: rgba(153,153,153,1); line-height: $main-font-size * 2;}
+      }
+    }
+    .cont-body{position: absolute; top: 290px; right: 0; bottom: 0; left: 0; @include base-box; overflow-y: auto;
+      .step-area{position: relative; float: left; width: 100%; height: 186px; padding: 48px 80px 45px 80px;
+        .progress{top: 25px; margin: 0; background-color: rgba(204,204,204,1); z-index: $base-z-index;
+          .determinate{background-color: rgba(91,212,199,1);}
+        }
+        .step-box{position: relative; float: left; width: 100%; height: 47px; z-index: $base-z-index + 1; display: flex; flex-flow: row wrap; align-items: stretch; justify-content: space-between;
+          .step{width: 47px; height: 47px; overflow: hidden; text-align: center; border-radius: 50%; background-color: rgba(204,204,204,1); color: rgba(255,255,255,1); @include flex-center;}
+          .act{background-color: rgba(91,212,199,1);}
+        }
+        .step-bt{position: relative; float: left; width: 100%; height: 27px; margin-top: 15px; display: flex; flex-flow: row wrap; align-items: stretch; justify-content: space-between;
+          .one{height: 16px; padding-left: 34px;@include vetically-font($main-font-size + 2,$main-font-size + 2); background: url("../../img/coupon/new2.png") no-repeat;}
+          .two{height: 25px; padding-left: 37px;@include vetically-font($main-font-size + 2,$main-font-size * 2); background: url("../../img/coupon/new3.png") no-repeat;}
+          .three{height: 25px; padding-left: 31px;@include vetically-font($main-font-size + 2,$main-font-size * 2); background: url("../../img/coupon/new4.png") no-repeat;}
+        }
+      }
+      .cont{float: left; width: 100%; font-size: $main-font-size + 2;
+        .play-one{float: left; width: 100%; border-top: $base-border-line; padding: 50px 65px;
+          .line{float: left; width: 100%; height: 30px;
+            .line-title{float: left; width: 82px; height: 30px; display: flex; @include flex-align-items(center);
+              .redstar{color: $base-red-color; padding-right: 6px;}
+            }
+            .line-cont{float: left; width: 100%; margin-top: -30px; padding-left: 96px;
+              .hint{float: left; width: 100%; @include single-line-font; margin-top: 4px; color: $base-red-color; display: none; font-size: $main-font-size;}
+              .hint.show{display: block;}
+              .huit-icon{float: left; width: 20px; height: 20px; overflow: hidden; color: rgba(204,204,204,1); font-size: $main-font-size + 10px; line-height: 19px; cursor: pointer; margin: 3px 0 0 10px;}
+            }
+          }
+          .name{margin-bottom: 22px;
+            .input-box{float: left; width: 450px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px;
+              .input{float: left; width: 100%;}
+            }
+          }
+          .type{margin-bottom: 22px;
+            .line-cont{margin-top: -28px;
+              .radio-area{float: left; height: 30px; overflow: hidden;
+                .radio-box{float: left; margin-right: 10px;
+                  label{font-size: $main-font-size + 2;}
+                }
+                .radio-box:last-child{margin-right: 0;}
+              }
+            }
+          }
+          .button{margin-bottom: 25px;
+            .line-cont{margin-top: 0;
+              .next{float: left;}
+            }
+          }
+        }
+        .play-two{float: left; width: 100%;
+          .h1{float: left; width: 100%; border-bottom: $base-border-line; font-size: $main-font-size + 4; padding: 0 44px 20px 44px;}
+          .rule-explain{float: left; width: 100%; padding: 0 44px 20px 44px;
+            .h2{float: left; width: 100%; @include single-line-font; margin: 24px 0 15px 0;}
+            .point-out-box{float: left; width: 100%; padding: 20px 32px; background-color: rgba(247,247,247,1);
+              .point-out-title{float: left; width: 39px; height: 39px; overflow: hidden; display: flex; @include flex-center; background-color: rgba(139,195,74,1); border-radius: 5px; margin-right: 14px;
+                .icon{width: 18px; height: 18px; overflow: hidden; color: rgba(255,255,255,1); font-size: $main-font-size + 6; line-height: $main-font-size + 8;}
+              }
+              .point-out-content{float: left; line-height: 24px; margin-top: -6px; color: rgba(153,153,153,1); font-size: $main-font-size;}
+            }
+          }
+          .rule-body{float: left; width: 100%;
+            .line{float: left; width: 100%; height: 30px;
+              .line-title{float: left; width: 140px; height: 30px; line-height: 32px; text-align: right;
+                .redstar{color: $base-red-color; padding-right: 6px;}
+              }
+              .line-cont{float: left; width: 100%; margin-top: -30px; padding-left: 160px;
+                .hint{float: left; width: 100%; @include single-line-font; margin-top: 4px; color: $base-red-color; display: none; font-size: $main-font-size;}
+                .hint.show{display: block;}
+                .huit-icon{float: left; width: 20px; height: 20px; overflow: hidden; color: rgba(204,204,204,1); font-size: $main-font-size + 10px; line-height: 19px; cursor: pointer; margin: 7px 0 0 10px;}
+              }
+            }
+            .common{float: left; width: 100%;
+              .name{margin-bottom: 22px;
+                .input-box{float: left; width: 450px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px;
+                  .input{float: left; width: 100%;}
+                }
+              }
+              .amount{margin-bottom: 22px;
+                .input-box{float: left; width: 450px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px;
+                  .input{float: left; width: 100%;}
+                }
+              }
+            }
+            .autogeny{float: left; width: 100%;
+              .rule-div{margin-bottom: 22px;
+                .radio-area{float: left; margin-top: 4px;
+                  .radio-box{float: left; margin-right: 10px;
+                    label{font-size: $main-font-size + 2;}
+                  }
+                  .radio-box:last-child{margin-right: 0;}
+                }
+              }
+              .num-size{margin-bottom: 22px;
+                .selectbtn{float: left; width: 296px; height: 30px; border: 1px solid rgba(236,236,236,1); padding: 4px 30px 6px 12px; cursor: pointer; background: url("../../img/masterdata/arrow-down.png") no-repeat 276px 13px; @include single-text; font-size: $main-font-size + 2;}
+                .select-ul{height: 140px;
+                  li{min-height: 30px; line-height: 30px; text-indent: 14px;}
+                }
+              }
+              .outcome{margin-bottom: 22px;
+                .line-cont{padding-top: 5px;
+                  .icon{float: left; width: 18px; height: 18px; overflow: hidden; color: rgba(250,187,61,1); font-size: $main-font-size + 6; line-height: $main-font-size + 6; margin-right: 4px; margin-top: 2px;}
+                }
+              }
+              .amount{margin-bottom: 22px;
+                .input-box{float: left; width: 450px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px;
+                  .input{float: left; width: 100%;}
+                }
+              }
+            }
+            .own{float: left; width: 100%;
+              .caption{margin-bottom: 22px; height: 18px;
+                .line-cont{margin-top: 0;
+                  .title{float: left;}
+                  .download{float: left; height: 12px; margin: 4px 0 0 10px ;
+                    .a{float: left; @include single-line-font; color: $base-blue-color;}
+                  }
+                  .huit-icon{margin-top: 1px;}
+                }
+              }
+              .file-upload{float: left; width: 100%; padding: 0 44px 20px 44px;
+                .file-input{display: none;}
+                .upload-box{float: left; width: 100%; height: 120px; display: flex; @include flex-center; border-width: 1px; border-style: dashed;
+                  .select-box{float: left; height: 26px; overflow: hidden; margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto;
+                    .button{float: left; height: 25px; font-size: $main-font-size; text-align: center; line-height: 25px; cursor: pointer; color: rgba(255,255,255,1); border-radius: $base-border-radius;}
+                  }
+                }
+                .file-upload-init{border-color: rgba(210,210,210,1); background-color: rgba(245,245,245,1);
+                  .init-box{width: 116px; height: 26px; margin: auto;
+                    .select-box{width: 116px;
+                      .button{width: 114px; cursor: pointer; color: rgba(81,129,173,1); font-size: $main-font-size + 4;}
+                    }
+                  }
+                }
+                .file-upload-init:hover{border-color: rgba(154,172,191,1); background-color: rgba(239,248,252,1);}
+                .file-upload-loading{border-color: rgba(103,194,239,1); background-color: rgba(240,249,254,1); display: none;
+                  .loading-box{width: 346px; height: 64px; overflow: hidden; margin: auto;
+                    .cloud{float: left; width: 64px; height: 64px;
+                      .big{width: 100%; height: 100%;
+                        .spinner-blue-only{border-color: $base-blue-color;}
+                      }
+                    }
+                    .loading-cont{float: left; margin: 16px 8px 0 8px;
+                      .text{color: $base-blue-color;}
+                    }
+                    .select-box{margin-top: 22px;
+                      .button{width: 114px; background-color: rgba(103,194,239,1);}
+                    }
+                  }
+                }
+                .file-upload-success{border-color: rgba(137,195,74,1); background-color: rgba(243,249,237,1); display: none;
+                  .success-box{width: 346px; height: 96px; margin: auto;
+                    .ico{float: left; font-size: $main-font-size + 52; color: rgba(137,195,74,1);}
+                    .success-cont{float: left; margin-top: 32px;
+                      .text{color: rgba(137,195,74,1);}
+                    }
+                    .select-box{width: 116px; margin-top: 39px;
+                      .button{width: 114px; background-color: rgba(137,195,74,1);}
+                    }
+                  }
+                }
+                .file-upload-fail{border-color: rgba(253,121,121,1); background-color: rgba(255,241,241,1); display: none;
+                  .fail-box{width: 346px; height: 96px; margin: auto;
+                    .ico{float: left; font-size: $main-font-size + 52; color: rgba(253,121,121,1);}
+                    .fail-cont{float: left; margin-top: 32px;
+                      .text{color: rgba(253,121,121,1);}
+                    }
+                    .select-box{width: 116px; margin-top: 39px;
+                      .button{width: 114px; background-color: rgba(253,121,121,1);}
+                    }
+                  }
+                }
+              }
+              .files-list{height: auto; margin-bottom: 20px;
+                .line-cont{margin-top: 0;
+                  .lists{float: left; width: 100%; height: 14px; padding-right: 160px; display: flex; flex-flow: row; margin: 5px 0;
+                    .files{float: left; order: 0; padding-right: 16px; @include single-text; @include single-line-font;}
+                    .detail{float: left; order: 1; @include single-line-font;
+                      .num{float: left;}
+                      .delete{float: left; margin-left: 10px; color: $base-blue-color; cursor: pointer;}
+                    }
+                  }
+                  .lists:first-child{margin: 0 0 5px 0;}
+                  .lists:last-child{margin: 5px 0 0 0;}
+                }
+              }
+            }
+            .button{margin-bottom: 25px;
+              .line-cont{margin-top: 0;
+                .save{float: left;}
+                .back{float: left; margin-left: 20px;}
+              }
+            }
+          }
+        }
+        .play-three{float: left; width: 100%; border-top: $base-border-line; padding: 50px 0;
+          .line{float: left; width: 100%; height: 30px;
+            .line-title{float: left; width: 170px; height: 30px; line-height: 32px; text-align: right;
+              .redstar{color: $base-red-color; padding-right: 6px;}
+            }
+            .line-cont{float: left; width: 100%; margin-top: -30px; padding-left: 190px;
+              .hint{float: left; width: 100%; @include single-line-font; margin-top: 4px; color: $base-red-color; display: none; font-size: $main-font-size;}
+              .hint.show{display: block;}
+            }
+          }
+          .value{margin-bottom: 22px;
+            .input-box{float: left; width: 450px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px;
+              .input{float: left; width: 100%;}
+            }
+          }
+          .channel{margin-bottom: 22px;
+            .radio-area{float: left; margin-top: 4px;
+              .radio-box{float: left; margin-right: 10px;
+                label{font-size: $main-font-size + 2;}
+              }
+              .radio-box:last-child{margin-right: 0;}
+            }
+          }
+          .time{margin-bottom: 22px;
+            .radio-area{float: left; margin-top: 4px;
+              .radio-box{float: left; margin-right: 10px;
+                label{font-size: $main-font-size + 2;}
+              }
+              .radio-box:last-child{margin-right: 0;}
+            }
+          }
+          .time-interval{margin-bottom: 22px;
+            .line-cont{margin-top: 0;
+              .period-box{float: left; width: 100%;
+                .period{float: left; width: 137px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px; cursor: pointer;
+                  .input{float: left; width: 100%; height: 30px; position: relative; z-index: $base-z-index; font-size: $main-font-size; margin: 0; border: none; cursor: pointer;}
+                  .icon{float: right; width: 30px; height: 30px; border-left: $base-border-line; margin: -32px -10px 0 0; text-indent: -4px; line-height: 34px;}
+                }
+                .zhi{float: left; width: 32px; height: 30px; background-color: rgba(239,239,239,1); text-align: center; @include vetically-font($main-font-size,30px);}
+              }
+            }
+          }
+          .button{margin-bottom: 25px;
+            .line-cont{margin-top: 0;
+              .save{float: left;}
+              .back{float: left; margin-left: 20px;}
+            }
+          }
+        }
+      }
+    }
+  }
+}

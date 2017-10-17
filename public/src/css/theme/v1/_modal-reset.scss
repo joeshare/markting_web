@@ -1,0 +1,172 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2016/10/18.
+ */
+
+.button-accept {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 0 20px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  text-align: center;
+  background-color: color("blue", "lighten-1");
+  &:hover {
+    background-color: color("blue", "darken-1");
+  }
+  &:active {
+    background-color: color("blue", "base");
+  }
+  &.disable {
+    background-color: color("gray", "base");
+    cursor: not-allowed;
+  }
+}
+
+.button-decline {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 20px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  text-align: center;
+  color: color("blue", "lighten-1");
+  border: solid 1px;
+  border-color: color("blue", "lighten-1");
+  margin: 0 0 0 12px !important;
+  &:hover {
+    color: color("blue", "darken-1");
+    border-color: color("blue", "darken-1");
+    background-color: rgba(255, 255, 255, 1);
+  }
+  &:active {
+    color: color("blue", "base");
+    border-color: color("blue", "base");
+  }
+  &.disable {
+    color: color("gray", "base");
+    border-color: color("gray", "base");
+    cursor: not-allowed;
+  }
+}
+
+.modal {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+  background-color: rgba(255, 255, 255, 1);
+  overflow-x: hidden;
+  .close-btn {
+    position: absolute;
+    right: 14px;
+    top: 6px;
+    cursor: pointer;
+  }
+
+  .modal-content {
+    float: left;
+    width: 100%;
+    padding: 0;
+    .title {
+      float: left;
+      width: 100%;
+      border-bottom: 1px solid rgba(236, 236, 236, 1);
+    }
+    .content {
+      float: left;
+      width: 100%;
+      padding: 24px 30px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+  .modal-footer {
+    float: left;
+    height: 70px !important;
+    border-top: 1px solid rgba(236, 236, 236, 1);
+    .btn-content {
+      .accept {
+        @extend .button-accept;
+        width: 94px;
+        height: 28px;
+        margin: auto;
+        line-height: 28px;
+      }
+      .decline {
+        @extend .button-decline;
+        width: 94px;
+        height: 28px;
+        margin: auto;
+        line-height: 26px;
+      }
+    }
+  }
+
+}
+
+
+
+//通用confirm样式
+#common-confirm {
+  width: 380px;
+  border:solid 1px #ececec;
+  background:#fff;
+  border-radius:2px;
+  padding-bottom:40px;
+  .title{
+    margin: 40px auto 0 auto;
+    display: table;
+    color: #66c1e3;
+    font-size:16px;
+    .icon{
+      color: #66c1e3;
+      margin-right:8px;
+    }
+  }
+  .describe{
+    margin: 0 auto;
+    padding:0 20px;
+    display: table;
+    color: #999;
+    font-size:12px;
+  }
+  .fn-wrap{
+    margin: 20px auto 0 auto;
+    display: table;
+    .btn-confirm{
+      margin-right:10px;
+    }
+
+  }
+}
+//通用toast样式
+#common-toast {
+  width: 380px;
+  border:solid 1px #ececec;
+  background:#fff;
+  border-radius:2px;
+  padding-bottom:40px;
+  .title{
+    margin: 40px auto 0 auto;
+    display: table;
+    color: #66c1e3;
+    font-size:16px;
+    .icon{
+      width:30px;
+      float:left;
+      color: #66c1e3;
+    }
+    .txtcontent{
+      margin-top:6px;
+      float:left;
+      max-width: 280px;
+    }
+    .describe{
+      margin: 0 auto;
+      color: #999;
+      font-size:12px;
+    }
+  }
+
+
+}

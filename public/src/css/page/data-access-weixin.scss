@@ -1,0 +1,132 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+.weixin{position: relative; width: 100%; height: 100%; padding: 0 16px 12px 16px; overflow-y: auto;
+    .content{float: left; width: 100%; margin-bottom: 20px; color: $base-font-color;
+        .con-top{position: relative; float: left; width: 100%; height: 327px;
+            .mass{position: absolute; top: 0; right: 398px; bottom: 0; left: 0; min-width: 568px; height: 100%; border: $base-border-line; padding: 24px; background-color: rgba(255,255,255,1);
+                .thiscon{float: left; width: 100%;
+                    .title{float: left; width: 100%; @include single-line-font($main-font-size + 4); margin-bottom: 28px;}
+                    .li{float: left; width: 100%; @include single-line-font; margin-bottom: 10px;}
+                }
+                .butorqr-box{float: left; width: 100%; height: 142px; overflow: hidden; margin-top: 34px; padding: 0 30px;
+                    .left{float: left; width: 59px; height: 59px; overflow: hidden; margin-top: 36.5px; background-image: url("../../img/data-access/flowsheet1.png");}
+                    .right{float: right; width: 155px; height: 130px; overflow: hidden; margin-top: -142.5px; background-image: url("../../img/data-access/flowsheet3.png");}
+                    .middle{position: relative; float: left; width: 100%; height: 142px; padding: 0 155px 0 59px; margin-top: -95.5px;
+                        .header{float: left; width: 100%; @include vetically-font($main-font-size + 2); font-family: "Arial"; font-weight: bold; color: rgba(204,204,204,1); text-align: center;}
+                        .mid{position: relative; float: left; width: 100%; height: 59px; overflow: hidden; margin-top: 24.5px;
+                            .border{float: left; width: 100%; height: 29.5px; overflow: hidden; border-bottom: 1px solid rgba(236,236,236,1); text-align: center; font-size: $main-font-size + 2; color: rgba(102,193,227,1);
+                                .left-bor{float: left; width: 50%; height: 100%; padding-right: 29.5px;}
+                                .right-bor{float: right; width: 50%; height: 100%; padding-left: 29.5px;}
+                            }
+                            .icon{position: absolute; width: 59px; height: 59px; overflow: hidden; background: url("../../img/data-access/flowsheet2.png") rgba(255,255,255,1); margin: auto; left: 0; right: 0;}
+                        }
+                        .but-box{float: left; width: 100%; height: 30px; margin-top: 16px; display: flex;
+                            .but{margin: auto;}
+                        }
+                    }
+                }
+            }
+            .someone{float: right; width: 378px; height: 100%; padding: 24px; border: $base-border-line; background-color: rgba(255,255,255,1);
+                .thiscon{float: left; width: 100%;
+                    .title{float: left; width: 100%; @include single-line-font($main-font-size + 4); margin-bottom: 28px;}
+                }
+                .robot-box{float: left; width: 100%; height: 120px; text-align: center;}
+                .butorqr-box{float: left; width: 100%; margin-top: 40px; text-align: center;
+                    .h1{float: left; width: 100%; @include single-line-font($main-font-size + 6); margin-bottom: 10px;}
+                    .text{float: left; width: 100%; @include single-line-font; color: rgba(153,153,153,1);}
+                }
+            }
+        }
+        .con-bottom{float: left; width: 100%; border: $base-border-line; background-color: rgba(255,255,255,1); padding: 24px 24px 32px 24px; margin-top: 20px;
+            .title{float: left; width: 100%; height: 24px; font-size: $main-font-size + 8; line-height: $main-font-size + 8; color: rgba(60,60,60,1);}
+            .monitor-area{float: left; width: 100%;
+                .monitor-box{float: left; width: 100%; height: 260px; overflow: hidden;}
+                .list-area{float: left; width: 100%; margin-top: 30px; display: flex; flex-flow: row wrap; align-items: stretch;
+                    .list-box{float: left; border: $base-border-line; order: 0; flex: 1;
+                        .type-title-box{float: left; width: 100%; height: 42px; padding: 0 18px 0 32px; border-bottom: $base-border-line; background-color: rgba(248,248,248,1);
+                            .type-title{float: left; @include single-line-font($main-font-size + 2); margin-top: 14px;}
+                            .selectbtn{float: right; width: 80px; height: 20px; cursor: pointer; background: url("../../img/masterdata/arrow-down.png") no-repeat 67px 9px; font-size: $main-font-size + 2; color: $base-blue-color; margin-top: 9px; display: none;}
+                            .selectbtn.show{display: block;}
+                        }
+
+                        .ul{float: left; width: 100%; padding: 24px 18px 24px 32px;
+                            .li{float: left; width: 100%; flex-flow: row; margin-top: 10px;
+                                .ico{float: left; order: 1; width: 12px; height: 12px; border-radius: 50%; background-color: rgba(139,195,74,1);}
+                                .text{float: left; order: 0; margin-left: 8px; @include single-line-font; @include text-ellipsis;}
+                                .num{float: left; order: 1; @include single-line-font;}
+                            }
+                            .li.invalid{
+                                .ico{background-color: rgba(204,204,204,1);}
+                                .text{color: rgba(204,204,204,1);}
+                                .num{color: rgba(204,204,204,1);}
+                            }
+                            .li:first-child{margin-top: 0;}
+                        }
+                    }
+                    .list-box.mid{float: left; margin: 0 20px;}
+                    .list-box:last-child{float: right;}
+                }
+            }
+        }
+    }
+}
+/********模态框总体设置********/
+.modal{box-shadow: $base-box-shadow;
+    .modal-content{float: left; width: 100%; padding: 0;
+        .title{float: left; width: 100%; border-bottom: $base-border-line;}
+        .content{float: left; width: 100%; padding: 24px 30px; overflow-x: hidden; overflow-y: auto;}
+    }
+    .modal-footer{float: left; height:0 !important;}
+}
+.lean-overlay{opacity: 0.1 !important;}
+/****本页模态框设置****/
+/*微信预览*/
+#modalsWeixinHtml{
+    .modal-content{
+        .title{height: 62px; text-align: center; line-height: 62px; color: rgba(102,102,102,1) !important; font-size: $main-font-size + 8 !important; font-weight: normal !important;}
+        .content{width: 450px; height: 258px; padding: 24px; color: $base-font-color; overflow-y: auto;}
+    }
+}
+.modals-preview-html{float: left; width: 100%; height: auto;
+    .preview-title{float: left; width: 100%; @include single-line-font($main-font-size + 2);}
+    .list-box{float: left; width: 100%; margin-top: 20px;
+        .li{float: left; width: 201px; overflow: hidden; flex-flow: row; margin-top: 10px; font-size: $main-font-size;
+            .ico{float: left; order: 1; width: 12px; height: 12px; border-radius: 50%; background-color: rgba(139,195,74,1);}
+            .text{float: left; order: 0; margin-left: 8px; @include single-line-font; @include text-ellipsis;}
+            .num{float: left; order: 1; @include single-line-font;}
+        }
+        .li.invalid{
+            .ico{background-color: rgba(204,204,204,1);}
+            .text{color: rgba(204,204,204,1);}
+            .num{color: rgba(204,204,204,1);}
+        }
+        .li:nth-child(odd){padding-right: 5px;}
+        .li:nth-child(even){padding-left: 5px;}
+        .li:nth-child(1){margin-top: 0;}
+        .li:nth-child(2){margin-top: 0;}
+    }
+}

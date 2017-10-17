@@ -1,0 +1,26 @@
+<!--  条件-->
+<script charset="UTF-8" type="text/template" id="action-input">
+    <div class="term-box init ">
+        <div class="input-box  dom-dragable">
+            <div class="ico icon iconfont">&#xe677;</div>
+            <div class="input"><%=showCondition%></div>
+            <input type="hidden" value="<%=condition%>">
+            <input type="hidden" class="hide-id" value="<%=tagId%>">
+            <input type="hidden" class="grp-id" value="<%=groupId%>">
+            <input type="hidden" class="show-condition" value="<%=showCondition%>">
+            <div class="close icon iconfont action-input-close"><a href="javascript:void(0);">&#xe608;</a></div>
+        </div>
+        <div class="act-box">
+            <input class="filled-in" id="<%=id%>" type="checkbox"
+            <% if(exclude==1){ %>
+            checked="checked"
+            <% }%> /><label class="label" for="<%=id%>">排除</label>
+        </div>
+    </div>
+</script>
+<!--  目标区域-->
+<script charset="UTF-8" type="text/template" id="segment-target">
+    <div class="term-box ">
+        <div class="input-box segment-target"><div class="input">将筛选的标签用户拖入此框</div></div>
+    </div>
+</script>

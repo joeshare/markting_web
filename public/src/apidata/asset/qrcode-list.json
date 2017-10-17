@@ -1,0 +1,37 @@
+{
+    "code": 0,
+    "msg":"success","total":3,"total_count": 3,
+    "data":[
+        {
+            "qrcode_id": "001",
+            "qrcode_img_url": "../../img/data-access/qrCode.png",
+            "qrcode_img_preview_url": "../../img/data-access/qrCode.png",
+            "qrcode_name": "果倍爽新品上市01",
+            "qrcode_ditch": "经销商",
+            "qrcode_invalid_time": "2016-08-05",
+            "qrcode_status": "使用中",
+            "qrcode_associate": "有",
+            "qrcode_attention": 356890
+        },{
+            "qrcode_id": "002",
+            "qrcode_img_url": "../../img/data-access/qrCode.png",
+            "qrcode_img_preview_url": "../../img/data-access/qrCode.png",
+            "qrcode_name": "果倍爽新品上市02",
+            "qrcode_ditch": "员工",
+            "qrcode_invalid_time": "",
+            "qrcode_status": "已失效",
+            "qrcode_associate": "无",
+            "qrcode_attention": 45906
+        },{
+            "qrcode_id": "003",
+            "qrcode_img_url": "../../img/data-access/qrCode.png",
+            "qrcode_img_preview_url": "../../img/data-access/qrCode.png",
+            "qrcode_name": "果倍爽新品上市03",
+            "qrcode_ditch": "门店",
+            "qrcode_invalid_time": "2016-08-05",
+            "qrcode_status": "已失效",
+            "qrcode_associate": "有",
+            "qrcode_attention": "345"
+        }
+    ]
+}

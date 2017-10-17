@@ -1,0 +1,16 @@
+.tabs {
+
+  .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    //background-color: $tabs-underline-color;
+    background-color:#66c1e3;
+    will-change: left, right;
+  }
+}
+
+.tabs2{
+  .active{background-color: rgba(240,249,253,1);}
+  .indicator {display: none;}
+}

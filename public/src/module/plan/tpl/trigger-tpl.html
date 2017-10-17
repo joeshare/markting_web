@@ -1,0 +1,146 @@
+<!-- 触发事件模板-->
+<script charset="UTF-8" type="text/template" id="timer-trigger">
+    <div class="active-nodetip" id="timer-trigger-tips">
+        <div class="tit"><%=title?title+'设定':'预约触发设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="timer-trigger-name" type="text" class="validate" maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="timer-trigger-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="input-field ">
+            <span class="time-icon icon iconfont">&#xe61c;</span>
+            <input type="text"  id="timer-trigger-start-date" class="time-picker datepick" placeholder="开始日期"
+            <% if(startDate){ %>
+            value="<%=startDate%>"
+            <% } %>
+            >
+            <input type="text" id="timer-trigger-start-time" class="timer" placeholder="开始时间"
+            <% if(startTime){ %>
+            value="<%=startTime%>"
+            <% } %>
+            >
+
+        </div>
+        <div class="input-field ">
+            <span class="time-icon icon iconfont">&#xe619;</span>
+            <input type="text"  id="timer-trigger-end-date" class="time-picker datepick" placeholder="结束日期"
+            <% if(endDate){ %>
+            value="<%=endDate%>"
+            <% } %>
+            >
+            <input type="text" id="timer-trigger-end-time" class="timer" placeholder="结束时间"
+            <% if(endTime){ %>
+            value="<%=endTime%>"
+            <% } %>
+            >
+        </div>
+    </div>
+</script>
+<!--手动触发 没有弹出框 暂不用 -->
+<script charset="UTF-8" type="text/template" id="manual-trigger">
+    <div class="active-nodetip" id="manual-trigger-tips">
+        <div class="tit"><%=title?title+'设定':'手动触发设定'%></div>
+       <!-- <div class="input-field timing-name-input">
+            <input id="manual-trigger-name" type="text" class="validate" maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="manual-trigger-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div-->
+        <div class="input-field timing-name-input">
+            <textarea id="manual-trigger-textarea" class="materialize-textarea"><% if(remark){ %><%=remark%><% } %></textarea>
+            <label for="manual-trigger-textarea">备注</label>
+        </div>
+        <div class="clearfix" style="margin-bottom:25px;">
+            <span class="left select-tit" style="font-size: 12px;">结束</span>
+            <span class="left select-tit select-wrap new" style="height: 30px;font-size: 12px;">
+                <div>
+                    <input name="run" type="radio"  class="with-gap" id="manual-trigger-only" value="only" <%= (manualType=='only')?'checked':'' %>/>
+                    <label for="manual-trigger-only">仅运行一次</label>
+                </div>
+                    <div>
+                        <input name="run" type="radio" class="with-gap" id="manual-trigger-manual" value="manual" <%= (manualType=='manual')?'checked':'' %>/>
+                        <label for="manual-trigger-manual">手动停止</label>
+                    </div>
+
+            </span>
+        </div>
+    </div>
+</script>
+
+
+<!-- 事件触发-->
+<script charset="UTF-8" type="text/template" id="event-trigger">
+    <div class="active-nodetip" id="event-trigger-tips">
+        <div class="tit"><%=title?title+'设定':'事件触发设定'%></div>
+        <div class="clearfix" style="color:#999999;margin-bottom: 22px;"><i class="iconfont icon" style="color:#66c1e3; font-size: 20px; margin-right: 5px;">&#xe63a;</i>受众人群默认为触发事件流程开始的人。</div>
+        <div class="input-field timing-name-input">
+            <input id="event-trigger-name" type="text" class="validate" maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="timer-trigger-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+
+        <div class="clearfix">
+            <span class="left select-tit">触发事件</span>
+            <input id="event-trigger-select" type="text"
+                   class="validate search-input dropdown-button left select-wrap event-input"
+                   data-beloworigin="true"
+                   data-constrainwidth="false"
+                   placeholder="按事件名称搜索"
+                   onfocus="planEventSelectFocus(this)"
+                   onkeyup="planEventSelect(this)"
+                   value="<%=event_name%>"
+                   style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+            >
+            <input id="event-val" type="hidden" value="<%=event_id%>">
+            <input id="event-code" type="hidden" value="<%=event_code%>">
+            <span class="icon iconfont search-ico">&#xe668;</span>
+            <div id="event-select-content" class="dropdown-content suggest-dropdown-content" style="">
+                <div class="nodata" style="display:<% if(eventArr.length){%>none<%}else{%>block<%}%>">
+                    <ico class="icon iconfont">&#xe668;</ico>
+                    <span>无搜索结果</span>
+                </div>
+                <ul class="search-feeds" >
+                    <%
+                    eventArr.forEach(function(itm,i){
+                    %>
+                    <li  class="event-content-li"><span class="event-content-left" data-text="<%=itm.text%>" data-val="<%=itm.val%>" data-code="<%=itm.code%>" ><%=itm.text%></span>
+                        <span data-val="<%=itm.val%>"  data-text="<%=itm.text%>" data-code="<%=itm.code%>"  class="event-content-right"><%=itm.source%></span></li>
+                    <%
+                    })
+                    %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="event-dropdown-content">
+    <%
+    eventArr.forEach(function(itm,i){
+    %>
+    <li  class="event-content-li"><span class="event-content-left" data-val="<%=itm.val%>" data-text="<%=itm.text%>" data-code="<%=itm.code%>" ><%=itm.text%></span>
+        <span data-val="<%=itm.val%>"  data-text="<%=itm.text%>" data-code="<%=itm.code%>"  class="event-content-right"><%=itm.source%></span></li>
+    <%
+    })
+    %>
+</script>

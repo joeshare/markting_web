@@ -1,0 +1,184 @@
+@charset "utf-8";
+/**
+ * Created by AnThen on 2016/10/19.
+ */
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-green-color: rgba(91,212,199,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+  height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+  font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+.marketingmessage{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+  .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px; color: $base-font-color; font-size: $main-font-size;
+    .content-body{float: left; width: 100%; height: 100%; @include base-box;
+      .msg-body{position: relative; float: left; width: 100%; height: 100%; padding-right: 124px; overflow-y: auto; z-index: $base-z-index;
+        .market{float: right; width: 100%; padding-right: 310px; margin-top: -548px; margin-bottom: 20px;
+          .line{float: left; width: 100%; padding-right: 60px;
+            .line-title{float: left; width: 132px; height: 16px; text-align: right; font-size: $main-font-size + 2; margin-top: 7px;
+              .redstar{color: $base-red-color; padding-right: 6px;}
+            }
+            .line-con{float: left; width: 100%; padding-left: 158px; margin-top: -21px;}
+            .line-con.nan-title{margin-top: 0;}
+          }
+          .line-h1-top{height: 40px; padding-right: 60px;
+            .line-title{width: auto; font-weight: bold; margin: 10px 0 0 24px;}
+          }
+          .line-h1{height: 40px; padding-right: 60px;
+            .line-title{width: auto; font-weight: bold; margin: 10px 0 0 24px;}
+          }
+          .task{margin-bottom: 14px;
+            .input-box{float: left; width: 296px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px;
+              .input{float: left; width: 100%;}
+            }
+          }
+          .mould{margin-bottom: 14px;
+            .but{float: left; height: 30px;}
+          }
+          .mould-cont{margin-bottom: 30px;
+            .textarea-area{position: relative; float: left; width: 100%;
+              .input-box{float: left; width: 296px; height: 30px; overflow: hidden; border: $base-border-line; padding: 0 10px; margin-bottom: 22px;
+                .input{float: left; width: 100%;}
+              }
+              .textarea-box{float: left; width: 100%; height: 176px; border: $base-border-line; padding: 20px 16px;
+                .textarea{float: left; width: 100%; height: 100%; resize: none; border: none; font-size: $main-font-size + 2; color: rgba(153,153,153,1);}
+              }
+              .textarea-num{float: left; width: 100%; text-align: right; color: rgba(188,188,188,1); margin-top: 10px;}
+              .huit-icon{position: absolute; width: 20px; height: 20px; overflow: hidden; color: rgba(204,204,204,1); font-size: $main-font-size + 10px; line-height: 19px; top: 52px; right: -23px; cursor: pointer;}
+            }
+            .textarea-huit{width: 360px !important; height: 180px; overflow-y: hidden;
+              .nohover{line-height: 14px !important;
+                span{padding: 0; line-height: normal; display: inline;}
+              }
+            }
+            .huit-box{float: left; width: 100%; margin-top: 10px; color: rgba(172,135,62,1); display: none;
+              .icon{float: left; width: 20px; height: 20px; overflow: hidden; color: rgba(250,187,61,1); font-size: $main-font-size + 10px; line-height: 19px;}
+              .huit{float: left; width: 100%; margin-top: -20px; padding-left: 24px;}
+            }
+            .huit-box.show{display: block;}
+          }
+          .crowd-total-count{margin-bottom: 10px;
+            .line-con{margin-top: -16px;
+              .hite{float: left;}
+              .stock-total-show{display: inline; padding-left: 3px;
+                .less-or-equal{float: left; height: 18px; overflow: hidden; font-size: $main-font-size + 8; line-height: 18px; color: $base-red-color;}
+              }
+              .stock-total-hide{display: none;}
+            }
+          }
+          .crowd{margin-bottom: 22px;
+            .line-con{min-height: 30px; margin-top: 0;
+              .add-button{float: left; width: 100%; height: 30px; cursor: pointer; border-width: 1px; border-style: dashed; border-color: rgba(207,207,207,1); color: $base-blue-color; background-color: rgba(247,247,247,1); @include flex-center;}
+              .add-button:hover{border-color: $base-blue-color; background-color: rgba(102,192,227,0.1);}
+              .tag-area{float: left; width: 100%;
+                .tag-box{position: relative; float: left; width: 100%; height: 72px; padding: 16px 30px 16px 16px; border: $base-border-line; margin-bottom: 10px;
+                  .close{position: absolute; width: 18px; height: 18px; overflow: hidden; top: 4px; right: 4px; cursor: pointer; font-size: $main-font-size + 6; line-height: 18px;}
+                  .icon-box{float: left; width: 39px; height: 39px; overflow: hidden; border-radius: $base-border-radius; @include flex-display; @include flex-center; border: $base-border-line;
+                    .icon{width: 22px; height: 24px; overflow: hidden; padding: 2px; @include radius; border: $base-border-line; font-size: $main-font-size + 6; text-indent: -0.5px; line-height: 18px;}
+                  }
+                  .text-cont{float: left; width: 100%; height: 100%; margin-top: -40px; padding-left: 50px;
+                    .title-box{float: left; width: 100%; height: 16px; display: flex; flex-flow: row;
+                      .title{float: left; order: 0; flex: 8; padding-right: 16px; @include single-text; @include single-line-font($main-font-size + 2);}
+                      .price{float: left; order: 1; flex: 2 1px 0; @include single-line-font; color: $base-green-color;}
+                    }
+                    .cont-box{float: left; width: 100%; @include single-line-font; @include single-text; margin-top: 10px;}
+                  }
+                }
+              }
+            }
+          }
+          .trigger{margin-bottom: 20px;
+            .line-con{margin-top: -16px;}
+          }
+        }
+        .iphone-area{float: right; width: 300px; height: 500px; margin-top: 60px; background-image: url("../../img/messageapp/iphone_back.png");
+          .iphone-box{position: relative; float: left; width: 231px; height: 200px; overflow-y: auto; margin: 175px auto auto 33px;
+            .msg-box{float: left; width: 231px; height: auto; margin-bottom: 10px;
+              .msg-up{float: left; width: 100%; height: 16px; background-image: url("../../img/messageapp/msg_up.png");}
+              .msg-down{float: left; width: 100%; height: 30px; background-image: url("../../img/messageapp/msg_down.png");}
+              .msg-con{float: left; width: 100%; height: auto; background-color: rgba(233,233,238,1); padding: 0 8px; font-size: $main-font-size; color: rgba(51,51,51,1); word-wrap: break-word;}
+            }
+            .msg-box:last-child{margin-bottom: 0;}
+          }
+        }
+      }
+    }
+  }
+}
+/****本页模态框设置****/
+/*选择模板*/
+#modalsSmsMateriaHtml{
+  .modal-content{
+    .content{width: 800px; height: 542px; color: $base-font-color; padding: 0; font-size: $main-font-size;
+      .con-body{float: left; width: 100%; height: 100%;}
+    }
+  }
+  .modal-footer{display: none;}
+}
+.modals-smsTemplate-html{float: left; width: 100%; height: 100%;
+  .subHead{float: left; width: 100%; height: 50px; overflow: hidden;
+    .create-a{float: left; color: $base-blue-color; cursor: pointer; @include vetically-font($main-font-size + 2); margin: 28px 0 0 36px;}
+    .find-box{float: right; width: 240px; height: 30px; overflow: hidden; border: $base-border-line; margin: 20px 10px 0 0;
+      .input{float: left; width: 200px; overflow: hidden; margin-left: 10px;}
+      .icon{float: right; width: 28px; height: 28px; overflow: hidden; line-height: 26px; cursor: pointer;}
+    }
+  }
+  .tag-area{position: relative; float: left; width: 100%; height: 50px; border-bottom: $base-border-line; padding: 0 20px;
+    .tag-box{position: absolute; height: 50px;
+      .tag{float: left; height: 100%; padding: 0 20px; margin-right: 10px; text-align: center; line-height: 50px; cursor: pointer;}
+      .tag:last-child{margin-right: 0;}
+      .tag.active{font-weight: bold; border-bottom: 2px solid $base-blue-color;}
+    }
+  }
+  .table-area{float: left; width: 100%; height: 442px;
+    .page-table-box{table-layout: fixed;
+      .single-text{@include single-text;}
+      .operation{color: $base-blue-color; cursor: pointer;}
+    }
+  }
+}
+/*受众人群*/
+#modalsCrowdHtml{
+  .modal-content{
+    .content{width: 520px; height: 270px; color: $base-font-color; padding: 0; font-size: $main-font-size;
+      .con-body{float: left; width: 100%; height: 100%;}}
+  }
+}
+.modals-crowd-html{float: left; width: 100%; height: 100%;
+  .title-area{float: left; width: 118px; height: 100%; border-right: $base-border-line;
+    .title-box{float: left; width: 100%; height: 30px; text-align: right; padding-right: 10px; margin-top: 20px; line-height: 30px;
+      .redstar{color: $base-red-color; padding-right: 6px;}
+    }
+  }
+  .cont-area{float: left; width: 402px; padding: 0 20px;
+    .name-box{float: left; width: 100%; height: 30px; overflow: hidden; padding: 0 10px; border: $base-border-line; margin-top: 20px;
+      .name{float: left; width: 100%; font-size: $main-font-size;}
+    }
+    .selectbtn{float: left; width: 100%; height: 30px; border: 1px solid rgba(236,236,236,1); padding: 4px 30px 6px 12px; cursor: pointer; background: url("../../img/masterdata/arrow-down.png") no-repeat 342px 13px; @include text-ellipsis; font-size: $main-font-size; margin-top: 20px;}
+    .addcrowdlist{margin-top: 21px; height: 170px;
+      li{font-size: 12px; height: 30px; min-height: 30px; line-height: 30px; margin: 0; padding: 0 16px;
+        .name{float: left;}
+        .count{float: right;}
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+    "code": 0,
+    "msg":"success","total":3,"total_count": 3,
+    "data":[
+        {
+            "subscription":"平均",
+            "channel":"",
+            "total_scan_code":300,
+            "total_scan_code_number":1500,
+            "total_attention":1500,
+            "new_attention":500,
+            "net_interest":300,
+            "drain_attention":40
+        },{
+            "subscription":"汇总",
+            "channel":"",
+            "total_scan_code":900,
+            "total_scan_code_number":4500,
+            "total_attention":1500,
+            "new_attention":500,
+            "net_interest":900,
+            "drain_attention":120
+        },{
+            "subscription":"历史最高",
+            "channel":"",
+            "total_scan_code":[300,"2016-07-02"],
+            "total_scan_code_number":[1500,"2016-07-02"],
+            "total_attention":[1500,"2016-07-02"],
+            "new_attention":[500,"2016-07-02"],
+            "net_interest":[300,"2016-07-02"],
+            "drain_attention":[40,"2016-07-02"]
+        }
+    ]
+}

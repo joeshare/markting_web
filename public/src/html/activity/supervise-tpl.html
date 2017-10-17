@@ -1,0 +1,85 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="supervise">
+        <header class="page-body-header">
+            <div class="text-box">
+                <span class="title">活动管理</span>
+                <span class="text">
+                正式营销活动<span class="variable" id="activity-num">0</span>个，累计触达<span class="variable" id="audience-num">0</span>人次
+            </span>
+            </div>
+            <div class="button-box icon iconfont">
+                <a class="a keyong" href="<%=BASE_PATH%>/html/activity/plan.html" title="新增活动">&#xe63b;</a>
+            </div>
+        </header>
+        <div class="content">
+            <header class="header">
+                <div class="tab-box">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3"><a class="tab-table" href="javascript:void(0)" type="table0">未启动（<span id="not-start-num">0</span>）</a></li>
+                            <li class="tab col s3"><a class="tab-table" href="javascript:void(0)" type="table1">已预约（<span id="bespoke-num">0</span>）</a></li>
+                            <li class="tab col s3"><a class="tab-table" href="javascript:void(0)" type="table2">活动中（<span id="going-num">0</span>）</a></li>
+                            <li class="tab col s3"><a class="tab-table" href="javascript:void(0)" type="table3">已结束（<span id="over-num">0</span>）</a></li>
+                            <li class="tab col s3"><a class="active tab-table" href="javascript:void(0)" type="table4">全部（<span id="all-num">0</span>）</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input placeholder="筛选关键字" id="search-input" type="text" class="validate activity-supervise-search-input" value="">
+                    <div id="search-ico" class="ico icon iconfont">&#xe668;</div>
+                </div>
+            </header>
+            <div class="list-box">
+                <table class="page-table-box">
+                    <thead>
+                    <tr>
+                        <th class="first">名称</th>
+                        <th>状态</th>
+                        <th>创建时间</th>
+                        <th>计划开始时间</th>
+                        <th>计划结束时间</th>
+                        <th>受众人群</th>
+                        <th class="ico"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-box"></tbody>
+                </table>
+                <div class="pagination-wrap pagination light-theme simple-pagination"></div>
+                <!--菜单下拉-->
+                <div id="morelist-box"></div>
+            </div>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-morelist">
+    <ul id="morelist" class="dropdown-content setuplist">
+        <li><i class="icon iconfont">&#xe668;</i><a href="<%=BASE_PATH%>/html/activity/analyse.html">活动分析</a></li>
+        <li><i class="icon iconfont">&#xe674;</i><a href="javascript:void(0)" id="activitySuperviseDelete">删除</a></li>
+    </ul>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-tbody">
+    <% if(tbodyData.length>0){ %>
+    <%tbodyData.map(function(m,i){%>
+    <tr trtype="<%=m.trtype%>">
+        <td class="first">
+            <a title="<%=m.campaign_name%>" href="<%=m.trurl%>" class="tbody-box-name"><%=m.campaign_name%></a>
+        </td>
+        <td><%=m.status%></td>
+        <td><%=m.create_time%></td>
+        <td><%=m.start_time%></td>
+        <td><%=m.end_time%></td>
+        <td class="object">
+            <div title="<%=m.segmentation_name%>" class="tbody-box-object"><%=m.segmentation_name%></div>
+        </td>
+        <td class='ico'>
+            <% if(m.status == '已预约'){ %>
+            <ico class="stop icon iconfont r-btn">&#xe61a;</ico>
+            <% }else{ %>
+            <ico class="pointer icon iconfont r-btn dropdown-button dropdown-button-more" data-activates="morelist" data-constrainwidth="false" title="更多操作" id="activitySuperviseMoreList" idnum="<%=m.campaign_head_id%>">&#xe675;</ico>
+            <% } %>
+    </tr>
+    </tr>
+    <% })}else{%>
+    <tr><td colspan='7' style='text-align:center'>暂无数据！</td></tr>
+    <% } %>
+</script>

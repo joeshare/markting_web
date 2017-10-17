@@ -1,0 +1,14 @@
+<script charset="UTF-8" type="text/template" id="toolbar">
+    <span id="toolbar-title"><%=name%></span><span class="color">&nbsp;|&nbsp;<span style="color: rgba(102, 193, 227, 1)">
+        <% var status=['未生效','已生效','活动中','全部'];
+           if(release==0||release==undefined){%>
+           <%=status[0]%>
+        <% }else{ %>
+           <%=status[release]%>
+        <% }%>
+        <!-- 1.1 版本不显示修改人</span>&nbsp;|&nbsp;</span><%=dateTime%>&nbsp;&nbsp;&nbsp;<span class="color">由</span>&nbsp;<span style="color: rgba(102, 193, 227, 1)"><%=oper%></span>&nbsp;<span class="color">最后修改</span>-->
+        </span>&nbsp;|&nbsp;</span><%=dateTime%>&nbsp;&nbsp;&nbsp;
+</script>
+<script charset="UTF-8" type="text/template" id="toolbar-init">
+    <span id="audience-edit-result"><span class="color">未命名&nbsp;|&nbsp;未发布</span></span>&nbsp;<a class="a icon iconfont"  id="rui-modals-edit" title="修改名称">&#xe609;</a>
+</script>

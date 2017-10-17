@@ -1,0 +1,39 @@
+<!--  条件-->
+<script charset="UTF-8" type="text/template" id="result-tpl">
+    <%if(data&&data.length){%>
+    <div class="title">共找到<span class="num"><%=data.length%></span>个匹配</div>
+    <div class="result-box">
+
+    <%    for(var i=0;i<data.length;i++){%>
+          <div class="result dom-dragable " attr-id="<%=data[i].tag_id%>" attr-grpId="<%=tag_group_id%>"><div class="ico icon iconfont">&#xe677;</div><div class="text"><%=data[i].tag_name%></div></div>
+    <%}%>
+    </div>
+    <%}else{%>
+        <div class="title">共找到<span class="num">0</span>个匹配</div>
+        <div class="result-box"></div>
+    <%}%>
+</script>
+
+
+<script charset="UTF-8" type="text/template" id="result-init">
+    <div class="title">推荐标签：<%=tags%><div class="result-box"></div>
+</script>
+
+
+<script charset="UTF-8" type="text/template" id="suggest">
+        <%if(result&&result.length){%>
+        <ul class="aud-suggest-list " >
+            <%result.forEach(function(itm,i){%>
+            <li class="aud-suggest-trigger"  attr-id="<%=itm.tag_group_id%>"><%=itm.tag_group_name%></li>
+            <%})%>
+        </ul><%}%>
+</script>
+
+<!-- 推荐标签-->
+<script charset="UTF-8" type="text/template" id="rec-tags">
+    <% data.forEach(function(itm,i){ %>
+    <span class="trigger-tag" attr-id="<%=itm.tag_group_id%>"><%=itm.tag_group_name%></span>
+    <% if(i<data.length-1){%>|<%}%>
+    <% })%>
+</script>
+

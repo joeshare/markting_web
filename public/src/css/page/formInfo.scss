@@ -1,0 +1,206 @@
+/*
+* @Author: UEC
+* @Date:   2016-08-09 17:08:31
+* @Last Modified by:   UEC
+* @Last Modified time: 2016-08-29 19:00:50
+*/
+
+@charset "utf-8";
+
+/*加载公用css文件*/
+
+@import "../base";
+@import '../core/forms';
+.formInfo-body{
+}
+.contact-form-formInfo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px 12px 16px;
+    overflow: auto;
+    .content{
+        background: #fff;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        bottom: 12px;
+        left: 16px;
+        min-height: 700px;
+    }
+    .main {
+        .phone_info {
+            width: 900px;
+            height: 100%;
+            margin: 10% auto;
+            position: relative;
+            img:nth-child(1) {
+                position: absolute;
+                left: 0;
+                top: -100px;
+            }
+            .phone_info_content {
+                position: absolute;
+                left: 19px;
+                top: -2px;
+                display: inline-block;
+                background: white;
+                height: 504px;
+                width:290px;
+                img:nth-child(1) {
+                    width: 100%;
+                    top: -1px;
+                    position: absolute;
+                }
+                img:nth-child(2) {
+                    margin-top: -97px;
+                    position: absolute;
+                    left: -20px;
+                }
+                .content-wrap{
+                    display: flex;
+                    flex-flow: column;
+                    height:100%;
+                    width: 100%;
+                    position:absolute;
+                }
+                .titleText-wrap{
+                    min-height: 54px;
+                    display: table;
+                    height:54px;
+                    background: url(../../img/form-msg/topbg.png);
+                    background-position: top center;
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    width: 285px;
+                    .titleText{
+                        display: table-cell;
+                        vertical-align: middle;
+                        color: white;
+                        font-size: 15px;
+                        padding: 0 10px;
+                        word-wrap: break-word;
+                        word-break: break-all;
+                    }
+                }
+                .descript-wrap{
+                    display: table;
+                     min-height: 38px;
+                    .descript{
+                        display: table-cell;
+                        vertical-align: middle;
+                        font-size: 10px;
+                        padding: 0 10px;
+                        word-wrap: break-word;
+                        word-break: break-all;
+                    }
+                }
+                .formwrap-wrap {
+                    overflow-y: auto;
+                    flex: 1;
+                    position: relative;
+                }
+                .formwrap { }
+                table {
+                    width: 97%;
+                    .input-block {
+                        background: #EBF2F4;
+                        height: 32px;
+                        margin-bottom: 11px;
+                        label {
+                            top: 6px;
+                            left: 12px;
+                        }
+                        input {
+                            height: 33px;
+                        }
+                        .date-ico {
+                            top: 2px;
+                        }
+                    }
+                    .select-dropdown {
+                        background: #EBF2F4;
+                        padding-left: 11px;
+                    }
+                    .caret {
+                        top: 6px;
+                    }
+                    .submit-btn {
+                        margin: auto;
+                        width: 210px;
+                        height: 30px;
+                        line-height: 30px;
+                        background: #FBBB3D;
+                        border-radius: 100px;
+                        color: #fff;
+                        font-size: 14px;
+                        cursor: pointer;
+                    }
+                    .submit-btn:active {
+                        opacity: 0.8;
+                    }
+                }
+            }
+            .user_choose {
+                width: 476px;
+                margin-left: 50%;
+                // height: 100%;
+                ul {
+                    list-style: none;
+                    margin-top: 19%;
+                    width: 100%;
+                    font-size: 14px;
+                    color: #666666;
+                    li {
+                        line-height: 45px;
+                    }
+                    li:nth-child(1) {
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+                    li:nth-child(4) {
+                        img {
+                            position: static;
+                        }
+                    }
+                    li:nth-child(5) {
+                        span {
+                            display: block;
+                            text-align: center;
+                            width: 20%;
+                            line-height: 25px;
+                            color: white;
+                            background: #67c2ef;
+                            border-radius: 3px;
+                            cursor: pointer;
+                        }
+                    }
+                    li:nth-child(7) {
+                        input {
+                            border: 1px solid #ececec;
+                            width: 330px;
+                            height: 30px;
+                            text-indent: 20px;
+                            background: #f9f9f9;
+                            padding-left: 0px;
+                        }
+                    }
+                    li:nth-child(8) {
+                        margin-bottom: 20px;
+                        span {
+                            display: block;
+                            text-align: center;
+                            width: 20%;
+                            line-height: 25px;
+                            color: #67c2ef;
+                            border: 1px solid #67c2ef;
+                            border-radius: 3px;
+                            background: white;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

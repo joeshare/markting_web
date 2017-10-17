@@ -1,0 +1,31 @@
+{
+  "code": 0,
+  "msg":"success","total":3,"total_count": 3,
+  "data":[
+    {
+      "id": "123",
+      "material_id": "3f7d28e17f72",
+      "material_name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "sms_template_name": "INCAKE万圣节超值新品折扣",
+      "create_time": "2016-10-18 17:33:45",
+      "edit_status": 0,
+      "delete_status": 0
+    },{
+      "id": "124",
+      "material_id": "3f7d28e17f73",
+      "material_name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "sms_template_name": "INCAKE万圣节超值新品折扣",
+      "create_time": "2016-10-18 17:33:45",
+      "edit_status": 0,
+      "delete_status": 1
+    },{
+      "id": "125",
+      "material_id": "3f7d28e17f72",
+      "material_name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "sms_template_name": "INCAKE万圣节超值新品折扣",
+      "create_time": "2016-10-18 17:33:45",
+      "edit_status": 1,
+      "delete_status": 0
+    }
+  ]
+}

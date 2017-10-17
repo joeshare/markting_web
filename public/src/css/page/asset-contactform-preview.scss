@@ -1,0 +1,213 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+@import '../core/forms';
+
+body {
+  background: url("/img/asset/bg.png") no-repeat 0 56px;
+  background-size: cover;
+}
+
+.header {
+  text-align: center;
+  height: 56px;
+  background: linear-gradient(to right, #0094d8, #00a7b1);
+  ul {
+    width: 180px;
+    margin: auto;
+    li {
+      width: 90px;
+      float: left;
+      height: 56px;
+      cursor: pointer;
+    }
+    .btn-pc {
+      background: url('/img/asset/web.png') no-repeat center center;
+    }
+    .btn-mobile {
+      background: url('/img/asset/wap.png') no-repeat center center;
+    }
+    .cur {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.formlist-wrap-pc {
+  position: absolute;
+  top: 100px;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  width: 620px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e9e9e9;
+  padding: 20px 24px;
+  color: #666;
+  display: flex;
+  flex-flow: column;
+  .title {
+    font-size: 16px;
+    word-wrap: break-word;
+    word-break: normal;
+  }
+  .subtitle {
+    margin: 14px 0;
+    font-size: 12px;
+    word-wrap: break-word;
+    word-break: normal;
+  }
+  .formwrap {
+    overflow-y: auto;
+    flex: 1;
+    table {
+      .input-block {
+        background: #fff;
+        margin-bottom: 20px;
+      }
+      td, th {
+        padding: 0;
+        vertical-align: inherit;
+      }
+      min-height: 100%;
+    }
+    .submit-btn {
+      margin: auto;
+      width: 310px;
+      height: 42px;
+      line-height: 42px;
+      background: #FBBB3D;
+      border-radius: 100px;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+.formlist-wrap-mobile {
+  position: absolute;
+  top: 56px;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  .scro-wrap {
+    position: relative;
+    width: 326px;
+    height: 741px;
+    margin: 60px auto 0;
+    background: url('/img/asset/phone-.png');
+  }
+  .title {
+    min-height: 58px;
+    width: 100%;
+    padding: 0px 12px;
+    color: #fff;
+    font-size: 16px;
+    background: url('/img/asset/topbg.png') no-repeat;
+    background-size: cover;
+    height: auto;
+    word-wrap: break-word;
+    word-break: normal;
+    display: table;
+    .title-con{
+      display: table-cell;
+      vertical-align: middle;
+      max-width: 261px;
+    }
+  }
+  .subtitle {
+    font-size: 12px;
+    padding: 10px 14px 0 14px;
+    height: auto;
+    word-wrap: break-word;
+    word-break: normal;
+
+  }
+  .con {
+    overflow-y: auto;
+    position: absolute;
+    top: 97px;
+    height: 505px;
+    width: 285px;
+    left: 20px;
+    background: #fff;
+    display: flex;
+    flex-flow: column;
+  }
+  .formwrap {
+    overflow-y: auto;
+    flex: 1;
+    table {
+      min-height: 100%;
+    }
+  }
+  .input-block {
+    margin-bottom: 10px;
+    label {
+      top: 4px;
+      left: 10px;
+    }
+    input {
+      background: #EBF2F4;
+      height: 30px;
+      line-height: 30px;
+      padding-left: 62px;
+    }
+    .select-wrapper input.select-dropdown {
+      padding-left: 9px;
+      background: #EBF2F4;
+      height: 30px;
+      line-height: 30px;
+    }
+    .select-wrapper span.caret {
+      top: 4px;
+    }
+    .date-ico {
+      top: 1px;
+      right: 20px;
+      font-size: 16px;
+
+    }
+    .btn-sendcode {
+      position: absolute;
+      top: 5px;
+      right: 20px;
+      font-size: 12px;
+      color: #fff;
+      background: #5BD3C7;
+      width: 80px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 100px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  .submit-btn {
+    margin: auto;
+    width: 210px;
+    height: 30px;
+    line-height: 30px;
+    background: #FBBB3D;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+#footer {
+  position: absolute;
+  height: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+  color: #dbdbdb;
+  background: #7e8b94;
+}

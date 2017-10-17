@@ -1,0 +1,13 @@
+<script charset="UTF-8" type="text/template" id="select">
+<%
+selectArr.forEach(function(itm,i){
+%>
+<option value="<%=itm.val%>"
+       <% if(itm.val==selected){%>
+          selected="selected"
+       <% }%>
+            ><%=itm.text%></option>
+<%
+})
+%>
+</script>

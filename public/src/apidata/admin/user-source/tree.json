@@ -1,0 +1,41 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 1,"date":"2017-3-3",
+    "data":[
+        {
+            "id":1,"parent_id":-1,"name":"默认来源1","count":0,
+            "children_node":[
+                {
+                    "id":11,"parent_id":1,"name":"个人信息1","count":0,
+                    "children_node":[
+                        {"id":111,"parent_id":11,"name":"地理区域1","count":200},
+                        {"id":112,"parent_id":11,"name":"地理区域2","count":300}
+                    ]
+                },
+                {
+                    "id":12,"parent_id":1,"name":"个人信息2","count":0,
+                    "children_node":[
+                        {"id":112,"parent_id":12,"name":"地理区域","count":200}
+                    ]
+                }
+            ]
+        },
+        {
+            "id":2,"parent_id":-1,"name":"默认来源2","count":0,
+            "children_node":[
+                {
+                    "id":21,"parent_id":2,"name":"个人信息1","count":0,
+                    "children_node":[]
+                },
+                {
+                    "id":22,"parent_id":2,"name":"个人信息2","count":0,
+                    "children_node":[]
+                }
+            ]
+        },
+        {
+            "id":3,"parent_id":-1,"name":"默认来源3","count":10,
+            "children_node":[]
+        }
+    ]
+}

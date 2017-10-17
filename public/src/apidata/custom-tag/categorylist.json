@@ -1,0 +1,107 @@
+{
+  "code": 0,
+  "msg": "success",
+  "total": 2,
+  "data": [
+    {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }, {
+      "custom_tag_category_id": "HDSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类1"
+    },
+    {
+      "custom_tag_category_id": "dfSdJiWnQh1484132056532",
+      "custom_tag_category_name": "分类2"
+    }
+  ],
+  "total_count": 2
+}

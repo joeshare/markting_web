@@ -1,0 +1,17 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 1,
+    "data":[
+        {
+            "id": 101,
+            "subscription": "果倍爽",
+            "channel": "经销商",
+            "name": "果倍爽新品上市",
+            "setup_date": "2016-07-26",
+            "invalid_date": "2016-08-29",
+            "fixed_crowd": "果倍爽新品上市",
+            "association_tags": ["七月新品用户","认知时刻","来源网红"],
+            "note_info": "两种口味，330毫升"
+        }
+    ]
+}

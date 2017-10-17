@@ -1,0 +1,700 @@
+<!-- 决策-->
+<script charset="UTF-8" type="text/template" id="attr-comparison">
+    <div class="active-nodetip" id="attr-comparison-tips">
+        <div class="tit"><%=title?title+'设定':'联系人关系比较设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="attr-comparison-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="attr-comparison-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">属性</span>
+            <span class="left select-wrap rel" >
+                  <select id="attr-comparison-rel-select">
+                      <%
+                      //0:文本,1:数字,2:日期
+                      var arr=[{val:0,text:"文本"},{val:1,text:"数字"},{val:2,text:"日期"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(prop_type==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit" style="width: 24px;"> </span>
+            <span class="left">
+                <input type="checkbox" class="filled-in" id="attr-comparison-non-checkbox" <% if(exclude){ %>checked="checked"<% } %>>
+                <label for="attr-comparison-non-checkbox" class="non-label">不</label>
+            </span>
+            <span class="left select-wrap relative-time non-select-wrap" >
+                  <select id="attr-comparison-sub-select">
+                      <%
+                      subSelectArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(subSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit" style="width: 24px;"> </span>
+              <span class="left input-field rel input-wrap" id="attr-comparison-sub-val-wrap"  style="margin-top: 0px; display: <%=prop_type==0?'block':'none'%>">
+                 <input id="attr-comparison-sub-val" type="text" class="validate" placeholder="请输入" <% if(val){ %>value="<%=val%>"<% } %>>
+              </span>
+              <span class="left input-field rel input-wrap" id="attr-comparison-sub-num-wrap"  style="margin-top: 0px;  display: <%=prop_type==1?'block':'none'%>">
+                 <input id="attr-comparison-sub-num" type="number" class="validate" placeholder="请输入" <% if(num){ %>value="<%=num%>"<% } %>>
+              </span>
+                <span class="left rel date-wrap " id="attr-comparison-sub-val-date-wrap" style="margin-left: 30px; display: <%=prop_type==2?'block':'none'%>">
+                    <div class="input-field rel" style="margin-top: 0px;">
+                        <span class="time-icon icon iconfont">&#xe641;</span>
+                        <input type="text"  id="attr-comparison-sub-val-date" class="time-picker datepick" placeholder="日期"
+                        <% if(date){ %>
+                        value="<%=date%>"
+                        <% } %>
+                        >
+                        <input type="text" id="attr-comparison-sub-val-time" class="timer" placeholder="时间"
+                        <% if(time){ %>
+                        value="<%=time%>"
+                        <% } %>
+                        >
+                    </div>
+                </span>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="wechat-forwarded">
+    <div class="active-nodetip" id="wechat-forwarded-tips">
+        <div class="tit"><%=title?title+'设定':'微信图文是否转发设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="wechat-forwarded-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wechat-forwarded-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公众号</span>
+            <span class="left select-wrap public" >
+                  <select id="wechat-forwarded-public-select">
+                      <%
+                      publicArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">微信图文</span>
+            <span class="left select-wrap img" >
+                  <select id="wechat-forwarded-img-select" class="wei-chart">
+                      <%
+                      imgTextArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(img_text_asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text %></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">转发次数</span>
+            <span class="left select-wrap num" >
+                  <select id="wechat-forwarded-num">
+                      <%
+                      //转发次数,0:不限,1:超一人次，2：超十，3：超一百，4：超五百
+                      var arr=[{val:0,text:"不限"},
+                      {val:1,text:"超过1人次"},
+                      {val:2,text:"超过10人次"},
+                      {val:3,text:"超过100人次"},
+                      {val:4,text:"超过500人次"}
+                      ];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(forward_times==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit" style="font-size: 12px;">设置</span>
+            <span class="left select-tit select-wrap new" style="height: 30px;color:#c8c8c8;font-size: 12px;">转发状态刷新频率</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit" style="font-size: 12px;width:24px;"></span>
+            <span class="left select-tit select-wrap " style="height: 47px;width:263px;margin: 0px;">
+                <span class="left">
+                    <input type="text" id="wechat-forwarded-refresh1" class="text" style="width: 12px;text-align: center"
+                            <% if(refresh_interval){ %>
+                            value="<%=refresh_interval%>"
+                             <% }else{ %>
+                                    value="1"
+                             <%}%>
+                             >
+                </span>
+                <span class="left select-wrap ml8 refresh">
+                      <select id="wechat-forwarded-refresh2">
+                          <%
+                          refresh_interval_type_arr.forEach(function(itm,i){
+                          %>
+                          <option value="<%=itm.val%>"
+                          <% if(refresh_interval_type==itm.val){ %>
+                          selected="selected"
+                          <% } %>
+                          ><%=itm.text%></option>
+                          <%
+                          })
+                          %>
+                      </select>
+                </span>
+            </span>
+        </div>
+
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="send-img">
+    <div class="active-nodetip" id="send-img-tips">
+        <div class="tit"><%=title?title+'设定':'发送微信图文设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="send-img-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-img-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">图文</span>
+            <span class="left select-wrap img" >
+                  <select id="send-img-img-select">
+                      <%
+                      imgTextArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(img_text_asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公众号</span>
+            <span class="left select-wrap public" >
+                  <select id="send-img-public-select">
+                      <%
+                      publicArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+    </div>
+</script>
+<!-- 标签判断-->
+<script charset="UTF-8" type="text/template" id="label-judgment">
+    <div class="active-nodetip" id="label-judgment-tips">
+        <div class="tit"><%=title?title+'设定':'标签判断设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="label-judgment-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="label-judgment-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">匹配标签</span>
+            <span class="left select-wrap group" >
+                <input id="label-judgment-tag-search-input" type="text"
+                       class="validate search-input dropdown-button left select-wrap"
+                       data-beloworigin="true"
+                       data-constrainwidth="false"
+                       placeholder="标签搜索"
+                       onfocus="planMatchTagSearchFocus(this)"
+                       onkeyup="planMatchTagSearchSuggest(this)"
+                       value=""
+                       style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                        >
+                <span class="icon iconfont search-ico">&#xe668;</span>
+                <span class="icon iconfont clear-ico" onclick="planMatchTagSearchClear(this)" style="position: absolute;right:20px;top:3px;">&#xe608;</span>
+                <div id="label-judgment-tag-search-content" class="dropdown-content suggest-dropdown-content"></div>
+            </span>
+        </div>
+        <div id="label-judgment-tag-content"style="max-height:85px;min-height: 50px;overflow-y: auto;padding:10px 0 0 0; ">
+            <%
+            if(tags&&tags.length){
+                for(var i=0;i<tags.length;i++){
+                %>
+                <div class="active-tag" attr-type="<%=tags[i].tag_type%>" attr-val="<%=tags[i].tag_id%>" attr-name="<%=tags[i].tag_name%>" ><%=tags[i].tag_name%><i class="icon iconfont active-tag-close">&#xe608;</i></div>
+                <%}%>
+            <%}else{%>
+               <span style="color:#e64646;">必须匹配标签</span>
+            <%}%>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">匹配规则</span>
+            <span class="left select-wrap num" style="width:240px;">
+                   <select id="label-judgment-select">
+                       <%
+                       ////0:全部匹配，1：匹配其一，2：匹配二个及以上
+                       var arr=[{val:0,text:"全部匹配"},{val:1,text:"匹配其一"},{val:2,text:"匹配2个及以上"}];
+                       arr.forEach(function(itm,i){
+                       %>
+                       <option value="<%=itm.val%>"
+                       <% if(rule==itm.val){ %>
+                       selected="selected"
+                       <% } %>
+                       ><%=itm.text%></option>
+                       <%
+                       })
+                       %>
+                   </select>
+            </span>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="wechat-send">
+    <div class="active-nodetip" id="wechat-send-tips">
+        <div class="tit"><%=title?title+'设定':'微信图文是否发送设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="wechat-send-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wechat-send-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公众号</span>
+        <span class="left select-wrap public-number" >
+              <select id="wechat-send-public-number">
+                  <%
+                  publicArr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(asset_id==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">微信图文</span>
+            <span class="left select-wrap img" >
+                <select id="wechat-send-img">
+                    <%
+                    imgTextArr.forEach(function(itm,i){
+                    %>
+                    <option value="<%=itm.val%>"
+                    <% if(img_text_asset_id==itm.val){ %>
+                    selected="selected"
+                    <% } %>
+                    ><%=itm.text%></option>
+                    <% })%>
+                </select>
+            </span>
+            <!--<span class="left icon iconfont ml8 edit wechat-send-edit">&#xe640;</span>-->
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit" style="font-size: 12px;">设置</span>
+            <span class="left select-tit select-wrap new" style="height: 30px;color:#c8c8c8;font-size: 12px;">送达状态刷新频率</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit" style="font-size: 12px;width:24px;"></span>
+            <span class="left select-tit select-wrap " style="height: 47px;width:263px;margin: 0px;">
+                <span class="left">
+                    <input type="text" id="wechat-send-refresh1" class="text" style="width: 12px;text-align: center"
+                            <% if(refresh_interval){ %>
+                            value="<%=refresh_interval%>"
+                             <% }else{ %>
+                                    value="1"
+                             <%}%>
+                             >
+                </span>
+                <span class="left select-wrap ml8 refresh">
+                      <select id="wechat-send-refresh2">
+                          <%
+                          refresh_interval_type_arr.forEach(function(itm,i){
+                          %>
+                          <option value="<%=itm.val%>"
+                          <% if(refresh_interval_type==itm.val){ %>
+                          selected="selected"
+                          <% } %>
+                          ><%=itm.text%></option>
+                          <%
+                          })
+                          %>
+                      </select>
+                </span>
+            </span>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="wechat-check">
+    <div class="active-nodetip" id="wechat-check-tips">
+        <div class="tit"><%=title?title+'设定':'微信图文是否查看设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="wechat-check-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wechat-check-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit ">公众号</span>
+        <span class="left select-wrap public-number" >
+              <select id="wechat-check-public-number">
+                  <%
+                  publicArr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(asset_id==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">微信图文</span>
+        <span class="left select-wrap img" >
+            <select id="wechat-check-img">
+                <%
+                imgTextArr.forEach(function(itm,i){
+                %>
+                <option value="<%=itm.val%>"
+                <% if(img_text_asset_id==itm.val){ %>
+                selected="selected"
+                <% } %>
+                ><%=itm.text%></option>
+                <% })%>
+            </select>
+        </span>
+            <!--<span class="left icon iconfont ml8 edit wechat-check-edit">&#xe640;</span>-->
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">查看时长</span>
+        <span class="left select-wrap time" >
+              <select id="wechat-check-time">
+                  <%
+                  ////查看时长,0:不限,1:超一分钟,2:超三分钟,3:超五分钟,4:超十分钟
+                  var arr=[{val:0,text:"不限"},
+                  {val:1,text:"超过1分钟"},
+                  {val:2,text:"超过3分钟"},
+                  {val:3,text:"超过5分钟"},
+                  {val:4,text:"超过10分钟"}
+                  ];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(read_time==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">查看完成度</span>
+        <span class="left select-wrap completed" >
+              <select id="wechat-check-completed">
+                  <%
+                  //read_percent":1//查看完成度，0：不限，1：超一半，2:全部阅读
+                  var arr=[{val:0,text:"不限"},
+                  <!--{val:1,text:"阅读超过一半"},//暂时实现不了，不显示-->
+                  {val:2,text:"全部阅读"}
+                  ];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(read_percent==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit" style="font-size: 12px;">设置</span>
+            <span class="left select-tit select-wrap new" style="height: 30px;color:#c8c8c8;font-size: 12px;">送达状态刷新频率</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit" style="font-size: 12px;width:24px;"></span>
+            <span class="left select-tit select-wrap " style="height: 47px;width:263px;margin: 0px;">
+                <span class="left">
+                    <input id="wechat-check-refresh1" type="text" class="text" style="width: 12px;text-align: center"
+                            <% if(refresh_interval){ %>
+                            value="<%=refresh_interval%>"
+                             <% }else{ %>
+                                    value="1"
+                             <%}%>
+                            >
+                </span>
+                <span class="left select-wrap ml8 refresh" >
+                      <select id="wechat-check-refresh2">
+                          <%
+                          refresh_interval_type_arr.forEach(function(itm,i){
+                          %>
+                          <option value="<%=itm.val%>"
+                          <% if(refresh_interval_type==itm.val){ %>
+                          selected="selected"
+                          <% } %>
+                          ><%=itm.text%></option>
+                          <%
+                          })
+                          %>
+                      </select>
+                </span>
+            </span>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="subscriber-public">
+    <div class="active-nodetip" id="subscriber-public-tips">
+        <div class="tit"><%=title?title+'设定':'是否订阅公众号设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="subscriber-public-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="subscriber-public-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公众号</span>
+            <span class="left select-wrap public" >
+                  <select id="subscriber-public-public-select">
+                      <%
+                      publicArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">订阅时间</span>
+            <span class="left select-wrap img" >
+                  <select id="subscriber-public-time-select">
+                      <%
+                      ////订阅时间,0:一天，1：一周，2：一月，3：三月，4：六月，5：一年，6：一年以上
+                      var arr=[
+                      {val:0,text:"1天内"},
+                      {val:1,text:"1周内"},
+                      {val:2,text:"1月内"},
+                      {val:3,text:"3月内"},
+                      {val:4,text:"6月内"},
+                      {val:5,text:"1年内"},
+                      {val:6,text:"1年以上"}
+                      ];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(subscribe_time==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit" style="font-size: 12px;">设置</span>
+            <span class="left select-tit select-wrap new" style="height: 30px;color:#c8c8c8;font-size: 12px;">订阅刷新频率</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit" style="font-size: 12px;width:24px;"></span>
+            <span class="left select-tit select-wrap " style="height: 47px;width:263px;margin: 0px;">
+                <span class="left">
+                    <input type="text" id="subscriber-public-refresh1" class="text" style="width: 12px;text-align: center"
+                            <% if(refresh_interval){ %>
+                            value="<%=refresh_interval%>"
+                             <% }else{ %>
+                                    value="1"
+                             <%}%>
+                             >
+                 </span>
+                <span class="left select-wrap ml8 refresh">
+                      <select id="subscriber-public-refresh2">
+                          <%
+                          refresh_interval_type_arr.forEach(function(itm,i){
+                          %>
+                          <option value="<%=itm.val%>"
+                          <% if(refresh_interval_type==itm.val){ %>
+                          selected="selected"
+                          <% } %>
+                          ><%=itm.text%></option>
+                          <%
+                          })
+                          %>
+                      </select>
+                </span>
+            </span>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="personal-friend">
+    <div class="active-nodetip" id="personal-friend-tips">
+        <div class="tit"><%=title?title+'设定':'是否个人号好友设定'%></div>
+        <div class="input-field timing-name-input">
+            <input id="personal-friend-name" type="text" class="validate"  maxlength="25"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="personal-friend-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">个人号</span>
+            <span class="left select-wrap public" >
+                  <select id="personal-friend-public-select">
+                      <%
+                      perArr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(asset_id==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">群组</span>
+            <span class="left select-wrap group" >
+                  <select id="personal-friend-group-select">
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit" style="font-size: 12px;">设置</span>
+            <span class="left select-tit select-wrap new" style="height: 30px;color:#c8c8c8;font-size: 12px;">好友刷新频率</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit" style="font-size: 12px;width:24px;"></span>
+            <span class="left select-tit select-wrap " style="height: 47px;width:263px;margin: 0px;">
+                <span class="left">
+                    <input type="text" id="personal-friend-refresh1" class="text" style="width: 12px;text-align: center"
+                            <% if(refresh_interval){ %>
+                            value="<%=refresh_interval%>"
+                             <% }else{ %>
+                                    value="1"
+                             <%}%>
+                             >
+                </span>
+                <span class="left select-wrap ml8 refresh">
+                      <select id="personal-friend-refresh2">
+                          <%
+                          refresh_interval_type_arr.forEach(function(itm,i){
+                          %>
+                          <option value="<%=itm.val%>"
+                          <% if(refresh_interval_type==itm.val){ %>
+                          selected="selected"
+                          <% } %>
+                          ><%=itm.text%></option>
+                          <%
+                          })
+                          %>
+                      </select>
+                </span>
+            </span>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,12 @@
+{
+    "code": 0,
+    "msg":"success","total":1,"total_count": 1,
+    "data":[
+        {
+            "big": "/img/data-access/qrCode.png",
+            "mid": "/img/data-access/qrCode.png",
+            "small": "/img/data-access/qrCode.png",
+            "url": "http://a.maka.im"
+        }
+    ]
+}

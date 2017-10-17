@@ -1,0 +1,27 @@
+<script charset="UTF-8" type="text/template" id="tpl-layout">
+    <table class="page-table-box">
+        <thead>
+        <tr>
+            <% colName.map(function(m,i){%>
+            <th><%= m.col_name %></th>
+            <%})%>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="tbody-box">
+        <%listData.map(function(m,i){%>
+        <tr listid="<%=m.audience_list_id%>">
+            <% colName.map(function(mm,i){%>
+            <td><%= m[mm.col_code] %></td>
+            <% })%>
+            <td class="ico">
+                <ico class="pointer icon iconfont r-btn dropdown-button dropdown-button-more"
+                     data-activates="morelist" data-constrainwidth="false" title="更多操作" listid="<%=m.audience_list_id%>">&#xe675;
+                </ico>
+            </td>
+        </tr>
+        <% })%>
+        </tbody>
+    </table>
+</script>
+

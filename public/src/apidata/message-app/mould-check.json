@@ -1,0 +1,16 @@
+{
+  "code": 0,
+  "msg":"success","total":3,"total_count": 3,
+  "data":[
+    {
+      "id": "123",
+      "channel_type":0,
+      "name": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "type": 0,
+      "content": "INCAKE给喜欢芝士&巧克力的您一个惊喜！",
+      "audit_status": 2,
+      "audit_reason": "无",
+      "audit_time": "2016-10-18 17:33:45"
+    }
+  ]
+}

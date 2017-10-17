@@ -1,0 +1,34 @@
+{
+    "code": 0,
+    "msg":"success","total":3,"total_count": 3,
+    "data":[
+        {
+            "subscription":"果倍爽新品上市01",
+            "channel":"经销商",
+            "total_scan_code":300,
+            "total_scan_code_number":1500,
+            "total_attention":1500,
+            "new_attention":500,
+            "net_interest":300,
+            "drain_attention":40
+        },{
+            "subscription":"果倍爽新品上市02",
+            "channel":"门店",
+            "total_scan_code":300,
+            "total_scan_code_number":1500,
+            "total_attention":1500,
+            "new_attention":500,
+            "net_interest":300,
+            "drain_attention":60
+        },{
+            "subscription":"营销云实验室",
+            "channel":"员工",
+            "total_scan_code":300,
+            "total_scan_code_number":1500,
+            "total_attention":1500,
+            "new_attention":500,
+            "net_interest":300,
+            "drain_attention":20
+        }
+    ]
+}

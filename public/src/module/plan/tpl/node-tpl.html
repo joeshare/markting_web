@@ -1,0 +1,38 @@
+<script charset="UTF-8" type="text/template" id="node">
+    <div class="plan-node dom-dragable plan-drag <%=type%>"
+         id="<%=id%>"
+         attr-type="<%=type%>"
+         attr-url="<%=url%>"
+         attr-item-type="<%=itemType%>"
+         attr-title="<%=title%>"
+            >
+        <div class="icon iconfont"><%=icon%></div>
+        <div class="content-wrap">
+            <div class="title"><%=name%></div>
+            <%if(itemType=="manual-trigger"){%>
+                <div class='desc empty'>请手动开启活动</div>
+            <%} else {%>
+                <div class='desc <%= desc==""?"empty":desc%>'>
+                    <%=(desc==""||desc==null||desc==undefined)?"请双击开始设置":desc%>
+                </div>
+            <%}%>
+        </div>
+        <i class="icon iconfont close remove-node">&#xe608;</i>
+        <i class="output-dot"></i>
+        <i class="input-dot"></i>
+        <i class="yes-output-dot"></i>
+        <i class="no-output-dot"></i>
+        <%if(type!='trigger'&&type!='decisions'){%>
+            <i class="plan-num num">
+                <%= num?num:0%>
+            </i>
+        <%}%>
+
+        <i class="icon iconfont error"></i>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="node-content">
+   <div class="title"><%=name%></div>
+   <div class='desc <%= desc==""?"empty":desc%>'><%= desc==""?"请双击开始设置":desc%></div>
+</script>

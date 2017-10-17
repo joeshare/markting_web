@@ -1,0 +1,61 @@
+{
+  "code": 0,
+  "msg": "success",
+  "total": 20,
+  "data": [
+    {
+      "contact_id": 234,
+      "contact_name": "联系人表单测试2",
+      "qrcode_url": "http://demo/list_2",
+      "qrcode_pic": "http://demo/pic2.jpg",
+      "contact_status": 1,
+      "field_list": [
+        {
+          "field_name": "姓名",
+          "field_code": "name",
+          "selected": "1",
+          "field_type": 1,
+          "index": 1,
+          "required": 1,
+          "ischecked": 1
+        },
+        {
+          "field_name": "性别",
+          "field_code": "sex",
+          "selected": "1",
+          "field_type": 2,
+          "index": 1,
+          "required": 1,
+          "ischecked": 1
+        },
+        {
+          "field_name": "生日",
+          "field_code": "date",
+          "field_type": 3,
+          "selected": "1",
+          "index": 1,
+          "required": 1,
+          "ischecked": 1
+        },
+        {
+          "field_name": "电话",
+          "field_code": "tel",
+          "field_type": 4,
+          "selected": "1",
+          "index": 1,
+          "required": 1,
+          "ischecked": 1
+        },
+        {
+          "field_name": "地区",
+          "field_code": "tel",
+          "field_type": 5,
+          "selected": "1",
+          "index": 1,
+          "required": 1,
+          "ischecked": 1
+        }
+      ]
+    }
+  ]
+}

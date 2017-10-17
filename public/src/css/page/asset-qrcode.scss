@@ -1,0 +1,66 @@
+@charset "utf-8";
+/*加载公用css文件*/
+@import "../base";
+
+/*初始化变量*/
+$main-font-size: 12px;
+$animate: 0.1s;
+$base-z-index: 1;
+$base-font-color: rgba(102,102,102,1);
+$base-blue-color: rgba(102,193,227,1);
+$base-red-color: rgba(253,121,121,1);
+$base-border-radius: 2px;
+$base-border-line: 1px solid rgba(236,236,236,1);
+$base-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+$split-line-color: rgba(236,236,236,1);
+@mixin base-box{border: $base-border-line; border-radius: $base-border-radius; background-color: rgba(255,255,255,1);};
+@mixin single-line-font($default:$main-font-size){
+    height: $default; font-size: $default; line-height: $default;
+}
+@mixin vetically-font($fontSize:$main-font-size,$lineHeight:$main-font-size){
+    font-size: $fontSize; line-height: $lineHeight;
+}
+@mixin text-ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@mixin box-center{display: flex; justify-content: center; align-items:center;}
+
+/*正文开始*/
+.qrcode-list{position: relative; width: 100%; height: 100%; padding: 0 24px 20px 16px; overflow-y: auto;
+    .content{position: absolute; top: 48px; right: 16px; bottom: 24px; left: 16px;
+        .search-head{float: left; width: 100%; background-color: rgba(255,255,255,1); @include base-box; padding: 24px;
+            .dropdown-area{float: left; height: 32px; overflow: hidden; margin-right: 20px;
+                .selectbtn-box{float: left; margin-right: 20px;
+                    .title{float: left; margin: 8px 16px 0 0; @include single-line-font($main-font-size + 2)}
+                    .selectbtn{float: left; width: 126px; height: 30px; border: 1px solid rgba(236,236,236,1); padding: 4px 30px 6px 12px; cursor: pointer; background: url("../../img/masterdata/arrow-down.png") no-repeat 104px 13px; @include text-ellipsis; font-size: $main-font-size + 2;}
+                }
+                .but{float: left; margin-top: 1px; min-width: inherit;}
+                .subscription-list{
+                  li{
+                    .img{float: left; width: 20px; height: 20px; overflow: hidden; margin: 14px 2px 0 0;
+                      img{float: left; width: 100%; height: 100%; @include radius; border: $base-border-line;}
+                    }
+                    a{float: left;}
+                  }
+                }
+            }
+            .search-area{float: right; width: 242px; height: 32px; overflow: hidden; margin-left: 20px;
+                .search-box{float: left; width: 240px; height: 30px; overflow: hidden; border: 1px solid rgba(236,236,236,1);
+                    .input{float: left; width: 190px; height: 30px; border: none; padding-left: 10px;}
+                    .icon{float: right; width: 30px; height: 30px; @include box-center;}
+                }
+            }
+        }
+        .table-area{position: absolute; top: 98px; right: 0; bottom: 0; left: 0; background-color: rgba(255,255,255,1); @include base-box; padding: 24px 0; overflow-y: auto;
+            .page-table-box{position: relative;
+                .qrcode-img{float: left; width: 37px; height: 37px; overflow: hidden;
+                    img{width: 100%; height: 100%;}
+                }
+                .qrcode-preview{position: absolute; width: 169px; height: 154px; z-index: $base-z-index; background-image: url("../../img/asset/qrcode-box.png"); display: none;
+                    .image{float: left; width: 100px; height: 100px; overflow: hidden; margin: 27px 0 0 32px;
+                        img{width: 100%; height: 100%;}
+                    }
+                }
+            }
+            .total-count{float: left; @include single-line-font; margin: 14px 0 0 24px;}
+        }
+    }
+}

@@ -1,0 +1,946 @@
+<!--活动编排-节点弹窗模板 7个 看tit的内容就知道对应的是哪个了，模板id由你自己命名吧 :) -->
+
+<script charset="UTF-8" type="text/template" id="timer-trigger">
+    <div class="active-nodetip" id="timer-trigger-tips">
+        <div class="tit">定时触发设定</div>
+        <div class="input-field timing-name-input">
+            <input id="timer-trigger-name" type="text" class="validate"
+            <% if(name){ %>
+              value="<%=name%>"
+            <% } %>
+            >
+            <label for="timer-trigger-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="input-field ">
+            <span class="time-icon icon iconfont">&#xe641;</span>
+            <input type="text"  id="timer-trigger-start-date" class="time-picker datepick" placeholder="开始日期"
+            <% if(startDate){ %>
+            value="<%=startDate%>"
+            <% } %>
+            >
+            <input type="text" id="timer-trigger-start-time" class="timer" placeholder="开始时间"
+            <% if(startTime){ %>
+            value="<%=startTime%>"
+            <% } %>
+            >
+
+        </div>
+        <div class="input-field ">
+            <span class="time-icon icon iconfont">&#xe642;</span>
+            <input type="text"  id="timer-trigger-end-date" class="time-picker datepick" placeholder="结束日期"
+            <% if(endDate){ %>
+            value="<%=endDate%>"
+            <% } %>
+                    >
+            <input type="text" id="timer-trigger-end-time" class="timer" placeholder="结束时间"
+            <% if(endTime){ %>
+            value="<%=endTime%>"
+            <% } %>
+            >
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="target-group">
+    <div class="active-nodetip" id="target-group-tips">
+        <div class="tit">目标人群设定</div>
+        <div class="input-field timing-name-input">
+            <input id="target-group-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="target-group-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">人群细分</span>
+            <span class="left select-wrap group" >
+                  <select id="target-group-select">
+                      <option value="no-sel">请选择</option>
+                      <%
+                      var arr=[{val:1,text:"乐友孕婴童-测试白名单"},
+                      {val:2,text:"周末促销消费会员"},
+                      {val:3,text:"周末促销未消费会员"},
+                      {val:4,text:"新产品回访用户"},
+                      {val:5,text:">8个月孕龄的孕期准妈妈"},
+                      {val:6,text:"<8个月孕龄的孕期准妈妈"},
+                      {val:7,text:"0~6个月新妈妈爸爸"},
+                      {val:8,text:"6~24个月宝宝父母"},
+                      {val:9,text:"7-12个月宝宝的会员"},
+                      ];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(select&&select==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+            <a class="left icon iconfont ml8 edit">&#xe640;</a>
+            <a class="left icon iconfont ml8 add" href="<%=BASEPATH%>/html/audience/segment.html?status=add&returnurl=/html/activity/plan.html">&#xe617;</a>
+        </div>
+        <div>
+            <span class="select-tit" style="height: 34px;display: block;color:#3c3c3c;">设置</span>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit">允许活动中有新成员出现</span>
+        <span class="left select-wrap new" style="height: 30px;">
+              <select id="target-group-new-select">
+                  <%
+                  var arr=[{val:1,text:"是"},{val:0,text:"否"}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(newSelect&&newSelect==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">受众刷新频率</span>
+        <span class="left">
+            <input type="text" id="target-group-refresh-select1" style="width: 12px;text-align: center;padding-top: 1px;"
+             <% if(refresh1){ %>
+                    value="<%=refresh1%>"
+             <% }else{ %>
+                    value="1"
+             <%}%>
+             ></span>
+        <span class="left select-wrap ml8 refresh">
+              <select id="target-group-refresh-select2">
+                  <%
+                  var arr=[{val:"hour",text:"小时"},{val:"day",text:"天"},{val:"week",text:"周"},{val:"month",text:"月"}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(refresh2&&refresh2==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="wechat-send">
+    <div class="active-nodetip" id="wechat-send-tips">
+        <div class="tit">微信图文是否发送设定</div>
+        <div class="input-field timing-name-input">
+            <input id="wechat-send-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wechat-send-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公众号</span>
+        <span class="left select-wrap public-number" >
+              <select id="wechat-send-public-number">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  var arr=[{val:"1",text:"乐友孕婴童 "}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(publicNumber&&publicNumber==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">微信图文</span>
+        <span class="left select-wrap img" >
+            <select id="wechat-send-img">
+                <option >请选择</option>
+                <%
+                var arr=[{val:1,text:"待产商品促销"},
+                {val:2,text:"准妈妈商品促销"},
+                {val:3,text:"新生宝宝商品促销"},
+                {val:4,text:"宝宝用品玩具促销"},
+                {val:5,text:"婴儿辅食产品试用装赠送"},
+                {val:6,text:"3~24个月宝宝营养搭配微信群讲座"},
+                {val:7,text:"3~24个月宝宝营养搭配微信群讲座电子券"},
+                {val:8,text:"试用装抵现金活动"},
+                {val:9,text:"新产品满意度调查"},
+                {val:10,text:"新产品品牌传播图文"},
+                {val:11,text:"礼品领取通知"}
+                ];
+                arr.forEach(function(itm,i){
+                %>
+                <option value="<%=itm.val%>"
+                <% if(img&&img==itm.val){ %>
+                selected="selected"
+                <% } %>
+                ><%=itm.text%></option>
+                <% })%>
+            </select>
+        </span>
+            <span class="left icon iconfont ml8 edit">&#xe640;</span>
+        </div>
+        <div>
+            <span class="select-tit">设置</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">送达状态刷新频率</span>
+            <span class="left">
+                <input type="text" id="wechat-send-refresh1" class="text" style="width: 12px;text-align: center"
+                        <% if(refresh1){ %>
+                        value="<%=refresh1%>"
+                         <% }else{ %>
+                                value="1"
+                         <%}%>
+                         >
+            </span>
+            <span class="left select-wrap ml8 refresh">
+                  <select id="wechat-send-refresh2">
+                      <%
+                      var arr=[{val:"hour",text:"小时"},{val:"day",text:"天"},{val:"week",text:"周"},{val:"month",text:"月"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(refresh2&&refresh2==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="wechat-check">
+    <div class="active-nodetip" id="wechat-check-tips">
+        <div class="tit">微信图文是否查看设定</div>
+        <div class="input-field timing-name-input">
+            <input id="wechat-check-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wechat-check-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit ">公众号</span>
+        <span class="left select-wrap public-number" >
+              <select id="wechat-check-public-number">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  var arr=[{val:"1",text:"乐友孕婴童 "}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(publicNumber&&publicNumber==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">微信图文</span>
+        <span class="left select-wrap img" >
+            <select id="wechat-check-img">
+                <option >请选择</option>
+                <%
+                var arr=[{val:1,text:"待产商品促销"},
+                {val:2,text:"准妈妈商品促销"},
+                {val:3,text:"新生宝宝商品促销"},
+                {val:4,text:"宝宝用品玩具促销"},
+                {val:5,text:"婴儿辅食产品试用装赠送"},
+                {val:6,text:"3~24个月宝宝营养搭配微信群讲座"},
+                {val:7,text:"3~24个月宝宝营养搭配微信群讲座电子券"},
+                {val:8,text:"试用装抵现金活动"},
+                {val:9,text:"新产品满意度调查"},
+                {val:10,text:"新产品品牌传播图文"},
+                {val:11,text:"礼品领取通知"}
+                ];
+                arr.forEach(function(itm,i){
+                %>
+                <option value="<%=itm.val%>"
+                <% if(img&&img==itm.val){ %>
+                selected="selected"
+                <% } %>
+                ><%=itm.text%></option>
+                <% })%>
+            </select>
+        </span>
+            <span class="left icon iconfont ml8 edit">&#xe640;</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">查看时长</span>
+        <span class="left select-wrap time" >
+              <select id="wechat-check-time">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  var arr=[{val:"1",text:"不限"},
+                  {val:"2",text:"超过1分钟"},
+                  {val:"3",text:"超过3分钟"},
+                  {val:"4",text:"超过5分钟"},
+                  {val:"5",text:"超过10分钟"}
+                  ];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(time&&time==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">查看完成度</span>
+        <span class="left select-wrap completed" >
+              <select id="wechat-check-completed">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  var arr=[{val:"1",text:"不限"},
+                  {val:"2",text:"阅读超过一半"},
+                  {val:"3",text:"全部阅读"}
+                  ];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(completed&&completed==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div>
+            <span class="select-tit">设置</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">送达状态刷新频率</span>
+        <span class="left">
+            <input id="wechat-check-refresh1" type="text" class="text" style="width: 12px;text-align: center"
+                    <% if(refresh1){ %>
+                    value="<%=refresh1%>"
+                     <% }else{ %>
+                            value="1"
+                     <%}%>
+                    >
+        </span>
+        <span class="left select-wrap ml8 refresh" >
+              <select id="wechat-check-refresh2">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  var arr=[{val:"hour",text:"小时"},{val:"day",text:"天"},{val:"week",text:"周"},{val:"month",text:"月"}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(refresh2&&refresh2==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="save-current-group">
+    <div class="active-nodetip" id="save-current-group-tips">
+        <div class="tit">保存当前人群设定</div>
+        <div class="input-field timing-name-input">
+            <input id="save-current-group-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="save-current-group-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+
+        <div class="clearfix">
+            <span class="left select-tit">人群</span>
+        <span class="left select-wrap group" >
+              <input id="save-current-group-edit-name" type="text" class="validate edit-name-input" attr-display="false">
+              <select id="save-current-group-select">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  var arr=[{val:"0",text:"乐友孕婴童-测试白名单"},
+                  {val:"1",text:"周末促销消费会员"},
+                  {val:"2",text:"周末促销未消费会员"},
+                  {val:"3",text:"新产品回访用户"}
+                  ];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(group&&group==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+            <span class="left icon iconfont ml8 edit" id="save-current-group-edit">&#xe640;</span>
+        </div>
+    </div>
+</script>
+<!-- 保存当前人群下拉框 模板-->
+<script charset="UTF-8" type="text/template" id="save-current-group-opt">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  group.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+</script>
+
+<script charset="UTF-8" type="text/template" id="set-tag">
+    <div class="active-nodetip" id="set-tag-tips">
+        <div class="tit">设置标签设定</div>
+        <div class="input-field timing-name-input">
+            <input id="set-tag-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="set-tag-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="input-field timing-name-input">
+            <textarea id="set-tag-textarea" class="materialize-textarea"><% if(desc){ %><%=desc%><% } %></textarea>
+            <label for="set-tag-textarea">标签</label>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="wait-set">
+    <div class="active-nodetip" id="wait-set-tips">
+        <div class="tit">等待设定</div>
+        <div class="input-field timing-name-input">
+            <input id="wait-set-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wait-set-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label></div>
+        <div><span class="select-tit">等待时间</span></div>
+        <div class="" style="margin-top: 10px;">
+            <input class="with-gap" name="radioname" type="radio" id="xdsj" value="relative"
+            <% if(radio&&radio=="relative"){ %>
+            checked="checked"
+            <% }%>
+                    />
+            <label for="xdsj">相对时间</label>
+        </div>
+        <div class="clearfix">
+        <span class="left">
+            <input id="wait-set-refresh1" type="text"   class="text" style="width: 40px;text-align: center"
+                    <% if(refresh1){ %>
+                    value="<%=refresh1%>"
+                     <% }else{ %>
+                            value="1"
+                     <%}%>
+                     >
+        </span>
+        <span class="left select-wrap ml8 relative-time" >
+              <select id="wait-set-refresh2">
+                  <option  value="no-sel">请选择</option>
+                  <%
+                  var arr=[{val:"hour",text:"小时"},{val:"day",text:"天"},{val:"week",text:"周"},{val:"month",text:"月"}];
+                  arr.forEach(function(itm,i){
+                  %>
+                  <option value="<%=itm.val%>"
+                  <% if(refresh2&&refresh2==itm.val){ %>
+                  selected="selected"
+                  <% } %>
+                  ><%=itm.text%></option>
+                  <%
+                  })
+                  %>
+              </select>
+        </span>
+        </div>
+        <div class="">
+            <input class="with-gap" name="radioname" type="radio" id="zdsj" value="specify"
+            <% if(radio&&radio=="specify"){ %>
+            checked="checked"
+            <% }%>
+            />
+            <label for="zdsj">指定时间</label>
+        </div>
+        <div class="input-field ">
+            <span class="time-icon icon iconfont">&#xe641;</span>
+            <input type="text"  id="wait-set-date" class="time-picker datepick" placeholder="日期"
+            <% if(date){ %>
+            value="<%=date%>"
+            <% } %>
+            >
+            <input type="text" id="wait-set-time" class="timer" placeholder="时间"
+            <% if(setTime){ %>
+            value="<%=setTime%>"
+            <% } %>
+            >
+        </div>
+    </div>
+</script>
+
+
+<script charset="UTF-8" type="text/template" id="label-judgment">
+    <div class="active-nodetip" id="label-judgment-tips">
+        <div class="tit">标签判断设定</div>
+        <div class="input-field timing-name-input">
+            <input id="label-judgment-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="label-judgment-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="input-field">
+            <input id="label-judgment-tag" style="margin-bottom:0;" type="text" class="validate" data-activates="label-judgment-tag-suggest">
+            <label for="label-judgment-tag" >匹配标签</label>
+        </div>
+        <div id="label-judgment-tag-suggest" class="dropdown-content suggest">
+        </div>
+        <div id="label-judgment-tag-content"style="max-height:85px;min-height: 50px;overflow-y: auto;padding:10px 0 0 0; ">
+            <%
+              if(tags&&tags.length){
+               for(var i=0;i<tags.length;i++){
+            %>
+             <div class="active-tag" attr-val="<%=tags[i]%>"><%=tags[i]%><i class="icon iconfont active-tag-close">&#xe622;</i></div>
+            <%}}%>
+        </div>
+        <div class="clearfix" style="height: 30px;">
+            <span class="left select-tit" style="font-size: 12px;">设置</span>
+            <span class="left select-tit select-wrap new" style="height: 30px;color:#c8c8c8;font-size: 12px;">标签匹配规则</span>
+        </div>
+        <div class="clearfix" >
+            <span class="left select-tit" style="font-size: 12px;width:24px;"></span>
+            <span class="left select-tit select-wrap " style="height: 30px;width:254px;">
+            <select id="label-judgment-select">
+                <option  value="no-sel">请选择</option>
+                <%
+                var arr=[{val:0,text:"全部匹配"},{val:1,text:"匹配其一"},{val:2,text:"匹配2个及以上"}];
+                arr.forEach(function(itm,i){
+                %>
+                <option value="<%=itm.val%>"
+                <% if( fitSelect&&fitSelect==itm.val){ %>
+                selected="selected"
+                <% } %>
+                ><%=itm.text%></option>
+                <%
+                })
+                %>
+            </select>
+                </span>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="send-h5">
+    <div class="active-nodetip" id="send-h5-tips">
+        <div class="tit">发送H5活动设定</div>
+        <div class="input-field timing-name-input">
+            <input id="send-h5-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-h5-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">H5页面</span>
+            <span class="left select-wrap h5" >
+                  <select id="send-h5-h5-select">
+                      <option  value="no-sel">请选择</option>
+                      <%
+                      var arr=[{val:1,text:"婴儿辅食产品试用装赠送"},{val:2,text:"3~24个月宝宝营养搭配微信群讲座"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(h5Select&&h5Select==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公共号</span>
+            <span class="left select-wrap public" >
+                  <select id="send-h5-public-select">
+                      <option  value="no-sel">请选择</option>
+                      <%
+                      var arr=[{val:"1",text:"乐友孕婴童 "}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(publicSelect&&publicSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div style="border-bottom: 1px solid #c8c8c8;margin: 10px 0;"></div>
+        <div class="clearfix">
+            <span class="left select-tit">个人号</span>
+            <span class="left select-wrap per" >
+                  <select id="send-h5-per-select">
+                      <option  value="no-sel">请选择</option>
+                      <%
+                      var arr=[{val:2,text:"市场小张"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(perSelect&&perSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">群组</span>
+            <span class="left select-wrap group" >
+                  <select id="send-h5-group-select">
+                      <%
+                      var arr=[{val:1,text:"不限"},{val:2,text:"新产品上市推广报名人群"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(groupSelect&&groupSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="send-img">
+    <div class="active-nodetip" id="send-img-tips">
+        <div class="tit">发送微信图文设定</div>
+        <div class="input-field timing-name-input">
+            <input id="send-img-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-img-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">图文</span>
+            <span class="left select-wrap img" >
+                  <select id="send-img-img-select">
+                      <option >请选择</option>
+                      <%
+                      var arr=[{val:1,text:"待产商品促销"},
+                      {val:2,text:"准妈妈商品促销"},
+                      {val:3,text:"新生宝宝商品促销"},
+                      {val:4,text:"宝宝用品玩具促销"},
+                      {val:5,text:"婴儿辅食产品试用装赠送"},
+                      {val:6,text:"3~24个月宝宝营养搭配微信群讲座"},
+                      {val:7,text:"3~24个月宝宝营养搭配微信群讲座电子券"},
+                      {val:8,text:"试用装抵现金活动"},
+                      {val:9,text:"新产品满意度调查"},
+                      {val:10,text:"新产品品牌传播图文"},
+                      {val:11,text:"礼品领取通知"}
+                      ];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(imgSelect&&imgSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公共号</span>
+            <span class="left select-wrap public" >
+                  <select id="send-img-public-select">
+                      <option  value="no-sel">请选择</option>
+                      <%
+                      var arr=[{val:"1",text:"乐友孕婴童 "}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(publicSelect&&publicSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+
+
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="wechat-forwarded">
+    <div class="active-nodetip" id="wechat-forwarded-tips">
+        <div class="tit">微信图文是否转发设定</div>
+        <div class="input-field timing-name-input">
+            <input id="wechat-forwarded-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="wechat-forwarded-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">公共号</span>
+            <span class="left select-wrap public" >
+                  <select id="wechat-forwarded-public-select">
+                      <option  value="no-sel">请选择</option>
+                      <%
+                      var arr=[{val:"1",text:"乐友孕婴童 "}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(publicSelect&&publicSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">微信图文</span>
+            <span class="left select-wrap img" >
+                  <select id="wechat-forwarded-img-select">
+                      <option >请选择</option>
+                      <%
+                      var arr=[{val:1,text:"待产商品促销"},
+                      {val:2,text:"准妈妈商品促销"},
+                      {val:3,text:"新生宝宝商品促销"},
+                      {val:4,text:"宝宝用品玩具促销"},
+                      {val:5,text:"婴儿辅食产品试用装赠送"},
+                      {val:6,text:"3~24个月宝宝营养搭配微信群讲座"},
+                      {val:7,text:"3~24个月宝宝营养搭配微信群讲座电子券"},
+                      {val:8,text:"试用装抵现金活动"},
+                      {val:9,text:"新产品满意度调查"},
+                      {val:10,text:"新产品品牌传播图文"},
+                      {val:11,text:"礼品领取通知"}
+                      ];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(imgSelect&&imgSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">转发次数</span>
+            <span class="left select-wrap num" >
+                  <select id="wechat-forwarded-num">
+                      <option >请选择</option>
+                      <%
+                      var arr=[{val:0,text:"不限"},
+                      {val:1,text:"超过1人次"},
+                      {val:2,text:"超过10人次"},
+                      {val:3,text:"超过100人次"},
+                      {val:4,text:"超过500人次"}
+                      ];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(numSelect&&numSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div>
+            <span class="select-tit">设置</span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">转发状态刷新频率</span>
+            <span class="left">
+                <input type="text" id="wechat-forwarded-refresh1" class="text" style="width: 12px;text-align: center"
+                        <% if(refresh1){ %>
+                        value="<%=refresh1%>"
+                         <% }else{ %>
+                                value="1"
+                         <%}%>
+                         >
+            </span>
+            <span class="left select-wrap ml8 refresh">
+                  <select id="wechat-forwarded-refresh2">
+                      <%
+                      var arr=[{val:"hour",text:"小时"},{val:"day",text:"天"},{val:"week",text:"周"},{val:"month",text:"月"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(refresh2&&refresh2==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+
+    </div>
+</script>
+
+<script charset="UTF-8" type="text/template" id="send-msg">
+    <div class="active-nodetip" id="send-msg-tips">
+        <div class="tit">发送个人消息设定</div>
+        <div class="input-field timing-name-input">
+            <input id="send-msg-name" type="text" class="validate"
+            <% if(name){ %>
+            value="<%=name%>"
+            <% } %>
+            >
+            <label for="send-msg-name"
+            <% if(name){ %>
+            class="active"
+            <% } %>
+            >名称</label>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">个人号</span>
+            <span class="left select-wrap per" >
+                  <select id="send-msg-select">
+                      <option  value="no-sel">请选择</option>
+                      <%
+                      var arr=[{val:2,text:"市场小张"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(perSelect&&perSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <% })%>
+                  </select>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="left select-tit">群组</span>
+            <span class="left select-wrap group" >
+                  <select id="send-msg-group-select">
+                      <%
+                      var arr=[{val:1,text:"不限"},{val:2,text:"新产品上市推广报名人群"}];
+                      arr.forEach(function(itm,i){
+                      %>
+                      <option value="<%=itm.val%>"
+                      <% if(groupSelect&&groupSelect==itm.val){ %>
+                      selected="selected"
+                      <% } %>
+                      ><%=itm.text%></option>
+                      <%
+                      })
+                      %>
+                  </select>
+            </span>
+        </div>
+        <div class="input-field timing-name-input">
+            <textarea id="send-msg-textarea" class="materialize-textarea"><% if(textarea){ %><%=textarea%><% } %></textarea>
+            <label for="send-msg-textarea">文本信息</label>
+        </div>
+    </div>
+</script>

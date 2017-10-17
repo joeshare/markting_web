@@ -1,0 +1,14 @@
+<script charset="UTF-8" type="text/template" id="toolbar">
+    <span id="toolbar-title"><%=name%></span><span class="color">&nbsp;|&nbsp;
+         <span style="color: rgba(102, 193, 227, 1)"><% var status=['未启动','启动中','活动中','已结束'];
+           if(release==0||release==undefined){%>
+           <%=status[0]%>
+         <% }else{ %>
+           <%=status[release]%>
+         <% }%>
+         <!-- 1.1 版本 不显示修改人</span>&nbsp;|&nbsp;</span><%=dateTime%>&nbsp;&nbsp;&nbsp;<span class="color">由</span>&nbsp;<span style="color: rgba(102, 193, 227, 1)"><%= oper?oper:'系统'%></span>&nbsp;<span class="color">最后修改</span>-->
+         </span>&nbsp;|&nbsp;</span><%=dateTime%>&nbsp;&nbsp;&nbsp;
+</script>
+<script charset="UTF-8" type="text/template" id="toolbar-init">
+    <span id="plan-edit-result"><span class="color">未命名&nbsp;|&nbsp;未启动</span></span>&nbsp;<a class="a icon iconfont rui-cursor-pointer"  id="plan-edit" title="修改名称">&#xe609;</a>
+</script>

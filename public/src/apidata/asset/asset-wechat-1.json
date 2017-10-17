@@ -1,0 +1,8 @@
+{
+    "code": 0,
+    "msg":"success","total":2,"total_count": 2,
+    "data":[
+        {"logoUrl":"","id":1,"name":"瑞雪营销云"},
+        {"logoUrl":"","id":2 ,"name":"大连瑞雪科技"}
+    ]
+}

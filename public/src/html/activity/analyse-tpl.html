@@ -1,0 +1,102 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+    <div class="analyse">
+        <header class="page-body-header">
+            <div class="text-box">
+                <span class="title">活动分析</span>
+                <span class="text">
+                    <span class="color" id="campaign_name"></span>
+                </span>
+            </div>
+        </header>
+        <div class="content">
+            <div class="outline">
+                <div class="title">活动概要</div>
+                <div class="outline-box" id="outline-box"></div>
+            </div>
+            <div class="top-con">
+                <div class="active-area">
+                    <div class="title-box">
+                        <div class="title">活动分析</div>
+                        <div class="datebtn-box" id="uvpv-box" type="uv">
+                            <div class="right-box over" id="uvBut"><div class="text-box">UV&#47;人</div></div>
+                            <div class="left-box" id="pvBut"><div class="text-box">PV&#47;次</div></div>
+                        </div>
+                    </div>
+                    <div class="operate-area">
+                        <div class="time-box">
+                            <div class="time-title">统计时间：</div>
+                            <div class="time"><span id="startTime"></span>&nbsp;&#126;&nbsp;<span id="endTime"></span></div>
+                        </div>
+                        <div class="operate-box">
+                            <div class="selectbtn r-btn dropdown-button" data-constrainwidth="false" data-activates="data-list" style="display:none">
+                                <div class="arrow-down"></div>
+                                <div class="cont-box">发送内容：<span class="variable"><span>3</span>个</span></div>
+                            </div>
+                            <ul id="data-list" class="dropdown-content" style="width:auto">
+                                <li><i class="icon iconfont">&#xe64e;</i><a href="javascript:void(0)">标签人群</a></li>
+                                <li><i class="icon iconfont">&#xe60b;</i><a href="javascript:void(0)">人群中查找</a></li>
+                                <li><i class="icon iconfont">&#xe61d;</i><a href="javascript:void(0)">删除</a></li>
+                            </ul>
+                            <div class="datebtn-box" style="margin-right:0" id="date-box" type="week">
+                                <div class="right-box" id="date-month"><div class="text-box">月</div></div>
+                                <div class="mid-box over" id="date-week"><div class="text-box">周</div></div>
+                                <div class="left-box" id="date-day"><div class="text-box">日</div></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="active-box">
+                        <div class="active" id="active"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mid-con">
+                <div class="analysis-area">
+                    <div class="analysis-box" id="analysis-box"></div>
+                </div>
+                <div class="distribution-area">
+                    <div class="distribution-box" id="distribution-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-outline">
+    <div class="time-box">
+        <div class="time-title">活动时间：</div>
+        <div class="time"><%=outline.start_time%>&nbsp;&#126;&nbsp;<%=outline.end_time%></div>
+    </div>
+    <div class="condition-box">
+        <%if(outline.campaign_audience_target_count > 0){%>
+        <div class="selectbtn r-btn dropdown-button" data-constrainwidth="false" data-activates="crowd-list">
+            <div class="cont-box">目标人群：<span class="variable"><%=outline.campaign_audience_target_count%>个</span></div>
+            <div class="arrow-down"></div>
+        </div>
+        <ul id="crowd-list" class="dropdown-content dropdown-list" style="width:auto">
+            <%outline.campaign_audience_target.map(function(m,i){%>
+            <li><span class="list-title"><%=m.name%></span><span class="list-count"><%=m.count%></span></li>
+            <% })%>
+        </ul>
+        <%}else{%>
+        <div class="selectbtn r-btn dropdown-button" data-constrainwidth="false">
+            <div class="cont-box" style="margin-right:0">目标人群：<span class="variable">0个</span></div>
+        </div>
+        <%}%>
+        <%if(outline.campaign_content_count > 0){%>
+        <div class="selectbtn r-btn dropdown-button" data-constrainwidth="false" data-activates="send-content-list">
+            <div class="cont-box">发送内容：<span class="variable"><%=outline.campaign_content_count%>个</span></div>
+            <div class="arrow-down"></div>
+        </div>
+        <ul id="send-content-list" class="dropdown-content dropdown-list" style="width:auto">
+            <%outline.campaign_content.map(function(m,i){%>
+            <li><span class="list-title"><%=m.type%></span><span class="list-count"><%=m.name%></span></li>
+            <% })%>
+        </ul>
+        <%}else{%>
+        <div class="selectbtn r-btn dropdown-button" data-constrainwidth="false">
+            <div class="cont-box" style="margin-right:0">发送内容：<span class="variable">0个</span></div>
+        </div>
+        <%}%>
+        <div class="sources">发送渠道：<span>微信</span></div>
+    </div>
+</script>

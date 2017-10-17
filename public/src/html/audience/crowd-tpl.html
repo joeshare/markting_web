@@ -1,0 +1,33 @@
+<script charset="UTF-8" type="text/template" id="tpl-content">
+<div class="crowd">
+    <header class="page-body-header">
+        <div class="text-box">
+            <span class="title">人群管理</span>
+            <span class="text">
+                人群<span class="variable" id="audience">0</span>个，共计<span class="variable" id="audience-people">0</span>个联系人
+            </span>
+        </div>
+    </header>
+    <div class="content">
+        <header class="header">
+            <div class="title">人群管理</div>
+            <div class="h2">您可以在此查看和管理人群列表，人群可能源于营销活动中保存的特定人群或者其他来源</div>
+        </header>
+        <div class="list-box">
+            <!--统一的表格模块容器名称-->
+            <div class="table-list-wrap"></div>
+            <!--菜单下拉容器-->
+            <div id="morelist-box"></div>
+            <div class="pagination-wrap pagination light-theme simple-pagination"></div>
+        </div>
+
+    </div>
+</div>
+</script>
+<script charset="UTF-8" type="text/template" id="tpl-morelist">
+    <ul id="morelist" class="dropdown-content setuplist">
+        <li><i class="icon iconfont">&#xe643;</i><a target="_blank" href="javascript:void(0)" id="download-href">下载明细</a></li>
+        <li><i class="icon iconfont">&#xe668;</i><a href="javascript:void(0)" id="showgrouplist">人群中查找</a></li>
+        <li><i class="icon iconfont">&#xe674;</i><a href="javascript:void(0)" id="delete-crowd-info">删除</a></li>
+    </ul>
+</script>
